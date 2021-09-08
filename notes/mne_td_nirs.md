@@ -1,0 +1,4 @@
+## From the trenches of MNE on Kernel Flow data
+- Running [this tutorial](https://mne.tools/mne-nirs/main/auto_examples/general/plot_11_hrf_measured.html#sphx-glr-auto-examples-general-plot-11-hrf-measured-py) with [Zahra's mne-python version](https://github.com/Zahra-M-Aghajan/mne-python) gives errors in the pre-processing optical density calculation step where it seems to search for channels of type `fnirs_cw_amplitude` that look like it wants continuous wave data in.
+- Still had problems with reading in the TD-NIRS files after installing [Zahra's mne-python version](https://github.com/Zahra-M-Aghajan/mne-python) if the [OG mne-python](https://github.com/mne-tools/mne-python/) wasn't manually uninstalled first (even though it says it uninstalls the previous version).
+- MNE-PYTHON and MNE-NIRS are still updating to support TD-NIRS and all signal processing steps seem affected, though the meta-data processing looks the same since we can see the annotations etc. 
