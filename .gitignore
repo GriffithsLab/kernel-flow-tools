@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Ignore large data files ().snirf and .nirs files)
+*.snirf
+*.nirs
+
 # C extensions
 *.so
 
