@@ -7,7 +7,9 @@ with open("README.md", "r") as fh:
 
 with open('requirements.txt', 'r') as fp:
     install_requires = fp.read().splitlines()
-
+install_requires = [i for i in install_requires if 'http' not in i]
+    
+    
 setup(
     name="kftools", 
     version="0.0",
