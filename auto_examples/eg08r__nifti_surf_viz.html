@@ -1,0 +1,474 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Blah blah &mdash; KFTools 0.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/debug.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Blah blah" href="eg09r__nifti_surf_glm.html" />
+    <link rel="prev" title="Blah blah" href="eg07r__nifti_vol_fc.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> KFTools
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p><span class="caption-text">About KFTools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about_kftools/overview.html">Overview</a></li>
+</ul>
+<p><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/installation.html#using-latest-github-master-source">Using latest github master source</a></li>
+</ul>
+</li>
+</ul>
+<p><span class="caption-text">SNIRF-based fNIRS Analyses</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="eg02r__snirf_events.html">Blah blah</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg02r__snirf_events.html#thing">Thing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg02r__snirf_events.html#thingywot">Thingywot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="eg02r__snirf_events.html#anotherthing">Anotherthing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg02r__snirf_events.html#whatevs">Whatevs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="eg02r__snirf_events.html#applying-standard-sensor-locations-to-imported-data">Applying standard sensor locations to imported data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eg03r__epoching_analysis.html">Blah blah</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg03r__epoching_analysis.html#thing">Thing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg03r__epoching_analysis.html#thingywot">Thingywot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="eg03r__epoching_analysis.html#anotherthing">Anotherthing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg03r__epoching_analysis.html#whatevs">Whatevs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="eg03r__epoching_analysis.html#applying-standard-sensor-locations-to-imported-data">Applying standard sensor locations to imported data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eg04r__glm_analysis.html">Blah blah</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg04r__glm_analysis.html#thing">Thing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg04r__glm_analysis.html#thingywot">Thingywot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="eg04r__glm_analysis.html#anotherthing">Anotherthing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg04r__glm_analysis.html#whatevs">Whatevs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="eg04r__glm_analysis.html#applying-standard-sensor-locations-to-imported-data">Applying standard sensor locations to imported data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><span class="caption-text">KF Portal NIFTI-based fNIRS Analysis</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="eg05r__nifti_vol_viz.html">Blah blah</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg05r__nifti_vol_viz.html#thing">Thing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg05r__nifti_vol_viz.html#thingywot">Thingywot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="eg05r__nifti_vol_viz.html#anotherthing">Anotherthing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg05r__nifti_vol_viz.html#whatevs">Whatevs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="eg05r__nifti_vol_viz.html#applying-standard-sensor-locations-to-imported-data">Applying standard sensor locations to imported data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eg06r__nifti_vol_glm.html">Blah blah</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg06r__nifti_vol_glm.html#thing">Thing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg06r__nifti_vol_glm.html#thingywot">Thingywot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="eg06r__nifti_vol_glm.html#anotherthing">Anotherthing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg06r__nifti_vol_glm.html#whatevs">Whatevs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="eg06r__nifti_vol_glm.html#applying-standard-sensor-locations-to-imported-data">Applying standard sensor locations to imported data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eg07r__nifti_vol_fc.html">Blah blah</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg07r__nifti_vol_fc.html#thing">Thing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg07r__nifti_vol_fc.html#thingywot">Thingywot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="eg07r__nifti_vol_fc.html#anotherthing">Anotherthing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg07r__nifti_vol_fc.html#whatevs">Whatevs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="eg07r__nifti_vol_fc.html#applying-standard-sensor-locations-to-imported-data">Applying standard sensor locations to imported data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Blah blah</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#thing">Thing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#thingywot">Thingywot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#anotherthing">Anotherthing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#whatevs">Whatevs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#applying-standard-sensor-locations-to-imported-data">Applying standard sensor locations to imported data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eg09r__nifti_surf_glm.html">Blah blah</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg09r__nifti_surf_glm.html#thing">Thing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg09r__nifti_surf_glm.html#thingywot">Thingywot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="eg09r__nifti_surf_glm.html#anotherthing">Anotherthing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg09r__nifti_surf_glm.html#whatevs">Whatevs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="eg09r__nifti_surf_glm.html#applying-standard-sensor-locations-to-imported-data">Applying standard sensor locations to imported data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">KFTools</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Blah blah</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-eg08r-nifti-surf-viz-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="blah-blah">
+<span id="sphx-glr-auto-examples-eg08r-nifti-surf-viz-py"></span><h1>Blah blah<a class="headerlink" href="#blah-blah" title="Permalink to this headline">¶</a></h1>
+<p>Blah blah</p>
+<p>blah
+blah
+blah</p>
+<section id="thing">
+<h2>Thing<a class="headerlink" href="#thing" title="Permalink to this headline">¶</a></h2>
+<section id="thingywot">
+<h3>Thingywot<a class="headerlink" href="#thingywot" title="Permalink to this headline">¶</a></h3>
+<p>Blah blah</p>
+</section>
+</section>
+<section id="anotherthing">
+<h2>Anotherthing<a class="headerlink" href="#anotherthing" title="Permalink to this headline">¶</a></h2>
+<section id="whatevs">
+<h3>Whatevs<a class="headerlink" href="#whatevs" title="Permalink to this headline">¶</a></h3>
+<p>Stuff
+Stuff
+Stuff</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">mne</span>
+</pre></div>
+</div>
+<p>First we do a thing etc etc.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">100</span><span class="p">)))</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="eg08r  nifti surf viz" class="sphx-glr-single-img" src="../_images/sphx_glr_eg08r__nifti_surf_viz_001.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Frequency&#39;&gt;
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>athing a not etc
+blah blah</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">thisvar</span>  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>More stuff etc blah
+blah blah</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">montage</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">make_standard_montage</span><span class="p">(</span><span class="s1">&#39;artinis-octamon&#39;</span><span class="p">)</span>
+<span class="c1">#raw.set_montage(montage)</span>
+
+<span class="c1"># View the position of optodes in 2D to confirm the positions are correct.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;thing&#39;</span><span class="p">)</span><span class="c1">#           ``something here`` to ``&#39;eg&#39;``.</span>
+
+<span class="c1">#</span>
+<span class="c1"># More stuff</span>
+<span class="c1"># More stuff</span>
+<span class="c1">#</span>
+<span class="c1"># .. note:: Things</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>thing
+</pre></div>
+</div>
+<section id="applying-standard-sensor-locations-to-imported-data">
+<h4>Applying standard sensor locations to imported data<a class="headerlink" href="#applying-standard-sensor-locations-to-imported-data" title="Permalink to this headline">¶</a></h4>
+<p>Having information about optode locations may assist in your analysis.
+Beyond the general benefits this provides (e.g. creating regions of interest,
+etc), this is may be particularly important for fNIRS as information about
+the optode locations is required to convert the optical density data in to an
+estimate of the haemoglobin concentrations.
+MNE-Python provides methods to load standard sensor configurations
+(montages) from some vendors, and this is demonstrated below.
+Some handy tutorials for understanding sensor locations, coordinate systems,
+and how to store and view this information in MNE-Python are:
+<span class="xref std std-ref">tut-sensor-locations</span>, <span class="xref std std-ref">plot_source_alignment</span>, and
+<span class="xref std std-ref">ex-eeg-on-scalp</span>.</p>
+<p>Below is an example of how to load the optode positions for an Artinis
+OctaMon device.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is also possible to create a custom montage from a file for
+fNIRS with <code class="xref py py-func docutils literal notranslate"><span class="pre">mne.channels.read_custom_montage()</span></code> by setting
+<code class="docutils literal notranslate"><span class="pre">coord_frame</span></code> to <code class="docutils literal notranslate"><span class="pre">'mri'</span></code>.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># View the position of optodes in 2D to confirm the positions are correct.</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>5
+6
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.361 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg08r-nifti-surf-viz-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/be08b6386af8ad6daad7fe7675894842/eg08r__nifti_surf_viz.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg08r__nifti_surf_viz.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/a268393156286242eebc1e12554d7962/eg08r__nifti_surf_viz.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">eg08r__nifti_surf_viz.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="eg09r__nifti_surf_glm.html" class="btn btn-neutral float-right" title="Blah blah" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="eg07r__nifti_vol_fc.html" class="btn btn-neutral float-left" title="Blah blah" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright KCNI Griffiths Lab &amp; Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-XXXXXXX-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>
