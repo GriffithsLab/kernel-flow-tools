@@ -152,9 +152,8 @@ def fetch_dataset(
                 #         session_nb = "%02.f" % session_nb
                 pth = os.path.join(exp_dir,f"subject{subject_nb}",
                   f"session{session_nb}","*.csv" )
-              # pth = '{}/subject{}/session{}/*.csv'.format(exp_dir,subject_nb, session_nb)
-         fpaths = glob.glob(pth)
-         fnames += fpaths
+        fpaths = glob.glob(pth)
+        fnames += fpaths
 
     return fnames
 
