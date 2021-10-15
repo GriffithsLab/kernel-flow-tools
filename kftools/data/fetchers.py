@@ -431,9 +431,9 @@ kftools_files_dict = {
     'nifti': {
         'kf-ft':{
             'kcni':{
-                0:{hbr:{},
-                   hbo:{},
-                   events:{}
+                0:{hbo:{'kcni_000_0909-1523_ft_hbo.nii.gz': '16F2jq5QT-gzbOMyzUU15bD6Uqd3qbh43', 'kcni_000_0917-1313_ft_hbo.nii.gz': '16MM3BKeSTZUeYt9UuKLP43OwdQQ9X2KE'},
+                   hbr:{'kcni_000_0909-1523_ft_hbr.nii.gz':'16HYwInXlIWpqezHpASP68IxNk3Wme9nI', 'kcni_000_0917-1313_ft_hbr.nii.gz':'16MZ4jDVhC34RnWj4DRwsL4HC0pjKVAfF'},
+                   events:{'kcni_000_0909-1523_ft_events.tsv':'1DXUIQcbVJg3dc4WAiC7xStbweF9v_4V1', 'kcni_000_0917-1313_ft_events.tsv':'1CDrWzSNVIPCRDvQ541T2QLTo0-KmltDY'}
                    },
                 1,
                 2,
