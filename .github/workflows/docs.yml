@@ -2,9 +2,9 @@ qame: Docs
 
 on:
   push:
-    branches: [ master, 'dev/*' ]
+    branches: [ main, 'dev/*' ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -17,13 +17,14 @@ jobs:
         python-version: 3.8
     - name: Install dependencies
       run: |
+        pip instll -r requirements.txt
         pip install .
     - name: Build docs
       run: |
         cd doc && make html
     - name: Deploy Docs
       uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/main'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: doc/_build/html
