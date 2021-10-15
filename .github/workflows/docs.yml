@@ -1,4 +1,4 @@
-qame: Docs
+name: Docs
 
 on:
   push:
