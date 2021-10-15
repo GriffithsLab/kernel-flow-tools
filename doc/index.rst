@@ -16,7 +16,7 @@ Welcome to KFTools documentation!
    :glob:
  
    getting_started/installation
-   auto_examples/eg01__data_fetchers
+   auto_examples/eg01r__data_fetchers
 
 .. toctree::
    :maxdepth: 1
