@@ -695,6 +695,8 @@ def fetch_dataset(
         "mmn",
     ]
 
+        
+
     # If no non-default top-level data path specified, use default
     if data_dir == None:
         data_dir = os.getcwd() #?
@@ -718,7 +720,17 @@ def fetch_dataset(
       hbo_names = []
       hbr_names = []
       events_names = []
-      
+        
+      for subject in subjects:
+        for i in range(len(kftools_files_dict[file_type[experiment[site[subject['hbo']]]]])):
+          hbo_ids.append(kftools_files_dict[file_type[experiment[site[subject[list('hbo'.keys())]]]]])[i]
+          hbo_names.append(kftools_files_dict[file_type[experiment[site[subject[list('hbo'.values())]]]]])[i]      
+        
+          hbr_ids.append(kftools_files_dict[file_type[experiment[site[subject[list('hbr'.keys())]]]]])[i]
+          hbr_names.append(kftools_files_dict[file_type[experiment[site[subject[list('hbr'.values())]]]]])[i]
+        
+          events_ids.append(kftools_files_dict[file_type[experiment[site[subject[list('events'.keys())]]]]])[i]
+          events_names.append(kftools_files_dict[file_type[experiment[site[subject[list('events'.values())]]]]])[i]  
     
 
     else:
@@ -731,6 +743,7 @@ def fetch_dataset(
           files_id.append(kftools_files_dict[file_type[experiment[site[list(subject.keys())]]]])[i]
           files_name.append(kftools_files_dict[file_type[experiment[site[list(subject.values())]]]])[i]
 
+        
     # check if data has been previously downloaded
     download_it = False
     exp_dir = os.path.join(data_dir, '/kftools_datasets')
@@ -778,12 +791,6 @@ def fetch_dataset(
         # unzip the file
         with zipfile.ZipFile(destination, "r") as zip_ref:
             zip_ref.extractall(data_dir)
-
-        # # remove the compressed zip archive
-        # os.remove(destination)
-
-    if subjects == "all":
-        subjects = [0,1,2,3,4,5,6,7,8]
 
 
     # returning the file directories as a list:
