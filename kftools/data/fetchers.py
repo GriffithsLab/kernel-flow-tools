@@ -758,9 +758,23 @@ def fetch_dataset(
         destination = os.path.join(data_dir, "/kftools_datasets") 
 
         if download_method == "gdown":
-          for each_file in files_id:
-              URL = "https://drive.google.com/uc?id=" + each_file
-              gdown.download(URL, destination, quiet=False)
+            if file_type == 'nifti':
+             for each_file in hbo_ids:
+                  URL = "https://drive.google.com/uc?id=" + each_file
+                  gdown.download(URL, destination, quiet=False)
+        
+             for each_file in hbr_ids:
+                  URL = "https://drive.google.com/uc?id=" + each_file
+                  gdown.download(URL, destination, quiet=False)
+        
+             for each_file in events_ids:
+                  URL = "https://drive.google.com/uc?id=" + each_file
+                  gdown.download(URL, destination, quiet=False)        
+        
+            else:
+             for each_file in files_id:
+                  URL = "https://drive.google.com/uc?id=" + each_file
+                  gdown.download(URL, destination, quiet=False)
 
         elif download_method == "requests":
 
@@ -799,6 +813,17 @@ def fetch_dataset(
       hbr_dirs = []
       events_dirs = []
 
+      for i in hbo_names:
+        file_dir = glob.glob(destination + i)[0]
+        hbo_dirs.append(file_dir)        
+
+      for i in hbr_names:
+        file_dir = glob.glob(destination + i)[0]
+        hbr_dirs.append(file_dir)        
+
+      for i in events_names:
+        file_dir = glob.glob(destination + i)[0]
+        events_dirs.append(file_dir)        
 
     else:
       f_dirs = []
