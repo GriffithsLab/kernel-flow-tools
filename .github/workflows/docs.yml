@@ -17,7 +17,7 @@ jobs:
         python-version: 3.8
     - name: Install dependencies
       run: |
-        pip instll -r requirements.txt
+        pip install -r requirements.txt
         pip install .
     - name: Build docs
       run: |
