@@ -180,9 +180,9 @@ def fetch_dataset(data_dir=None,
                     if chunk:
                         f.write(chunk)
 
-        # unzip the file
-        with zipfile.ZipFile(destination, "r") as zip_ref:
-            zip_ref.extractall(data_dir)
+        ## unzip the file
+        #with zipfile.ZipFile(destination, "r") as zip_ref:
+        #    zip_ref.extractall(data_dir)
 
 
     # returning the file directories as a list:
