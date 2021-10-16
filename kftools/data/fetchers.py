@@ -13,7 +13,7 @@ kftools_files_dict = {
                 0:{'kcni_000_0909-1523_ft_mom.snirf': '11Ji3X72pyQRTMGRQ_9Mt8NS646P6oR4e', 'kcni_000_0917-1313_ft_mom.snirf':'11DEWnSOhEjv3GDRE7d_XKCFtI-7Q2KCc'}}}},
     'snirf-hb': {
             'kf-ft':{
-            '   kcni': {0:{'kcni_000_0909-1523_ft_hbm.snirf':'11Lcv-dczig_SLGHcyl8hstE3IS5R8oXO', 'kcni_000_0917-1313_ft_hbm.snirf':'1IOB4DZFDIkWzj9AtxygV8mQE1Ee2mtHt'}}}},
+            'kcni': {0:{'kcni_000_0909-1523_ft_hbm.snirf':'11Lcv-dczig_SLGHcyl8hstE3IS5R8oXO', 'kcni_000_0917-1313_ft_hbm.snirf':'1IOB4DZFDIkWzj9AtxygV8mQE1Ee2mtHt'}}}},
     'nifti': {
            'kf-ft':{
            'kcni':{ 0:{'hbo':{'kcni_000_0909-1523_ft_hbo.nii.gz': '16F2jq5QT-gzbOMyzUU15bD6Uqd3qbh43', 
