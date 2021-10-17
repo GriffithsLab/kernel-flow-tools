@@ -1,0 +1,11 @@
+fname code
+snic_sub001_ft_ses01_0909-1523_kp-snf-mom.snirf 11Ji3X72pyQRTMGRQ_9Mt8NS646P6oR4e
+snic_sub001_ft_ses02_0917-1313_kp-snf-mom.snirf 11DEWnSOhEjv3GDRE7d_XKCFtI-7Q2KCc
+snic_sub001_ft_ses01_0909-1523_kp-snf-hbm.snirf 11Lcv-dczig_SLGHcyl8hstE3IS5R8oXO
+snic_sub001_ft_ses02_0917-1313_kp-snf-hbm.snirf 1IOB4DZFDIkWzj9AtxygV8mQE1Ee2mtHt
+snic_sub001_ft_ses01_0909-1523_kp-nii-hbo.nii.gz 16F2jq5QT-gzbOMyzUU15bD6Uqd3qbh43
+snic_sub001_ft_ses02_0917-1313_kp-nii-hbo.nii.gz 16MM3BKeSTZUeYt9UuKLP43OwdQQ9X2KE
+snic_sub001_ft_ses01_0909-1523_kp-nii-hbr.nii.gz 16HYwInXlIWpqezHpASP68IxNk3Wme9nI
+snic_sub001_ft_ses02_0917-1313_kp-nii-hbr.nii.gz 16MZ4jDVhC34RnWj4DRwsL4HC0pjKVAfF
+snic_sub001_ft_ses01_0909-1523_kp-nii-evs.tsv 1DXUIQcbVJg3dc4WAiC7xStbweF9v_4V1
+snic_sub001_ft_ses02_0917-1313_kp-nii-evs.tsv 1CDrWzSNVIPCRDvQ541T2QLTo0-KmltDY
