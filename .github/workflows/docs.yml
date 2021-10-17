@@ -21,7 +21,9 @@ jobs:
         pip install .
     - name: Build docs
       run: |
-        cd doc && make html
+        cd doc
+        mkdir _static
+        make html
     - name: Deploy Docs
       uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/main'
