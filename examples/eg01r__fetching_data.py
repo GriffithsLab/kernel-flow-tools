@@ -9,8 +9,9 @@ Downloading KFTools Example Data
 
 from kftools.data import fetch_file
 
-data_dir = '/external/rprshnas01/netdata_kcni/jglab/Data/kftools_data'
 
+#data_dir = '/external/rprshnas01/netdata_kcni/jglab/Data/kftools_data'
+data_dir=None
 
 # sphinx_gallery_thumbnail_number = 1
 
