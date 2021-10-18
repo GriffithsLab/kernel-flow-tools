@@ -1,4 +1,7 @@
 
+from . import get_events_from_snirf
+
+
 
 import os,sys,glob,numpy as np,pandas as pd
 
