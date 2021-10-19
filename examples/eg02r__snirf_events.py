@@ -26,7 +26,7 @@ from mne.io import read_raw_snirf
 data_dir=None
  
 fetch_file(data_dir=data_dir, filetype='kp-snf-hbm',
-           site='snic', task='ft', sub='sub001', ses='ses02')
+           site='snic', task='ft', subid='sub001', sesid='ses02')
 
 
 # %%
