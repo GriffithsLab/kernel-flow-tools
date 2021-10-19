@@ -78,7 +78,7 @@ df_raw[raw.ch_names[0:5]].loc[3000:].plot(ax=ax)
 # In-the-brain, DOT-reconstructed HbO and HbR time series 
 # are provided in the form of 4D nifti images. 
 
-fetch_file(data_dir=data_dir, filetype='kp-nii-hbo')
+fetch_file(data_dir=data_dir, filetype='kp-nii-hbo',
            site='snic', task='ft', subid='sub001', sesid='ses01')
 
 f = '~/.kftools/snic_sub001_ft_ses01_0909-1523_kp-nii-hbo.nii.gz'
