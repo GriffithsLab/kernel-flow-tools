@@ -60,7 +60,7 @@ info[['fname', 'site','subid', 'task', 'sesid', 'datetime', 'filetype']]
 # including optical density and modified beer lambert law calculations.
  
 fetch_file(data_dir=data_dir, filetype='kp-snf-hbm',
-           site='snic', task='ft', sub='sub001', ses='ses01')
+           site='snic', task='ft', subid='sub001', sesid='ses01')
 
 raw = read_raw_snirf('~/.kftools/snic_sub001_ft_ses01_0909-1523_kp-snf-hbm.snirf')
 
@@ -79,7 +79,7 @@ df_raw[raw.ch_names[0:5]].loc[3000:].plot(ax=ax)
 # are provided in the form of 4D nifti images. 
 
 fetch_file(data_dir=data_dir, filetype='kp-nii-hbo')
-           site='snic', task='ft', sub='sub001', ses='ses01')
+           site='snic', task='ft', subid='sub001', sesid='ses01')
 
 f = '~/.kftools/snic_sub001_ft_ses01_0909-1523_kp-nii-hbo.nii.gz'
 imgs = nib.load(f)
@@ -93,7 +93,7 @@ disp = plot_stat_map(img)
 # (see later examples), but with modified timings. 
 
 fetch_file(data_dir=data_dir, filetype='kp-nii-evs',
-           site='snic', task='ft', sub='sub001', ses='ses01')
+           site='snic', task='ft', subid='sub001', sesid='ses01')
 
 f = '~/.kftools/snic_sub001_ft_ses01_0909-1523_kp-nii-evs.tsv'
 df = pd.read_csv(f, sep='\t')
