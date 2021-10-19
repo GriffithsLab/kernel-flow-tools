@@ -33,7 +33,7 @@ fetch_file(data_dir=data_dir, filetype='kp-snf-hbm',
 # Get the events
 # --------------------------------------------------
 
-f = '~/.kftools/snic_sub001_ft_ses02_0917-1313_kp-snf-hbm.snirf'
+f = 'snic_sub001_ft_ses02_0917-1313_kp-snf-hbm.snirf'
 evs = get_events_from_snirf(f)
 evs
 

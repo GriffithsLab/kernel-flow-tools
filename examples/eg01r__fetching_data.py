@@ -38,8 +38,9 @@ import pandas as pd
 # data_dir = '.'
 
 # If data_dir=None the default location is used, which is '~/.kftools' 
-data_dir=None
+#data_dir=None
 
+data_dir = '.'
 
 # %%
 # List available files
@@ -62,7 +63,7 @@ info[['fname', 'site','subid', 'task', 'sesid', 'datetime', 'filetype']]
 fetch_file(data_dir=data_dir, filetype='kp-snf-hbm',
            site='snic', task='ft', subid='sub001', sesid='ses01')
 
-raw = read_raw_snirf('~/.kftools/snic_sub001_ft_ses01_0909-1523_kp-snf-hbm.snirf')
+raw = read_raw_snirf('snic_sub001_ft_ses01_0909-1523_kp-snf-hbm.snirf')
 
 df_raw = raw.to_data_frame()
 
@@ -81,7 +82,7 @@ df_raw[raw.ch_names[0:5]].loc[3000:].plot(ax=ax)
 fetch_file(data_dir=data_dir, filetype='kp-nii-hbo',
            site='snic', task='ft', subid='sub001', sesid='ses01')
 
-f = '~/.kftools/snic_sub001_ft_ses01_0909-1523_kp-nii-hbo.nii.gz'
+f = 'snic_sub001_ft_ses01_0909-1523_kp-nii-hbo.nii.gz'
 imgs = nib.load(f)
 img = index_img(imgs,0)
 disp = plot_stat_map(img)
@@ -95,7 +96,7 @@ disp = plot_stat_map(img)
 fetch_file(data_dir=data_dir, filetype='kp-nii-evs',
            site='snic', task='ft', subid='sub001', sesid='ses01')
 
-f = '~/.kftools/snic_sub001_ft_ses01_0909-1523_kp-nii-evs.tsv'
+f = 'snic_sub001_ft_ses01_0909-1523_kp-nii-evs.tsv'
 df = pd.read_csv(f, sep='\t')
 df
 
