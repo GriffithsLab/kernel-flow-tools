@@ -7,7 +7,7 @@ Downloading KFTools Example Data
 
 """  # noqa:E501
 
-from kftools.data import fetch_file
+from kftools.data import load_info,fetch_file
 
 
 #data_dir = '/external/rprshnas01/netdata_kcni/jglab/Data/kftools_data'
@@ -18,6 +18,11 @@ data_dir=None
 # %%
 # First we do a thing etc etc.
 
+# %%
+# List available files
+# --------------------------------------------------
+info = load_info()
+info[['fname', 'site','subid', 'task', 'sesid', 'datetime', 'filetype']]
 
 # %%
 # Nii Events File
