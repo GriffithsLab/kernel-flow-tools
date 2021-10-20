@@ -1,5 +1,5 @@
 
-from . import get_events_from_snirf
+from . import get_events_from_snirf, organize_events
 
 
 
@@ -44,62 +44,30 @@ from mne.io.pick import _picks_to_idx, _get_channel_types
 
 
 
+def snirf_task_ana(f,subselect_with = None, subselect_range = None,
+                   chromo = 'hbo', resamp_freq = 1., task='ft'):
 
-
-def run_pipeline(f,subselect_with = None, subselect_range = None):
-
-  hbm = read_raw_snirf(f, preload=True)#, optode_frame='unknown', preload=False, verbose=None)#[source]¶
-
-  hbm.resample(sfreq=1) 
-
+  # Load data
+  hbm = read_raw_snirf(f, preload=True)
+  hbm.resample(sfreq=resamp_freq) 
   #hbm._data = np.nan_to_num(hbm._data)
 
-  dropchans = [c for c in hbm.ch_names if 'HbR' in c]
-  hbo = hbm.copy()
-  hbo.drop_channels(dropchans);
+  # Sort out channels
+  dropchans = [c for c in hbm.ch_names if chromo not in c.lower()]
+  hbm.drop_channels(dropchans);
+  hbm.set_channel_types({chn: chromo for chn in hbm.ch_names })
+  for c_it,c in enumerate(hbm.ch_names): 
+    hbm.info['chs'][c_it]['loc'][:3] = hbm.info['chs'][c_it]['loc'][6:9]  # Big hack???
+  
+  hbm._data = np.nan_to_num(hbm._data)
 
-  hbo.set_channel_types({chn: 'hbo' for chn in hbo.ch_names })
-
-  for c_it,c in enumerate(hbo.ch_names): 
-    hbo.info['chs'][c_it]['loc'][:3] = hbo.info['chs'][c_it]['loc'][6:9]
-
-
-  evs = get_events_from_snirf(f)
-  for e_it, e in enumerate(evs['BlockType']):
-    if ((e == 'Left') or (e =='Right')):
-      txt = hbo.annotations.description[e_it] 
-      txt = txt.replace('StartTrial', 'Tapping') + '/' + e[0]
-      hbo.annotations.description[e_it] = txt
-    dur = evs.iloc[e_it].loc['Duration']
-    hbo.annotations.duration[e_it] = dur
-
-  events, event_dict = mne.events_from_annotations(hbo)
-
-  """
-  equal_idx = []
-  for xx in range(events.shape[0]-1):
-    if events[xx,0] == events[xx+1,0]:
-      equal_idx.append(xx)
-  equal_idx.reverse()
-  events = np.delete(events, equal_idx, 0)
-  """;
-
-  event_dict.pop('StartExperiment', None)
-  event_dict.pop('StartBlock/L', None)
-  event_dict.pop('StartBlock/R', None)
-  event_dict.pop('StartIti/L', None)
-  event_dict.pop('StartIti/R', None)
-
-  hbo.annotations.delete(hbo.annotations.description=='StartExperiment')
-  hbo.annotations.delete(hbo.annotations.description=='StartBlock/L')
-  hbo.annotations.delete(hbo.annotations.description=='StartBlock/R')
-  hbo.annotations.delete(hbo.annotations.description=='StartIti/L')
-  hbo.annotations.delete(hbo.annotations.description=='StartIti/R')
-
+  hbm, df_evs, ev, ev_d = organize_events(f=f,hbm=hbm,remove_start_iti=True,task='ft',
+                                          remove_start_block=True,remove_start_expt=True)
+ 
 
   tmin = -5 # -0.1
   tmax = 20 # 0.5
-  hbo_ep = mne.Epochs(hbo, events, event_id=event_dict,
+  hbm_ep = mne.Epochs(hbm, events=ev, event_id=ev_d,
                       tmin=tmin, tmax=tmax,
                       reject_by_annotation=True,
                       proj=False,#True, 
@@ -108,32 +76,32 @@ def run_pipeline(f,subselect_with = None, subselect_range = None):
                       detrend=None, verbose=True,
                       event_repeated='merge')
 
-  hbo_ep._data = np.nan_to_num(hbo_ep._data)
+  hbm_ep._data = np.nan_to_num(hbm_ep._data)
 
-  hbo_ev_L = hbo_ep['Tapping/L'].average()
-  hbo_ev_R = hbo_ep['Tapping/R'].average()
+  hbm_ev_L = hbm_ep['Tapping/L'].average()
+  hbm_ev_R = hbm_ep['Tapping/R'].average()
 
-  hbo_ev_LgtR = mne.combine_evoked([hbo_ev_L, hbo_ev_R], weights=[1, -1])
-  hbo_ev_RgtL = mne.combine_evoked([hbo_ev_R, hbo_ev_L], weights=[1, -1])
+  hbm_ev_LgtR = mne.combine_evoked([hbm_ev_L, hbm_ev_R], weights=[1, -1])
+  hbm_ev_RgtL = mne.combine_evoked([hbm_ev_R, hbm_ev_L], weights=[1, -1])
 
 
-  s = mne_nirs.experimental_design.create_boxcar(hbo)
-  design_matrix = make_first_level_design_matrix(hbo,
+  s = mne_nirs.experimental_design.create_boxcar(hbm)
+  design_matrix = make_first_level_design_matrix(hbm,
                                                drift_model='cosine',
                                                high_pass=0.005,  # Must be specified per experiment
                                                hrf_model='spm',
                                                stim_dur=5.0)
   # Fit to sphere
   # (dug this out from the plot_sensors function calls)
-  sphere_params =  _check_sphere('auto', info=hbo.info, sphere_units='m')
+  sphere_params =  _check_sphere('auto', info=hbm.info, sphere_units='m')
 
   if subselect_with == 'notnan':
-      pickthese = np.nonzero(np.isnan(hbo._data.sum(axis=1))==False)[0]
+      pickthese = np.nonzero(np.isnan(hbm._data.sum(axis=1))==False)[0]
   elif type(subselect_range) == list:
       pickthese = range(subselect_range[0], subselect_range[1])
   else:
-      pickthese = hbo.ch_names    
-  data_subset = hbo.copy().pick(picks=pickthese)
+      pickthese = hbm.ch_names    
+  data_subset = hbm.copy().pick(picks=pickthese)
   glm_est = run_glm(data_subset, design_matrix,n_jobs=5)
 
   contrast_matrix = np.eye(design_matrix.shape[1])
@@ -145,7 +113,7 @@ def run_pipeline(f,subselect_with = None, subselect_range = None):
   #contrast_LgtR.plot_topo(sphere='auto');#,vmin=-1E4,vmax=1E4);
   estimates = contrast_LgtR.data.effect[0]
   info = contrast_LgtR.info
-  estmrg_LgtR, pos_LgtR, chs_LgtR, sphere_LgtR = _handle_overlaps(info, t,
+  estmrg_LgtR, pos_LgtR, chs_LgtR, sphere_LgtR = _handle_overlaps(info, chromo,
                                                                   sphere_params, estimates)
 
  
@@ -154,12 +122,13 @@ def run_pipeline(f,subselect_with = None, subselect_range = None):
   #contrast_RgtL.plot_topo(sphere='auto')#,vmin=-1E4,vmax=1E4);
   estimates = contrast_RgtL.data.effect[0]
   info = contrast_RgtL.info
-  estmrg_RgtL, pos_RgtL, chs_RgtL, sphere_RgtL = _handle_overlaps(info, t,
+  estmrg_RgtL, pos_RgtL, chs_RgtL, sphere_RgtL = _handle_overlaps(info, chromo,
                                                                   sphere_params, estimates)
 
-  returnstuff = dict(evs=event_dict,hbo=hbo,hbo_ep=hbo_ep,
-                     hbo_ev_LgtR=hbo_ev_LgtR,
-                     hbo_ev_RgtL=hbo_ev_RgtL,
+  returnstuff = dict(df_evs=df_evs,ev=ev,ev_d=ev_d,
+                     hbm=hbm,hbm_ep=hbm_ep,
+                     hbm_ev_LgtR=hbm_ev_LgtR,
+                     hbm_ev_RgtL=hbm_ev_RgtL,
                      s=s,design_matrix=design_matrix,
                      data_subset=data_subset,
                      sphere_params=sphere_params,
@@ -178,6 +147,8 @@ def run_pipeline(f,subselect_with = None, subselect_range = None):
 
 
   return returnstuff
+
+
 
 
 
@@ -217,7 +188,7 @@ def plot_glm_contrast_topo(inst, contrast, figsize=(12, 7), sphere=None,
     for t_idx, t in enumerate(types):
 
 
-        estmrg, pos, chs, sphere = _handle_overlaps(info, t, sphere, estimates)
+        estmrg, pos, chs, sphere = _handle_overlaps(info, 'hbo', sphere, estimates)
 
 
         # Deal with case when only a single chroma is available
@@ -252,6 +223,11 @@ def plot_glm_contrast_topo(inst, contrast, figsize=(12, 7), sphere=None,
     cbar.set_label('Contrast Effect', rotation=270)
 
     return fig
+
+
+
+
+
 
 
 

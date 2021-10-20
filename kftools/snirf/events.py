@@ -1,3 +1,9 @@
+
+from mne.io import read_raw_snirf
+import mne
+
+
+
 # Function to get events from snirf file
 from collections import Counter
 from pathlib import Path
@@ -65,3 +71,60 @@ def get_events_from_snirf(filename: Union[str, Path]) -> Optional[pd.DataFrame]:
 
     return df_events
 
+
+
+"""
+Function to organize events ready for mne glm/epoching analyses
+"""
+
+def organize_events(f=None,hbm=None,df_evs=None, task='ft', 
+                    remove_start_expt=None,remove_start_block=False, 
+                    remove_start_iti=None):
+
+
+  # Load from one supplied file if others not given
+  if not hbm:
+    hbm = read_raw_snirf(f)
+  if not df_evs:
+    df_evs = get_events_from_snirf(f)
+
+  # Fix missing event durations from mne reader            
+  for i_it, i in enumerate(df_evs):
+    dur = df_evs.iloc[i_it].loc['Duration']
+    hbm.annotations.duration[i_it] = dur   
+
+  # Remove some unused bits
+  if remove_start_expt:
+    hbm.annotations.delete(hbm.annotations.description=='StartExperiment')
+    idxs1 = np.nonzero(df_evs.Event.values.astype('str')=='StartExperiment')[0]
+
+  if remove_start_block:
+    hbm.annotations.delete(hbm.annotations.description=='StartBlock')
+    idxs2 = np.nonzero(df_evs.Event.values.astype('str')=='StartBlock')[0]
+
+  if remove_start_iti:
+    hbm.annotations.delete(hbm.annotations.description=='StartIti')
+    idxs3 = np.nonzero(df_evs.Event.values.astype('str')=='StartIti')[0]
+  
+  rmidxs = np.concatenate([idxs1,idxs2,idxs3])
+  rmidxs = np.unique(rmidxs)
+  df_evs = df_evs.drop(rmidxs)
+
+  # some task-specific things...
+  if task == 'ft':
+    new_evcol = [] 
+    for e_it, e in enumerate(df_evs['BlockType']):
+      txt = hbm.annotations.description[e_it]
+      if ((e == 'Left') or (e =='Right')):
+        txt = txt.replace('StartTrial', 'Tapping') + '/' + e[0]
+      else:
+        txt = txt.replace('StartRest', 'Rest') 
+      hbm.annotations.description[e_it] = txt
+      new_evcol.append(txt)
+
+    df_evs['Event'] = new_evcol  
+
+    ev, ev_d = mne.events_from_annotations(hbm)
+      
+
+  return hbm, df_evs, ev, ev_d
