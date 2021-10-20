@@ -56,7 +56,7 @@ thisvar  = ['hbo', 'hbr', 'hbo', 'hbr',
 # %%
 # More stuff etc blah
 # blah blah
-montage = mne.channels.make_standard_montage('artinis-octamon')
+#montage = mne.channels.make_standard_montage('artinis-octamon')
 #raw.set_montage(montage)
 
 # View the position of optodes in 2D to confirm the positions are correct.
@@ -68,5 +68,5 @@ print('thing')#           ``something here`` to ``'eg'``.
 #
 # .. note:: Things
 
-f = ''
-res = run_pipeline(f,subselect_with='notnan')
+#f = ''
+#res = run_pipeline(f,subselect_with='notnan')
