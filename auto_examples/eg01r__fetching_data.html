@@ -1,0 +1,802 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Downloading KFTools Example Data &mdash; KFTools 0.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/debug.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> KFTools
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">About KFTools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about_kftools/overview.html">Overview</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/installation.html#using-latest-github-master-source">Using latest github master source</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">SNIRF-based fNIRS Analyses</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="eg02r__snirf_events.html">Getting events from .snirf files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg02r__snirf_events.html#importage">Importage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg02r__snirf_events.html#grab-the-data">Grab the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg02r__snirf_events.html#get-the-events">Get the events</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eg03r__epoching_analysis.html">Blah blah</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg03r__epoching_analysis.html#thing">Thing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg03r__epoching_analysis.html#thingywot">Thingywot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="eg03r__epoching_analysis.html#anotherthing">Anotherthing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg03r__epoching_analysis.html#whatevs">Whatevs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="eg03r__epoching_analysis.html#applying-standard-sensor-locations-to-imported-data">Applying standard sensor locations to imported data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eg04r__glm_analysis.html">Blah blah</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg04r__glm_analysis.html#thing">Thing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg04r__glm_analysis.html#thingywot">Thingywot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="eg04r__glm_analysis.html#anotherthing">Anotherthing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg04r__glm_analysis.html#whatevs">Whatevs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">KF Portal NIFTI-based fNIRS Analysis</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="eg05r__nifti_vol_viz.html">Blah blah</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg05r__nifti_vol_viz.html#thing">Thing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg05r__nifti_vol_viz.html#thingywot">Thingywot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="eg05r__nifti_vol_viz.html#anotherthing">Anotherthing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg05r__nifti_vol_viz.html#whatevs">Whatevs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="eg05r__nifti_vol_viz.html#applying-standard-sensor-locations-to-imported-data">Applying standard sensor locations to imported data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eg06r__nifti_vol_glm.html">Blah blah</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg06r__nifti_vol_glm.html#thing">Thing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg06r__nifti_vol_glm.html#thingywot">Thingywot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="eg06r__nifti_vol_glm.html#anotherthing">Anotherthing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg06r__nifti_vol_glm.html#whatevs">Whatevs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="eg06r__nifti_vol_glm.html#applying-standard-sensor-locations-to-imported-data">Applying standard sensor locations to imported data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eg07r__nifti_vol_fc.html">Blah blah</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg07r__nifti_vol_fc.html#thing">Thing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg07r__nifti_vol_fc.html#thingywot">Thingywot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="eg07r__nifti_vol_fc.html#anotherthing">Anotherthing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg07r__nifti_vol_fc.html#whatevs">Whatevs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eg08r__nifti_surf_viz.html">Blah blah</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg08r__nifti_surf_viz.html#thing">Thing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg08r__nifti_surf_viz.html#thingywot">Thingywot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="eg08r__nifti_surf_viz.html#anotherthing">Anotherthing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg08r__nifti_surf_viz.html#whatevs">Whatevs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="eg08r__nifti_surf_viz.html#applying-standard-sensor-locations-to-imported-data">Applying standard sensor locations to imported data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eg09r__nifti_surf_glm.html">Blah blah</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg09r__nifti_surf_glm.html#thing">Thing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg09r__nifti_surf_glm.html#thingywot">Thingywot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="eg09r__nifti_surf_glm.html#anotherthing">Anotherthing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eg09r__nifti_surf_glm.html#whatevs">Whatevs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="eg09r__nifti_surf_glm.html#applying-standard-sensor-locations-to-imported-data">Applying standard sensor locations to imported data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">KFTools</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Downloading KFTools Example Data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-eg01r-fetching-data-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="downloading-kftools-example-data">
+<span id="sphx-glr-auto-examples-eg01r-fetching-data-py"></span><h1>Downloading KFTools Example Data<a class="headerlink" href="#downloading-kftools-example-data" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="section" id="importage">
+<h2>Importage<a class="headerlink" href="#importage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># KF Tools and related imports</span>
+<span class="kn">from</span> <span class="nn">kftools.data</span> <span class="kn">import</span> <span class="n">load_info</span><span class="p">,</span><span class="n">fetch_file</span>
+<span class="kn">from</span> <span class="nn">mne.io</span> <span class="kn">import</span> <span class="n">read_raw_snirf</span>
+
+<span class="c1"># Some neuroimaging library things</span>
+<span class="kn">import</span> <span class="nn">nibabel</span> <span class="k">as</span> <span class="nn">nib</span>
+<span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <span class="n">plot_stat_map</span>
+<span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <span class="n">index_img</span>
+
+<span class="c1"># Some generic things</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/nilearn/datasets/__init__.py:93: FutureWarning: Fetchers from the nilearn.datasets module will be updated in version 0.9 to return python strings instead of bytes and Pandas dataframes instead of Numpy arrays.
+  warn(&quot;Fetchers from the nilearn.datasets module will be &quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="specify-data-download-location">
+<h2>Specify data download location<a class="headerlink" href="#specify-data-download-location" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Give a specific location</span>
+<span class="c1"># data_dir = &#39;/external/rprshnas01/netdata_kcni/jglab/Data/kftools_data&#39;</span>
+<span class="c1"># or maybe</span>
+<span class="c1"># data_dir = &#39;.&#39;</span>
+
+<span class="c1"># If data_dir=None the default location is used, which is &#39;~/.kftools&#39;</span>
+<span class="c1">#data_dir=None</span>
+
+<span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-available-files">
+<h2>List available files<a class="headerlink" href="#list-available-files" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">info</span> <span class="o">=</span> <span class="n">load_info</span><span class="p">()</span>
+<span class="n">info</span><span class="p">[[</span><span class="s1">&#39;fname&#39;</span><span class="p">,</span> <span class="s1">&#39;site&#39;</span><span class="p">,</span><span class="s1">&#39;subid&#39;</span><span class="p">,</span> <span class="s1">&#39;task&#39;</span><span class="p">,</span> <span class="s1">&#39;sesid&#39;</span><span class="p">,</span> <span class="s1">&#39;datetime&#39;</span><span class="p">,</span> <span class="s1">&#39;filetype&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>fname</th>
+      <th>site</th>
+      <th>subid</th>
+      <th>task</th>
+      <th>sesid</th>
+      <th>datetime</th>
+      <th>filetype</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>snic_sub001_ft_ses01_0909-1523_kp-snf-mom.snirf</td>
+      <td>snic</td>
+      <td>sub001</td>
+      <td>ft</td>
+      <td>ses01</td>
+      <td>0909-1523</td>
+      <td>kp-snf-mom</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>snic_sub001_ft_ses02_0917-1313_kp-snf-mom.snirf</td>
+      <td>snic</td>
+      <td>sub001</td>
+      <td>ft</td>
+      <td>ses02</td>
+      <td>0917-1313</td>
+      <td>kp-snf-mom</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>snic_sub001_ft_ses01_0909-1523_kp-snf-hbm.snirf</td>
+      <td>snic</td>
+      <td>sub001</td>
+      <td>ft</td>
+      <td>ses01</td>
+      <td>0909-1523</td>
+      <td>kp-snf-hbm</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>snic_sub001_ft_ses02_0917-1313_kp-snf-hbm.snirf</td>
+      <td>snic</td>
+      <td>sub001</td>
+      <td>ft</td>
+      <td>ses02</td>
+      <td>0917-1313</td>
+      <td>kp-snf-hbm</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>snic_sub001_ft_ses01_0909-1523_kp-nii-hbo.nii.gz</td>
+      <td>snic</td>
+      <td>sub001</td>
+      <td>ft</td>
+      <td>ses01</td>
+      <td>0909-1523</td>
+      <td>kp-nii-hbo</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>snic_sub001_ft_ses02_0917-1313_kp-nii-hbo.nii.gz</td>
+      <td>snic</td>
+      <td>sub001</td>
+      <td>ft</td>
+      <td>ses02</td>
+      <td>0917-1313</td>
+      <td>kp-nii-hbo</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>snic_sub001_ft_ses01_0909-1523_kp-nii-hbr.nii.gz</td>
+      <td>snic</td>
+      <td>sub001</td>
+      <td>ft</td>
+      <td>ses01</td>
+      <td>0909-1523</td>
+      <td>kp-nii-hbr</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>snic_sub001_ft_ses02_0917-1313_kp-nii-hbr.nii.gz</td>
+      <td>snic</td>
+      <td>sub001</td>
+      <td>ft</td>
+      <td>ses02</td>
+      <td>0917-1313</td>
+      <td>kp-nii-hbr</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>snic_sub001_ft_ses01_0909-1523_kp-nii-evs.tsv</td>
+      <td>snic</td>
+      <td>sub001</td>
+      <td>ft</td>
+      <td>ses01</td>
+      <td>0909-1523</td>
+      <td>kp-nii-evs</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>snic_sub001_ft_ses02_0917-1313_kp-nii-evs.tsv</td>
+      <td>snic</td>
+      <td>sub001</td>
+      <td>ft</td>
+      <td>ses02</td>
+      <td>0917-1313</td>
+      <td>kp-nii-evs</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<br />
+<br /></div>
+<div class="section" id="hb-moments-file">
+<h2>HB Moments file<a class="headerlink" href="#hb-moments-file" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The kernel portal gives two .snirf file options:</span>
+<span class="c1"># 1. The &#39;raw&#39; moments file</span>
+<span class="c1"># 2. A &#39;Hb moments&#39; file</span>
+
+<span class="c1"># The Hb moments file has some initial preprocessing applied to it,</span>
+<span class="c1"># including optical density and modified beer lambert law calculations.</span>
+
+<span class="n">fetch_file</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">filetype</span><span class="o">=</span><span class="s1">&#39;kp-snf-hbm&#39;</span><span class="p">,</span>
+           <span class="n">site</span><span class="o">=</span><span class="s1">&#39;snic&#39;</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">&#39;ft&#39;</span><span class="p">,</span> <span class="n">subid</span><span class="o">=</span><span class="s1">&#39;sub001&#39;</span><span class="p">,</span> <span class="n">sesid</span><span class="o">=</span><span class="s1">&#39;ses01&#39;</span><span class="p">)</span>
+
+<span class="n">raw</span> <span class="o">=</span> <span class="n">read_raw_snirf</span><span class="p">(</span><span class="s1">&#39;snic_sub001_ft_ses01_0909-1523_kp-snf-hbm.snirf&#39;</span><span class="p">)</span>
+
+<span class="n">df_raw</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">to_data_frame</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">df_raw</span><span class="p">[</span><span class="n">raw</span><span class="o">.</span><span class="n">ch_names</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">3000</span><span class="p">:]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="eg01r  fetching data" class="sphx-glr-single-img" src="../_images/sphx_glr_eg01r__fetching_data_001.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading snic_sub001_ft_ses01_0909-1523_kp-snf-hbm.snirf
+
+Downloading...
+From: https://drive.google.com/uc?id=11Lcv-dczig_SLGHcyl8hstE3IS5R8oXO
+To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_ft_ses01_0909-1523_kp-snf-hbm.snirf
+
+  0%|          | 0.00/259M [00:00&lt;?, ?B/s]
+  0%|          | 1.05M/259M [00:00&lt;00:27, 9.27MB/s]
+  4%|4         | 11.5M/259M [00:00&lt;00:07, 31.7MB/s]
+  7%|7         | 18.4M/259M [00:00&lt;00:06, 38.8MB/s]
+ 11%|#1        | 29.4M/259M [00:00&lt;00:03, 58.3MB/s]
+ 16%|#6        | 41.4M/259M [00:00&lt;00:02, 75.7MB/s]
+ 19%|#9        | 50.3M/259M [00:00&lt;00:03, 69.0MB/s]
+ 22%|##2       | 58.2M/259M [00:01&lt;00:03, 61.7MB/s]
+ 25%|##5       | 65.0M/259M [00:01&lt;00:03, 62.7MB/s]
+ 29%|##9       | 76.0M/259M [00:01&lt;00:02, 64.7MB/s]
+ 33%|###3      | 85.5M/259M [00:01&lt;00:02, 71.7MB/s]
+ 36%|###6      | 93.3M/259M [00:01&lt;00:02, 68.3MB/s]
+ 39%|###9      | 101M/259M [00:01&lt;00:02, 67.9MB/s]
+ 42%|####2     | 110M/259M [00:01&lt;00:02, 60.3MB/s]
+ 47%|####6     | 122M/259M [00:01&lt;00:01, 73.5MB/s]
+ 52%|#####2    | 135M/259M [00:02&lt;00:01, 76.4MB/s]
+ 57%|#####7    | 148M/259M [00:02&lt;00:01, 89.9MB/s]
+ 62%|######1   | 160M/259M [00:02&lt;00:01, 92.2MB/s]
+ 68%|######7   | 175M/259M [00:02&lt;00:00, 107MB/s]
+ 72%|#######2  | 187M/259M [00:02&lt;00:00, 107MB/s]
+ 78%|#######7  | 201M/259M [00:02&lt;00:00, 116MB/s]
+ 82%|########2 | 213M/259M [00:02&lt;00:00, 115MB/s]
+ 88%|########7 | 227M/259M [00:02&lt;00:00, 122MB/s]
+ 93%|#########2| 240M/259M [00:02&lt;00:00, 121MB/s]
+ 97%|#########7| 252M/259M [00:03&lt;00:00, 122MB/s]
+100%|##########| 259M/259M [00:03&lt;00:00, 84.5MB/s]
+Loading /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_ft_ses01_0909-1523_kp-snf-hbm.snirf
+
+&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="nifti-file">
+<h2>Nifti file<a class="headerlink" href="#nifti-file" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># In-the-brain, DOT-reconstructed HbO and HbR time series</span>
+<span class="c1"># are provided in the form of 4D nifti images.</span>
+
+<span class="n">fetch_file</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">filetype</span><span class="o">=</span><span class="s1">&#39;kp-nii-hbo&#39;</span><span class="p">,</span>
+           <span class="n">site</span><span class="o">=</span><span class="s1">&#39;snic&#39;</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">&#39;ft&#39;</span><span class="p">,</span> <span class="n">subid</span><span class="o">=</span><span class="s1">&#39;sub001&#39;</span><span class="p">,</span> <span class="n">sesid</span><span class="o">=</span><span class="s1">&#39;ses01&#39;</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;snic_sub001_ft_ses01_0909-1523_kp-nii-hbo.nii.gz&#39;</span>
+<span class="n">imgs</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">index_img</span><span class="p">(</span><span class="n">imgs</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">disp</span> <span class="o">=</span> <span class="n">plot_stat_map</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+
+<span class="c1"># Note that for task-based statistical models, there is a</span>
+<span class="c1"># separate and modified events file, that contains the same</span>
+<span class="c1"># information as can be pulled directly from the .snirf files</span>
+<span class="c1"># (see later examples), but with modified timings.</span>
+
+<span class="n">fetch_file</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">filetype</span><span class="o">=</span><span class="s1">&#39;kp-nii-evs&#39;</span><span class="p">,</span>
+           <span class="n">site</span><span class="o">=</span><span class="s1">&#39;snic&#39;</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">&#39;ft&#39;</span><span class="p">,</span> <span class="n">subid</span><span class="o">=</span><span class="s1">&#39;sub001&#39;</span><span class="p">,</span> <span class="n">sesid</span><span class="o">=</span><span class="s1">&#39;ses01&#39;</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;snic_sub001_ft_ses01_0909-1523_kp-nii-evs.tsv&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+<img alt="eg01r  fetching data" class="sphx-glr-single-img" src="../_images/sphx_glr_eg01r__fetching_data_002.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading snic_sub001_ft_ses01_0909-1523_kp-nii-hbo.nii.gz
+
+Downloading...
+From: https://drive.google.com/uc?id=16F2jq5QT-gzbOMyzUU15bD6Uqd3qbh43
+To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_ft_ses01_0909-1523_kp-nii-hbo.nii.gz
+
+  0%|          | 0.00/35.6M [00:00&lt;?, ?B/s]
+  3%|2         | 1.05M/35.6M [00:00&lt;00:03, 9.20MB/s]
+ 32%|###2      | 11.5M/35.6M [00:00&lt;00:00, 50.1MB/s]
+ 52%|#####1    | 18.4M/35.6M [00:00&lt;00:00, 54.3MB/s]
+ 74%|#######3  | 26.2M/35.6M [00:00&lt;00:00, 59.7MB/s]
+100%|##########| 35.6M/35.6M [00:00&lt;00:00, 62.6MB/s]
+/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/nilearn/plotting/img_plotting.py:341: FutureWarning: Default resolution of the MNI template will change from 2mm to 1mm in version 0.10.0
+  anat_img = load_mni152_template()
+
+
+Downloading snic_sub001_ft_ses01_0909-1523_kp-nii-evs.tsv
+
+Downloading...
+From: https://drive.google.com/uc?id=1DXUIQcbVJg3dc4WAiC7xStbweF9v_4V1
+To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_ft_ses01_0909-1523_kp-nii-evs.tsv
+
+  0%|          | 0.00/12.0k [00:00&lt;?, ?B/s]
+100%|##########| 12.0k/12.0k [00:00&lt;00:00, 39.6MB/s]
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timestamp</th>
+      <th>event</th>
+      <th>duration</th>
+      <th>experiment_type</th>
+      <th>block</th>
+      <th>block_type</th>
+      <th>trial</th>
+      <th>trial_type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000000</td>
+      <td>start_experiment</td>
+      <td>482.688649</td>
+      <td>finger_tapping</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.027455</td>
+      <td>start_rest</td>
+      <td>20.016757</td>
+      <td>finger_tapping</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>20.044290</td>
+      <td>start_block</td>
+      <td>72.990794</td>
+      <td>finger_tapping</td>
+      <td>1.0</td>
+      <td>left</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>20.063716</td>
+      <td>start_ITI</td>
+      <td>0.744280</td>
+      <td>finger_tapping</td>
+      <td>1.0</td>
+      <td>left</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>20.808075</td>
+      <td>start_trial</td>
+      <td>5.008220</td>
+      <td>finger_tapping</td>
+      <td>1.0</td>
+      <td>left</td>
+      <td>1.0</td>
+      <td>index</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>461.571315</td>
+      <td>start_ITI</td>
+      <td>0.442044</td>
+      <td>finger_tapping</td>
+      <td>5.0</td>
+      <td>left</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>462.037850</td>
+      <td>start_rest</td>
+      <td>20.018416</td>
+      <td>finger_tapping</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>482.056380</td>
+      <td>start_block</td>
+      <td>0.632269</td>
+      <td>finger_tapping</td>
+      <td>6.0</td>
+      <td>right</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>482.075120</td>
+      <td>start_ITI</td>
+      <td>0.600871</td>
+      <td>finger_tapping</td>
+      <td>6.0</td>
+      <td>right</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>482.676100</td>
+      <td>start_trial</td>
+      <td>0.012548</td>
+      <td>finger_tapping</td>
+      <td>6.0</td>
+      <td>right</td>
+      <td>66.0</td>
+      <td>index</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 8 columns</p>
+</div>
+<br />
+<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  18.472 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg01r-fetching-data-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/e8d6c31408c09f0b46f989fd9654f562/eg01r__fetching_data.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg01r__fetching_data.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/54325c7500ce75eed9d80031cee2e32f/eg01r__fetching_data.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">eg01r__fetching_data.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright KCNI Griffiths Lab &amp; Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-XXXXXXX-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

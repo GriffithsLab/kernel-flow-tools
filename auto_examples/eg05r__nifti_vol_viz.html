@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Blah blah &mdash; KFTools 0.0.0 documentation</title>
@@ -39,7 +38,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script src="../_static/debug.js"></script>
@@ -99,31 +97,23 @@
               
             
             
-              <p><span class="caption-text">About KFTools</span></p>
+              <p class="caption"><span class="caption-text">About KFTools</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../about_kftools/overview.html">Overview</a></li>
 </ul>
-<p><span class="caption-text">Getting Started</span></p>
+<p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started/installation.html#using-latest-github-master-source">Using latest github master source</a></li>
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">SNIRF-based fNIRS Analyses</span></p>
+<p class="caption"><span class="caption-text">SNIRF-based fNIRS Analyses</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="eg02r__snirf_events.html">Blah blah</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="eg02r__snirf_events.html#thing">Thing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="eg02r__snirf_events.html#thingywot">Thingywot</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="eg02r__snirf_events.html#anotherthing">Anotherthing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="eg02r__snirf_events.html#whatevs">Whatevs</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="eg02r__snirf_events.html#applying-standard-sensor-locations-to-imported-data">Applying standard sensor locations to imported data</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="eg02r__snirf_events.html">Getting events from .snirf files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg02r__snirf_events.html#importage">Importage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg02r__snirf_events.html#grab-the-data">Grab the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg02r__snirf_events.html#get-the-events">Get the events</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="eg03r__epoching_analysis.html">Blah blah</a><ul>
@@ -146,16 +136,13 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="eg04r__glm_analysis.html#anotherthing">Anotherthing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="eg04r__glm_analysis.html#whatevs">Whatevs</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="eg04r__glm_analysis.html#applying-standard-sensor-locations-to-imported-data">Applying standard sensor locations to imported data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eg04r__glm_analysis.html#whatevs">Whatevs</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<p><span class="caption-text">KF Portal NIFTI-based fNIRS Analysis</span></p>
+<p class="caption"><span class="caption-text">KF Portal NIFTI-based fNIRS Analysis</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Blah blah</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#thing">Thing</a><ul>
@@ -191,10 +178,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="eg07r__nifti_vol_fc.html#anotherthing">Anotherthing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="eg07r__nifti_vol_fc.html#whatevs">Whatevs</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="eg07r__nifti_vol_fc.html#applying-standard-sensor-locations-to-imported-data">Applying standard sensor locations to imported data</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="eg07r__nifti_vol_fc.html#whatevs">Whatevs</a></li>
 </ul>
 </li>
 </ul>
@@ -294,22 +278,22 @@
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-eg05r-nifti-vol-viz-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="blah-blah">
+<div class="sphx-glr-example-title section" id="blah-blah">
 <span id="sphx-glr-auto-examples-eg05r-nifti-vol-viz-py"></span><h1>Blah blah<a class="headerlink" href="#blah-blah" title="Permalink to this headline">¶</a></h1>
 <p>Blah blah</p>
 <p>blah
 blah
 blah</p>
-<section id="thing">
+<div class="section" id="thing">
 <h2>Thing<a class="headerlink" href="#thing" title="Permalink to this headline">¶</a></h2>
-<section id="thingywot">
+<div class="section" id="thingywot">
 <h3>Thingywot<a class="headerlink" href="#thingywot" title="Permalink to this headline">¶</a></h3>
 <p>Blah blah</p>
-</section>
-</section>
-<section id="anotherthing">
+</div>
+</div>
+<div class="section" id="anotherthing">
 <h2>Anotherthing<a class="headerlink" href="#anotherthing" title="Permalink to this headline">¶</a></h2>
-<section id="whatevs">
+<div class="section" id="whatevs">
 <h3>Whatevs<a class="headerlink" href="#whatevs" title="Permalink to this headline">¶</a></h3>
 <p>Stuff
 Stuff
@@ -356,7 +340,7 @@ blah blah</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>thing
 </pre></div>
 </div>
-<section id="applying-standard-sensor-locations-to-imported-data">
+<div class="section" id="applying-standard-sensor-locations-to-imported-data">
 <h4>Applying standard sensor locations to imported data<a class="headerlink" href="#applying-standard-sensor-locations-to-imported-data" title="Permalink to this headline">¶</a></h4>
 <p>Having information about optode locations may assist in your analysis.
 Beyond the general benefits this provides (e.g. creating regions of interest,
@@ -388,7 +372,7 @@ fNIRS with <code class="xref py py-func docutils literal notranslate"><span clas
 6
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.353 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.359 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg05r-nifti-vol-viz-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/4be87ad6448c6369935c95f48bf945c7/eg05r__nifti_vol_viz.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg05r__nifti_vol_viz.py</span></code></a></p>
@@ -398,10 +382,10 @@ fNIRS with <code class="xref py py-func docutils literal notranslate"><span clas
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</section>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
+</div>
 
 
            </div>

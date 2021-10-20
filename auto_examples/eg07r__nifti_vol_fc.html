@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Blah blah &mdash; KFTools 0.0.0 documentation</title>
@@ -39,7 +38,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script src="../_static/debug.js"></script>
@@ -99,31 +97,23 @@
               
             
             
-              <p><span class="caption-text">About KFTools</span></p>
+              <p class="caption"><span class="caption-text">About KFTools</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../about_kftools/overview.html">Overview</a></li>
 </ul>
-<p><span class="caption-text">Getting Started</span></p>
+<p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started/installation.html#using-latest-github-master-source">Using latest github master source</a></li>
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">SNIRF-based fNIRS Analyses</span></p>
+<p class="caption"><span class="caption-text">SNIRF-based fNIRS Analyses</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="eg02r__snirf_events.html">Blah blah</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="eg02r__snirf_events.html#thing">Thing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="eg02r__snirf_events.html#thingywot">Thingywot</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="eg02r__snirf_events.html#anotherthing">Anotherthing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="eg02r__snirf_events.html#whatevs">Whatevs</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="eg02r__snirf_events.html#applying-standard-sensor-locations-to-imported-data">Applying standard sensor locations to imported data</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="eg02r__snirf_events.html">Getting events from .snirf files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg02r__snirf_events.html#importage">Importage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg02r__snirf_events.html#grab-the-data">Grab the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg02r__snirf_events.html#get-the-events">Get the events</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="eg03r__epoching_analysis.html">Blah blah</a><ul>
@@ -146,16 +136,13 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="eg04r__glm_analysis.html#anotherthing">Anotherthing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="eg04r__glm_analysis.html#whatevs">Whatevs</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="eg04r__glm_analysis.html#applying-standard-sensor-locations-to-imported-data">Applying standard sensor locations to imported data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eg04r__glm_analysis.html#whatevs">Whatevs</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<p><span class="caption-text">KF Portal NIFTI-based fNIRS Analysis</span></p>
+<p class="caption"><span class="caption-text">KF Portal NIFTI-based fNIRS Analysis</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="eg05r__nifti_vol_viz.html">Blah blah</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="eg05r__nifti_vol_viz.html#thing">Thing</a><ul>
@@ -191,10 +178,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#anotherthing">Anotherthing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#whatevs">Whatevs</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#applying-standard-sensor-locations-to-imported-data">Applying standard sensor locations to imported data</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#whatevs">Whatevs</a></li>
 </ul>
 </li>
 </ul>
@@ -294,22 +278,22 @@
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-eg07r-nifti-vol-fc-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="blah-blah">
+<div class="sphx-glr-example-title section" id="blah-blah">
 <span id="sphx-glr-auto-examples-eg07r-nifti-vol-fc-py"></span><h1>Blah blah<a class="headerlink" href="#blah-blah" title="Permalink to this headline">¶</a></h1>
 <p>Blah blah</p>
 <p>blah
 blah
 blah</p>
-<section id="thing">
+<div class="section" id="thing">
 <h2>Thing<a class="headerlink" href="#thing" title="Permalink to this headline">¶</a></h2>
-<section id="thingywot">
+<div class="section" id="thingywot">
 <h3>Thingywot<a class="headerlink" href="#thingywot" title="Permalink to this headline">¶</a></h3>
 <p>Blah blah</p>
-</section>
-</section>
-<section id="anotherthing">
+</div>
+</div>
+<div class="section" id="anotherthing">
 <h2>Anotherthing<a class="headerlink" href="#anotherthing" title="Permalink to this headline">¶</a></h2>
-<section id="whatevs">
+<div class="section" id="whatevs">
 <h3>Whatevs<a class="headerlink" href="#whatevs" title="Permalink to this headline">¶</a></h3>
 <p>Stuff
 Stuff
@@ -350,45 +334,45 @@ blah blah</p>
 <span class="c1"># More stuff</span>
 <span class="c1">#</span>
 <span class="c1"># .. note:: Things</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">### seed coords from (Eggebrecht et al., 2014) ###</span>
+
+<span class="sd">seed_coord_dict = {&#39;vis&#39;:(-19.5, -102, -3), &#39;aud&#39;:(-67.5, -27, 12), &#39;mot&#39;:(-67.5, -12, 27), &#39;DAN&#39;:(-58.5, -69, -6), &#39;FPC&#39;:(-52.5, 24, 33), &#39;DMN&#39;:(-43.5, 21, 51)}</span>
+<span class="sd">seed_coord_ser = pd.Series(seed_coord_dict)</span>
+
+<span class="sd">### making MNI mask ###</span>
+
+<span class="sd"># import nilearn</span>
+<span class="sd"># nilearn.__file__</span>
+
+<span class="sd">avg152_f = &#39;/usr/local/lib/python3.7/dist-packages/nilearn/datasets/data/avg152T1_brain.nii.gz&#39;</span>
+<span class="sd">avg152_img = nib.load(avg152_f)</span>
+<span class="sd">avg152_dat = avg152_img.get_data()</span>
+<span class="sd">avg152_mask_dat = (avg152_dat &gt; 0).astype(float)</span>
+<span class="sd">avg152_mask_img = nib.Nifti1Image(avg152_mask_dat, affine=avg152_img.affine)</span>
+
+
+<span class="sd">nii_fs = glob.glob(fromkcni_data_dir + &#39;/*rec*hbo*.nii*&#39;)</span>
+<span class="sd">f = nii_fs[0]</span>
+<span class="sd">k = &#39;DMN&#39;</span>
+<span class="sd">z_maps,z_maps_masked = fc_for_seeds(f,dothese=[k])#,clip_vols=[10,10])</span>
+<span class="sd">img = z_maps[k]</span>
+<span class="sd">img_thr,_ = threshold_stats_img(img,threshold=thr,cluster_threshold=50,alpha=0.05)</span>
+<span class="sd">disp = plot_glass_brain(img_thr,plot_abs=False,colorbar=True);</span>
+<span class="sd">disp.add_markers(marker_coords=[seed_coord_dict[k]], marker_color=&#39;g&#39;, marker_size=300)</span>
+
+<span class="sd">&quot;&quot;&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>thing
-</pre></div>
-</div>
-<section id="applying-standard-sensor-locations-to-imported-data">
-<h4>Applying standard sensor locations to imported data<a class="headerlink" href="#applying-standard-sensor-locations-to-imported-data" title="Permalink to this headline">¶</a></h4>
-<p>Having information about optode locations may assist in your analysis.
-Beyond the general benefits this provides (e.g. creating regions of interest,
-etc), this is may be particularly important for fNIRS as information about
-the optode locations is required to convert the optical density data in to an
-estimate of the haemoglobin concentrations.
-MNE-Python provides methods to load standard sensor configurations
-(montages) from some vendors, and this is demonstrated below.
-Some handy tutorials for understanding sensor locations, coordinate systems,
-and how to store and view this information in MNE-Python are:
-<span class="xref std std-ref">tut-sensor-locations</span>, <span class="xref std std-ref">plot_source_alignment</span>, and
-<span class="xref std std-ref">ex-eeg-on-scalp</span>.</p>
-<p>Below is an example of how to load the optode positions for an Artinis
-OctaMon device.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>It is also possible to create a custom montage from a file for
-fNIRS with <code class="xref py py-func docutils literal notranslate"><span class="pre">mne.channels.read_custom_montage()</span></code> by setting
-<code class="docutils literal notranslate"><span class="pre">coord_frame</span></code> to <code class="docutils literal notranslate"><span class="pre">'mri'</span></code>.</p>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 
-<span class="c1"># View the position of optodes in 2D to confirm the positions are correct.</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+&quot;\n\n### seed coords from (Eggebrecht et al., 2014) ###\n\nseed_coord_dict = {&#39;vis&#39;:(-19.5, -102, -3), &#39;aud&#39;:(-67.5, -27, 12), &#39;mot&#39;:(-67.5, -12, 27), &#39;DAN&#39;:(-58.5, -69, -6), &#39;FPC&#39;:(-52.5, 24, 33), &#39;DMN&#39;:(-43.5, 21, 51)}\nseed_coord_ser = pd.Series(seed_coord_dict)\n\n### making MNI mask ###\n\n# import nilearn\n# nilearn.__file__\n\navg152_f = &#39;/usr/local/lib/python3.7/dist-packages/nilearn/datasets/data/avg152T1_brain.nii.gz&#39;\navg152_img = nib.load(avg152_f)\navg152_dat = avg152_img.get_data()\navg152_mask_dat = (avg152_dat &gt; 0).astype(float)\navg152_mask_img = nib.Nifti1Image(avg152_mask_dat, affine=avg152_img.affine)\n\n\nnii_fs = glob.glob(fromkcni_data_dir + &#39;/*rec*hbo*.nii*&#39;)\nf = nii_fs[0]\nk = &#39;DMN&#39;\nz_maps,z_maps_masked = fc_for_seeds(f,dothese=[k])#,clip_vols=[10,10])\nimg = z_maps[k]\nimg_thr,_ = threshold_stats_img(img,threshold=thr,cluster_threshold=50,alpha=0.05)\ndisp = plot_glass_brain(img_thr,plot_abs=False,colorbar=True);\ndisp.add_markers(marker_coords=[seed_coord_dict[k]], marker_color=&#39;g&#39;, marker_size=300)\n\n&quot;
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>5
-6
-</pre></div>
-</div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.341 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.359 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg07r-nifti-vol-fc-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/d5ed7646a0656b0f30c01fca0f484c04/eg07r__nifti_vol_fc.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg07r__nifti_vol_fc.py</span></code></a></p>
@@ -398,10 +382,9 @@ fNIRS with <code class="xref py py-func docutils literal notranslate"><span clas
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</section>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>

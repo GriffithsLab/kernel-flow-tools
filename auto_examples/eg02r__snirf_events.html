@@ -4,11 +4,10 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Blah blah &mdash; KFTools 0.0.0 documentation</title>
+  <title>Getting events from .snirf files &mdash; KFTools 0.0.0 documentation</title>
   
 
   
@@ -39,7 +38,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script src="../_static/debug.js"></script>
@@ -99,31 +97,23 @@
               
             
             
-              <p><span class="caption-text">About KFTools</span></p>
+              <p class="caption"><span class="caption-text">About KFTools</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../about_kftools/overview.html">Overview</a></li>
 </ul>
-<p><span class="caption-text">Getting Started</span></p>
+<p class="caption"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../getting_started/installation.html#using-latest-github-master-source">Using latest github master source</a></li>
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">SNIRF-based fNIRS Analyses</span></p>
+<p class="caption"><span class="caption-text">SNIRF-based fNIRS Analyses</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Blah blah</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#thing">Thing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#thingywot">Thingywot</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#anotherthing">Anotherthing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#whatevs">Whatevs</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#applying-standard-sensor-locations-to-imported-data">Applying standard sensor locations to imported data</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting events from .snirf files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#importage">Importage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grab-the-data">Grab the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-the-events">Get the events</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="eg03r__epoching_analysis.html">Blah blah</a><ul>
@@ -146,16 +136,13 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="eg04r__glm_analysis.html#anotherthing">Anotherthing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="eg04r__glm_analysis.html#whatevs">Whatevs</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="eg04r__glm_analysis.html#applying-standard-sensor-locations-to-imported-data">Applying standard sensor locations to imported data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eg04r__glm_analysis.html#whatevs">Whatevs</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<p><span class="caption-text">KF Portal NIFTI-based fNIRS Analysis</span></p>
+<p class="caption"><span class="caption-text">KF Portal NIFTI-based fNIRS Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="eg05r__nifti_vol_viz.html">Blah blah</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="eg05r__nifti_vol_viz.html#thing">Thing</a><ul>
@@ -191,10 +178,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="eg07r__nifti_vol_fc.html#anotherthing">Anotherthing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="eg07r__nifti_vol_fc.html#whatevs">Whatevs</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="eg07r__nifti_vol_fc.html#applying-standard-sensor-locations-to-imported-data">Applying standard sensor locations to imported data</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="eg07r__nifti_vol_fc.html#whatevs">Whatevs</a></li>
 </ul>
 </li>
 </ul>
@@ -273,7 +257,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Blah blah</li>
+      <li>Getting events from .snirf files</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -294,101 +278,243 @@
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-eg02r-snirf-events-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="blah-blah">
-<span id="sphx-glr-auto-examples-eg02r-snirf-events-py"></span><h1>Blah blah<a class="headerlink" href="#blah-blah" title="Permalink to this headline">¶</a></h1>
-<p>Blah blah</p>
-<p>blah
-blah
-blah</p>
-<section id="thing">
-<h2>Thing<a class="headerlink" href="#thing" title="Permalink to this headline">¶</a></h2>
-<section id="thingywot">
-<h3>Thingywot<a class="headerlink" href="#thingywot" title="Permalink to this headline">¶</a></h3>
-<p>Blah blah</p>
-</section>
-</section>
-<section id="anotherthing">
-<h2>Anotherthing<a class="headerlink" href="#anotherthing" title="Permalink to this headline">¶</a></h2>
-<section id="whatevs">
-<h3>Whatevs<a class="headerlink" href="#whatevs" title="Permalink to this headline">¶</a></h3>
-<p>Stuff
-Stuff
-Stuff</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">mne</span>
+<div class="sphx-glr-example-title section" id="getting-events-from-snirf-files">
+<span id="sphx-glr-auto-examples-eg02r-snirf-events-py"></span><h1>Getting events from .snirf files<a class="headerlink" href="#getting-events-from-snirf-files" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<p>First we do a thing etc etc.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">100</span><span class="p">)))</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">)</span>
+<div class="section" id="importage">
+<h2>Importage<a class="headerlink" href="#importage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># KF Tools and related imports</span>
+<span class="kn">from</span> <span class="nn">kftools.data</span> <span class="kn">import</span> <span class="n">fetch_file</span>
+<span class="kn">from</span> <span class="nn">kftools.snirf</span> <span class="kn">import</span> <span class="n">get_events_from_snirf</span>
+<span class="kn">from</span> <span class="nn">mne.io</span> <span class="kn">import</span> <span class="n">read_raw_snirf</span>
 </pre></div>
 </div>
-<img alt="eg02r  snirf events" class="sphx-glr-single-img" src="../_images/sphx_glr_eg02r__snirf_events_001.png" />
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Frequency&#39;&gt;
-</pre></div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>athing a not etc
-blah blah</p>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">thisvar</span>  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">,</span> <span class="s1">&#39;hbo&#39;</span><span class="p">,</span> <span class="s1">&#39;hbr&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>More stuff etc blah
-blah blah</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">montage</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">make_standard_montage</span><span class="p">(</span><span class="s1">&#39;artinis-octamon&#39;</span><span class="p">)</span>
-<span class="c1">#raw.set_montage(montage)</span>
+<div class="section" id="grab-the-data">
+<h2>Grab the data<a class="headerlink" href="#grab-the-data" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data_dir</span><span class="o">=</span><span class="s1">&#39;.&#39;</span>
 
-<span class="c1"># View the position of optodes in 2D to confirm the positions are correct.</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;thing&#39;</span><span class="p">)</span><span class="c1">#           ``something here`` to ``&#39;eg&#39;``.</span>
-
-<span class="c1">#</span>
-<span class="c1"># More stuff</span>
-<span class="c1"># More stuff</span>
-<span class="c1">#</span>
-<span class="c1"># .. note:: Things</span>
+<span class="n">fetch_file</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">filetype</span><span class="o">=</span><span class="s1">&#39;kp-snf-hbm&#39;</span><span class="p">,</span>
+           <span class="n">site</span><span class="o">=</span><span class="s1">&#39;snic&#39;</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">&#39;ft&#39;</span><span class="p">,</span> <span class="n">subid</span><span class="o">=</span><span class="s1">&#39;sub001&#39;</span><span class="p">,</span> <span class="n">sesid</span><span class="o">=</span><span class="s1">&#39;ses02&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>thing
-</pre></div>
-</div>
-<section id="applying-standard-sensor-locations-to-imported-data">
-<h4>Applying standard sensor locations to imported data<a class="headerlink" href="#applying-standard-sensor-locations-to-imported-data" title="Permalink to this headline">¶</a></h4>
-<p>Having information about optode locations may assist in your analysis.
-Beyond the general benefits this provides (e.g. creating regions of interest,
-etc), this is may be particularly important for fNIRS as information about
-the optode locations is required to convert the optical density data in to an
-estimate of the haemoglobin concentrations.
-MNE-Python provides methods to load standard sensor configurations
-(montages) from some vendors, and this is demonstrated below.
-Some handy tutorials for understanding sensor locations, coordinate systems,
-and how to store and view this information in MNE-Python are:
-<span class="xref std std-ref">tut-sensor-locations</span>, <span class="xref std std-ref">plot_source_alignment</span>, and
-<span class="xref std std-ref">ex-eeg-on-scalp</span>.</p>
-<p>Below is an example of how to load the optode positions for an Artinis
-OctaMon device.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>It is also possible to create a custom montage from a file for
-fNIRS with <code class="xref py py-func docutils literal notranslate"><span class="pre">mne.channels.read_custom_montage()</span></code> by setting
-<code class="docutils literal notranslate"><span class="pre">coord_frame</span></code> to <code class="docutils literal notranslate"><span class="pre">'mri'</span></code>.</p>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading snic_sub001_ft_ses02_0917-1313_kp-snf-hbm.snirf
 
-<span class="c1"># View the position of optodes in 2D to confirm the positions are correct.</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+Downloading...
+From: https://drive.google.com/uc?id=1IOB4DZFDIkWzj9AtxygV8mQE1Ee2mtHt
+To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_ft_ses02_0917-1313_kp-snf-hbm.snirf
+
+  0%|          | 0.00/431M [00:00&lt;?, ?B/s]
+  0%|          | 1.05M/431M [00:00&lt;00:46, 9.21MB/s]
+  2%|2         | 9.44M/431M [00:00&lt;00:08, 48.2MB/s]
+  3%|3         | 14.7M/431M [00:00&lt;00:08, 49.2MB/s]
+  5%|4         | 19.9M/431M [00:00&lt;00:08, 49.6MB/s]
+  6%|6         | 26.7M/431M [00:00&lt;00:07, 55.4MB/s]
+  8%|7         | 34.1M/431M [00:00&lt;00:07, 50.0MB/s]
+ 10%|9         | 42.5M/431M [00:00&lt;00:06, 55.7MB/s]
+ 12%|#1        | 50.9M/431M [00:00&lt;00:06, 59.5MB/s]
+ 14%|#3        | 59.2M/431M [00:01&lt;00:05, 65.6MB/s]
+ 16%|#5        | 68.2M/431M [00:01&lt;00:05, 70.8MB/s]
+ 18%|#8        | 78.6M/431M [00:01&lt;00:04, 80.0MB/s]
+ 20%|##        | 87.0M/431M [00:01&lt;00:04, 75.9MB/s]
+ 22%|##2       | 94.9M/431M [00:01&lt;00:05, 66.8MB/s]
+ 24%|##3       | 102M/431M [00:01&lt;00:05, 64.8MB/s]
+ 25%|##5       | 110M/431M [00:01&lt;00:06, 53.2MB/s]
+ 27%|##7       | 118M/431M [00:01&lt;00:05, 57.6MB/s]
+ 29%|##9       | 126M/431M [00:02&lt;00:04, 61.1MB/s]
+ 31%|###1      | 135M/431M [00:02&lt;00:04, 60.2MB/s]
+ 33%|###3      | 143M/431M [00:02&lt;00:04, 61.9MB/s]
+ 37%|###6      | 159M/431M [00:02&lt;00:03, 84.8MB/s]
+ 39%|###9      | 168M/431M [00:02&lt;00:03, 83.9MB/s]
+ 41%|####1     | 177M/431M [00:02&lt;00:03, 79.6MB/s]
+ 44%|####3     | 189M/431M [00:02&lt;00:02, 89.7MB/s]
+ 48%|####8     | 208M/431M [00:02&lt;00:01, 116MB/s]
+ 51%|#####1    | 221M/431M [00:03&lt;00:01, 105MB/s]
+ 55%|#####4    | 235M/431M [00:03&lt;00:01, 107MB/s]
+ 58%|#####7    | 249M/431M [00:03&lt;00:01, 113MB/s]
+ 61%|######    | 261M/431M [00:03&lt;00:01, 112MB/s]
+ 63%|######3   | 273M/431M [00:03&lt;00:01, 111MB/s]
+ 66%|######5   | 284M/431M [00:03&lt;00:01, 112MB/s]
+ 69%|######8   | 296M/431M [00:03&lt;00:01, 90.0MB/s]
+ 72%|#######1  | 310M/431M [00:03&lt;00:01, 102MB/s]
+ 75%|#######4  | 321M/431M [00:04&lt;00:01, 96.7MB/s]
+ 78%|#######7  | 334M/431M [00:04&lt;00:00, 105MB/s]
+ 80%|########  | 346M/431M [00:04&lt;00:00, 103MB/s]
+ 84%|########4 | 362M/431M [00:04&lt;00:00, 117MB/s]
+ 88%|########7 | 378M/431M [00:04&lt;00:00, 125MB/s]
+ 92%|#########1| 395M/431M [00:04&lt;00:00, 131MB/s]
+ 95%|#########4| 409M/431M [00:04&lt;00:00, 133MB/s]
+ 98%|#########8| 423M/431M [00:04&lt;00:00, 115MB/s]
+100%|##########| 431M/431M [00:04&lt;00:00, 87.8MB/s]
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>5
-6
+</div>
+<div class="section" id="get-the-events">
+<h2>Get the events<a class="headerlink" href="#get-the-events" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;snic_sub001_ft_ses02_0917-1313_kp-snf-hbm.snirf&#39;</span>
+<span class="n">evs</span> <span class="o">=</span> <span class="n">get_events_from_snirf</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">evs</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.878 seconds)</p>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Timestamp</th>
+      <th>Event</th>
+      <th>Duration</th>
+      <th>Value</th>
+      <th>Block</th>
+      <th>Trial</th>
+      <th>TrialType</th>
+      <th>BlockType</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>15.168075</td>
+      <td>StartBlock</td>
+      <td>20.993202</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Left</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>15.184670</td>
+      <td>StartIti</td>
+      <td>0.691229</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Left</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>15.875989</td>
+      <td>StartTrial</td>
+      <td>0.759476</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>Index</td>
+      <td>Left</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>16.651278</td>
+      <td>StartIti</td>
+      <td>0.764339</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Left</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>17.415692</td>
+      <td>StartTrial</td>
+      <td>0.769651</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>Middle</td>
+      <td>Left</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>653</th>
+      <td>797.449479</td>
+      <td>StartTrial</td>
+      <td>0.769480</td>
+      <td>1.0</td>
+      <td>20.0</td>
+      <td>299.0</td>
+      <td>Middle</td>
+      <td>Right</td>
+    </tr>
+    <tr>
+      <th>654</th>
+      <td>798.234787</td>
+      <td>StartIti</td>
+      <td>0.405636</td>
+      <td>1.0</td>
+      <td>20.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Right</td>
+    </tr>
+    <tr>
+      <th>655</th>
+      <td>798.640504</td>
+      <td>StartTrial</td>
+      <td>0.762039</td>
+      <td>1.0</td>
+      <td>20.0</td>
+      <td>300.0</td>
+      <td>Ring</td>
+      <td>Right</td>
+    </tr>
+    <tr>
+      <th>656</th>
+      <td>799.418014</td>
+      <td>StartIti</td>
+      <td>0.524964</td>
+      <td>1.0</td>
+      <td>20.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Right</td>
+    </tr>
+    <tr>
+      <th>657</th>
+      <td>799.968801</td>
+      <td>StartRest</td>
+      <td>20.019163</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>658 rows × 8 columns</p>
+</div>
+<br />
+<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  6.148 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg02r-snirf-events-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/e5e577c1d8fa2327fe175bf2a83bbe2c/eg02r__snirf_events.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg02r__snirf_events.py</span></code></a></p>
@@ -398,10 +524,8 @@ fNIRS with <code class="xref py py-func docutils literal notranslate"><span clas
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</section>
-</section>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

@@ -68,31 +68,32 @@ print('thing')#           ``something here`` to ``'eg'``.
 #
 # .. note:: Things
 
+"""
 
-# %%
-# Applying standard sensor locations to imported data
-# ---------------------------------------------------
-#
-# Having information about optode locations may assist in your analysis.
-# Beyond the general benefits this provides (e.g. creating regions of interest,
-# etc), this is may be particularly important for fNIRS as information about
-# the optode locations is required to convert the optical density data in to an
-# estimate of the haemoglobin concentrations.
-# MNE-Python provides methods to load standard sensor configurations
-# (montages) from some vendors, and this is demonstrated below.
-# Some handy tutorials for understanding sensor locations, coordinate systems,
-# and how to store and view this information in MNE-Python are:
-# :ref:`tut-sensor-locations`, :ref:`plot_source_alignment`, and
-# :ref:`ex-eeg-on-scalp`.
-#
-# Below is an example of how to load the optode positions for an Artinis
-# OctaMon device.
-#
-# .. note:: It is also possible to create a custom montage from a file for
-#           fNIRS with :func:`mne.channels.read_custom_montage` by setting
-#           ``coord_frame`` to ``'mri'``.
+### seed coords from (Eggebrecht et al., 2014) ###
 
-print(5)
+seed_coord_dict = {'vis':(-19.5, -102, -3), 'aud':(-67.5, -27, 12), 'mot':(-67.5, -12, 27), 'DAN':(-58.5, -69, -6), 'FPC':(-52.5, 24, 33), 'DMN':(-43.5, 21, 51)}
+seed_coord_ser = pd.Series(seed_coord_dict)
 
-# View the position of optodes in 2D to confirm the positions are correct.
-print(6)
+### making MNI mask ###
+
+# import nilearn
+# nilearn.__file__
+
+avg152_f = '/usr/local/lib/python3.7/dist-packages/nilearn/datasets/data/avg152T1_brain.nii.gz'
+avg152_img = nib.load(avg152_f)
+avg152_dat = avg152_img.get_data()
+avg152_mask_dat = (avg152_dat > 0).astype(float)
+avg152_mask_img = nib.Nifti1Image(avg152_mask_dat, affine=avg152_img.affine)
+
+
+nii_fs = glob.glob(fromkcni_data_dir + '/*rec*hbo*.nii*')
+f = nii_fs[0]
+k = 'DMN'
+z_maps,z_maps_masked = fc_for_seeds(f,dothese=[k])#,clip_vols=[10,10])
+img = z_maps[k]
+img_thr,_ = threshold_stats_img(img,threshold=thr,cluster_threshold=50,alpha=0.05)
+disp = plot_glass_brain(img_thr,plot_abs=False,colorbar=True);
+disp.add_markers(marker_coords=[seed_coord_dict[k]], marker_color='g', marker_size=300)
+
+""";
