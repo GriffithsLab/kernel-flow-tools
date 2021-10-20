@@ -138,15 +138,11 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="eg04r__glm_analysis.html">GLM based analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="eg04r__glm_analysis.html#thing">Thing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="eg04r__glm_analysis.html#thingywot">Thingywot</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="eg04r__glm_analysis.html#anotherthing">Anotherthing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="eg04r__glm_analysis.html#whatevs">Whatevs</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="eg04r__glm_analysis.html">SNIRF HbM GLM Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg04r__glm_analysis.html#importage">Importage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg04r__glm_analysis.html#grab-the-data">Grab the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg04r__glm_analysis.html#specify-and-run-the-glm-model">Specify and run the GLM model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg04r__glm_analysis.html#look-at-glm-results">Look at GLM results</a></li>
 </ul>
 </li>
 </ul>
@@ -380,7 +376,7 @@ blah blah</p>
 &quot;\n\n### seed coords from (Eggebrecht et al., 2014) ###\n\nseed_coord_dict = {&#39;vis&#39;:(-19.5, -102, -3), &#39;aud&#39;:(-67.5, -27, 12), &#39;mot&#39;:(-67.5, -12, 27), &#39;DAN&#39;:(-58.5, -69, -6), &#39;FPC&#39;:(-52.5, 24, 33), &#39;DMN&#39;:(-43.5, 21, 51)}\nseed_coord_ser = pd.Series(seed_coord_dict)\n\n### making MNI mask ###\n\n# import nilearn\n# nilearn.__file__\n\navg152_f = &#39;/usr/local/lib/python3.7/dist-packages/nilearn/datasets/data/avg152T1_brain.nii.gz&#39;\navg152_img = nib.load(avg152_f)\navg152_dat = avg152_img.get_data()\navg152_mask_dat = (avg152_dat &gt; 0).astype(float)\navg152_mask_img = nib.Nifti1Image(avg152_mask_dat, affine=avg152_img.affine)\n\n\nnii_fs = glob.glob(fromkcni_data_dir + &#39;/*rec*hbo*.nii*&#39;)\nf = nii_fs[0]\nk = &#39;DMN&#39;\nz_maps,z_maps_masked = fc_for_seeds(f,dothese=[k])#,clip_vols=[10,10])\nimg = z_maps[k]\nimg_thr,_ = threshold_stats_img(img,threshold=thr,cluster_threshold=50,alpha=0.05)\ndisp = plot_glass_brain(img_thr,plot_abs=False,colorbar=True);\ndisp.add_markers(marker_coords=[seed_coord_dict[k]], marker_color=&#39;g&#39;, marker_size=300)\n\n&quot;
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.394 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.206 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg07r-nifti-vol-fc-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/d5ed7646a0656b0f30c01fca0f484c04/eg07r__nifti_vol_fc.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg07r__nifti_vol_fc.py</span></code></a></p>
