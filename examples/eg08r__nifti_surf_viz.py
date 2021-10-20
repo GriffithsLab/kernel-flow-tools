@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 r"""
 =================================
-Blah blah
+Nifti-derived surfaces - visualization
 =================================
 
 Blah blah
