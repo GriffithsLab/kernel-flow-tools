@@ -258,8 +258,7 @@ html_show_sourcelink = False
 sphinx_gallery_conf = {'filename_pattern': '(?=.*r__)(?=.*.py)', 
                        'examples_dirs': ['../examples'],
                        'gallery_dirs': ['auto_examples'],
-                       'within_subsection_order': FileNameSortKey,
-                       'default_thumb_file': 'img/kftools_logo.png',
+                       'within_subsection_order': FileNameSortKey, #'default_thumb_file': 'img/kftools_logo.png',
                        'backreferences_dir': 'generated',   # Where to drop linking files between examples & API
                        'doc_module': ('kftools'),
                        'reference_url': {'kftools': None},
