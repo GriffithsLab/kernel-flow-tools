@@ -16,8 +16,8 @@ Welcome to KFTools documentation!
    :glob:
  
    getting_started/installation
-   auto_examples/eg01r__data_fetchers
-
+   auto_examples/eg01r__fetching_data
+   
 .. toctree::
    :maxdepth: 1
    :caption: SNIRF-based fNIRS Analyses
