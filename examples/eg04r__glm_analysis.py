@@ -15,7 +15,7 @@ SNIRF HbM GLM Analysis
 
 # KF Tools and related imports
 from kftools.data import fetch_file
-from kftools.snirf import snirf_task_ana,plot_glm_contrast_too
+from kftools.snirf import snirf_task_ana,plot_glm_contrast_topo
 
 
 # %%
