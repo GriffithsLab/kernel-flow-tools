@@ -59,7 +59,7 @@ def snirf_task_ana(f,subselect_with = None, subselect_range = None,
   for c_it,c in enumerate(hbm.ch_names): 
     hbm.info['chs'][c_it]['loc'][:3] = hbm.info['chs'][c_it]['loc'][6:9]  # Big hack???
   
-  hbm._data = np.nan_to_num(hbm._data)
+  #hbm._data = np.nan_to_num(hbm._data)
 
   hbm, df_evs, ev, ev_d = organize_events(f=f,hbm=hbm,remove_start_iti=True,task='ft',
                                           remove_start_block=True,remove_start_expt=True)
