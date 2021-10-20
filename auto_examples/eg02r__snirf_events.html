@@ -152,7 +152,7 @@
 </ul>
 <p class="caption"><span class="caption-text">KF Portal NIFTI-based fNIRS Analysis</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="eg05r__nifti_vol_viz.html">Blah blah</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="eg05r__nifti_vol_viz.html">Nifti volumes - visualization</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="eg05r__nifti_vol_viz.html#thing">Thing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="eg05r__nifti_vol_viz.html#thingywot">Thingywot</a></li>
 </ul>
@@ -316,35 +316,53 @@ From: https://drive.google.com/uc?id=1IOB4DZFDIkWzj9AtxygV8mQE1Ee2mtHt
 To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_ft_ses02_0917-1313_kp-snf-hbm.snirf
 
   0%|          | 0.00/431M [00:00&lt;?, ?B/s]
-  0%|          | 1.05M/431M [00:00&lt;00:44, 9.60MB/s]
-  3%|2         | 11.5M/431M [00:00&lt;00:10, 39.9MB/s]
-  6%|6         | 26.7M/431M [00:00&lt;00:05, 76.3MB/s]
-  8%|8         | 35.7M/431M [00:00&lt;00:04, 80.4MB/s]
- 12%|#2        | 51.9M/431M [00:00&lt;00:03, 106MB/s]
- 16%|#5        | 67.6M/431M [00:00&lt;00:03, 108MB/s]
- 19%|#8        | 81.3M/431M [00:00&lt;00:03, 116MB/s]
- 23%|##3       | 99.6M/431M [00:00&lt;00:02, 135MB/s]
- 27%|##6       | 115M/431M [00:01&lt;00:02, 141MB/s]
- 30%|###       | 131M/431M [00:01&lt;00:02, 140MB/s]
- 34%|###4      | 147M/431M [00:01&lt;00:01, 147MB/s]
- 38%|###7      | 163M/431M [00:01&lt;00:01, 137MB/s]
- 41%|####      | 177M/431M [00:01&lt;00:01, 128MB/s]
- 45%|####5     | 195M/431M [00:01&lt;00:01, 141MB/s]
- 49%|####8     | 210M/431M [00:01&lt;00:01, 142MB/s]
- 53%|#####3    | 229M/431M [00:01&lt;00:01, 155MB/s]
- 57%|#####7    | 246M/431M [00:01&lt;00:01, 158MB/s]
- 61%|######    | 262M/431M [00:02&lt;00:01, 133MB/s]
- 65%|######4   | 279M/431M [00:02&lt;00:01, 142MB/s]
- 69%|######9   | 298M/431M [00:02&lt;00:00, 154MB/s]
- 73%|#######2  | 315M/431M [00:02&lt;00:00, 127MB/s]
- 76%|#######6  | 329M/431M [00:02&lt;00:00, 127MB/s]
- 79%|#######9  | 342M/431M [00:02&lt;00:00, 123MB/s]
- 82%|########2 | 355M/431M [00:02&lt;00:00, 107MB/s]
- 86%|########6 | 371M/431M [00:03&lt;00:00, 119MB/s]
- 91%|######### | 391M/431M [00:03&lt;00:00, 138MB/s]
- 95%|#########5| 410M/431M [00:03&lt;00:00, 151MB/s]
- 99%|#########8| 426M/431M [00:03&lt;00:00, 147MB/s]
-100%|##########| 431M/431M [00:03&lt;00:00, 129MB/s]
+  0%|          | 524k/431M [00:00&lt;01:57, 3.65MB/s]
+  2%|1         | 7.86M/431M [00:00&lt;00:11, 37.9MB/s]
+  3%|2         | 12.6M/431M [00:00&lt;00:11, 35.3MB/s]
+  4%|4         | 18.9M/431M [00:00&lt;00:10, 40.7MB/s]
+  5%|5         | 23.6M/431M [00:00&lt;00:10, 39.1MB/s]
+  7%|6         | 28.8M/431M [00:00&lt;00:09, 42.7MB/s]
+  8%|8         | 34.6M/431M [00:00&lt;00:10, 36.5MB/s]
+ 10%|9         | 43.0M/431M [00:01&lt;00:09, 40.8MB/s]
+ 12%|#1        | 50.9M/431M [00:01&lt;00:08, 43.1MB/s]
+ 14%|#3        | 59.2M/431M [00:01&lt;00:08, 45.0MB/s]
+ 16%|#5        | 67.6M/431M [00:01&lt;00:08, 43.8MB/s]
+ 18%|#7        | 76.0M/431M [00:01&lt;00:07, 45.5MB/s]
+ 20%|#9        | 84.4M/431M [00:01&lt;00:06, 49.8MB/s]
+ 22%|##1       | 92.8M/431M [00:02&lt;00:07, 47.3MB/s]
+ 23%|##3       | 101M/431M [00:02&lt;00:07, 43.3MB/s]
+ 25%|##5       | 110M/431M [00:02&lt;00:06, 48.9MB/s]
+ 27%|##7       | 118M/431M [00:02&lt;00:05, 52.9MB/s]
+ 29%|##9       | 126M/431M [00:02&lt;00:05, 56.8MB/s]
+ 31%|###1      | 135M/431M [00:02&lt;00:04, 61.8MB/s]
+ 33%|###3      | 143M/431M [00:03&lt;00:04, 61.3MB/s]
+ 35%|###5      | 152M/431M [00:03&lt;00:04, 64.5MB/s]
+ 37%|###7      | 160M/431M [00:03&lt;00:03, 68.3MB/s]
+ 39%|###9      | 169M/431M [00:03&lt;00:03, 72.4MB/s]
+ 41%|####      | 177M/431M [00:03&lt;00:03, 70.3MB/s]
+ 43%|####2     | 185M/431M [00:03&lt;00:03, 62.7MB/s]
+ 45%|####4     | 193M/431M [00:03&lt;00:03, 62.2MB/s]
+ 47%|####7     | 203M/431M [00:03&lt;00:03, 69.4MB/s]
+ 49%|####8     | 211M/431M [00:03&lt;00:03, 71.7MB/s]
+ 52%|#####2    | 224M/431M [00:04&lt;00:02, 88.9MB/s]
+ 54%|#####4    | 234M/431M [00:04&lt;00:03, 62.7MB/s]
+ 57%|#####6    | 244M/431M [00:04&lt;00:02, 64.9MB/s]
+ 60%|######    | 259M/431M [00:04&lt;00:02, 83.9MB/s]
+ 62%|######2   | 269M/431M [00:04&lt;00:02, 79.8MB/s]
+ 65%|######4   | 280M/431M [00:04&lt;00:01, 87.0MB/s]
+ 68%|######7   | 292M/431M [00:04&lt;00:01, 94.0MB/s]
+ 70%|#######   | 302M/431M [00:05&lt;00:01, 95.1MB/s]
+ 73%|#######2  | 314M/431M [00:05&lt;00:01, 100MB/s]
+ 75%|#######5  | 325M/431M [00:05&lt;00:01, 86.7MB/s]
+ 79%|#######8  | 340M/431M [00:05&lt;00:00, 103MB/s]
+ 81%|########1 | 351M/431M [00:05&lt;00:00, 101MB/s]
+ 84%|########4 | 363M/431M [00:05&lt;00:00, 103MB/s]
+ 87%|########6 | 374M/431M [00:05&lt;00:00, 98.2MB/s]
+ 90%|########9 | 386M/431M [00:05&lt;00:00, 98.9MB/s]
+ 93%|#########3| 401M/431M [00:05&lt;00:00, 111MB/s]
+ 96%|#########5| 413M/431M [00:06&lt;00:00, 106MB/s]
+ 99%|#########8| 425M/431M [00:06&lt;00:00, 111MB/s]
+100%|##########| 431M/431M [00:06&lt;00:00, 69.2MB/s]
 </pre></div>
 </div>
 </div>
@@ -379,8 +397,8 @@ To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_f
       <th>Value</th>
       <th>Block</th>
       <th>Trial</th>
-      <th>TrialType</th>
       <th>BlockType</th>
+      <th>TrialType</th>
     </tr>
   </thead>
   <tbody>
@@ -392,8 +410,8 @@ To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_f
       <td>1.0</td>
       <td>1.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>Left</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>1</th>
@@ -403,8 +421,8 @@ To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_f
       <td>1.0</td>
       <td>1.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>Left</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>2</th>
@@ -414,8 +432,8 @@ To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_f
       <td>1.0</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>Index</td>
       <td>Left</td>
+      <td>Index</td>
     </tr>
     <tr>
       <th>3</th>
@@ -425,8 +443,8 @@ To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_f
       <td>1.0</td>
       <td>1.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>Left</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>4</th>
@@ -436,8 +454,8 @@ To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_f
       <td>1.0</td>
       <td>1.0</td>
       <td>2.0</td>
-      <td>Middle</td>
       <td>Left</td>
+      <td>Middle</td>
     </tr>
     <tr>
       <th>...</th>
@@ -458,8 +476,8 @@ To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_f
       <td>1.0</td>
       <td>20.0</td>
       <td>299.0</td>
-      <td>Middle</td>
       <td>Right</td>
+      <td>Middle</td>
     </tr>
     <tr>
       <th>654</th>
@@ -469,8 +487,8 @@ To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_f
       <td>1.0</td>
       <td>20.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>Right</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>655</th>
@@ -480,8 +498,8 @@ To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_f
       <td>1.0</td>
       <td>20.0</td>
       <td>300.0</td>
-      <td>Ring</td>
       <td>Right</td>
+      <td>Ring</td>
     </tr>
     <tr>
       <th>656</th>
@@ -491,8 +509,8 @@ To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_f
       <td>1.0</td>
       <td>20.0</td>
       <td>NaN</td>
-      <td>NaN</td>
       <td>Right</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>657</th>
@@ -510,7 +528,7 @@ To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_f
 <p>658 rows × 8 columns</p>
 </div>
 <br />
-<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.532 seconds)</p>
+<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.477 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg02r-snirf-events-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/e5e577c1d8fa2327fe175bf2a83bbe2c/eg02r__snirf_events.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg02r__snirf_events.py</span></code></a></p>
