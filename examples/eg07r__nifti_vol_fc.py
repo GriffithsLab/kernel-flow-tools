@@ -68,6 +68,8 @@ print('thing')#           ``something here`` to ``'eg'``.
 #
 # .. note:: Things
 
+"""
+
 ### seed coords from (Eggebrecht et al., 2014) ###
 
 seed_coord_dict = {'vis':(-19.5, -102, -3), 'aud':(-67.5, -27, 12), 'mot':(-67.5, -12, 27), 'DAN':(-58.5, -69, -6), 'FPC':(-52.5, 24, 33), 'DMN':(-43.5, 21, 51)}
@@ -93,3 +95,5 @@ img = z_maps[k]
 img_thr,_ = threshold_stats_img(img,threshold=thr,cluster_threshold=50,alpha=0.05)
 disp = plot_glass_brain(img_thr,plot_abs=False,colorbar=True);
 disp.add_markers(marker_coords=[seed_coord_dict[k]], marker_color='g', marker_size=300)
+
+""";
