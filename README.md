@@ -23,9 +23,9 @@ The `KFTools` functions are mostly based on two established and best-in-class ne
 
 There are three main components to the code base:
  
-*doc folder* - Documentation pages text and organization  
+*`doc` folder* - Documentation pages text and organization  
 *`kftools` folder* - The importable python library  
-*examples folder* - Example usage scripts that become the gallery items in the CI-managed sphinx gallery site  
+*`examples` folder* - Example usage scripts that become the gallery items in the CI-managed sphinx gallery site  
 
 
 
