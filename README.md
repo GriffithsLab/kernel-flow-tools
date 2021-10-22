@@ -22,8 +22,10 @@ The objective of `KFTools` is to act as a set of thin wrappers on actual analysi
 The `KFTools` functions are mostly based on two established and best-in-class neuroimaging anaysis libraries: MNE (and especially mne-nirs), and Nilearn. There is also some Homer3 analysis functionality. 
 
 There are three main components to the code base:
+ 
+*doc folder* - Documentation pages text and organization  
+*`kftools` folder* - The importable python library  
+*examples folder* - Example usage scripts that become the gallery items in the CI-managed sphinx gallery site  
 
-*doc folder* - Documentation pages text and organization
-*`kftools` folder* - The importable python library
-*examples folder* - Example usage scripts that become the gallery items in the CI-managed sphinx gallery site
+
 
