@@ -32,8 +32,7 @@ fetch_file(data_dir=data_dir, filetype='kp-snf-hbm',
 # Specify and run the GLM model
 # ---------------------------------------------------
 
-#f = 'snic_sub001_ft_ses02_0917-1313_kp-snf-hbm.snirf'
-f = 'snic_sub001_ft_ses01_0909-1523_kp-snf-hbm.snirf'
+f = 'snic_sub001_ft_ses02_0917-1313_kp-snf-hbm.snirf'
 
 res = snirf_task_ana(f)
 
