@@ -12,7 +12,7 @@ Please note that the code here is still very preliminary, under active developme
 
 As one of the first scientific groups undertaking new research projects with the Kernel Flow system, it became quickly apparent that establishing a wider user community will be one of the best routes to rapid and effective progress for all concerned. 
 
-We open source and open science ~~zealots~~ advocates, we have elected to pursue a 'fully open' and public development approach here. A chief motivation behind this is to bring in contributors and collaborators who are interested in working together to move things forward more quickly that we would be able to individually. So, if you are interested in getting involved, don't hesitate to reach out to John ( j dot davidgriffiths at gmail dot com ), or just introduce yourself via an issue.  
+As open source and open science advocates, we have elected to pursue a 'fully open' and public development approach here. A chief motivation behind this is to bring in contributors and collaborators who are interested in working together to move things forward more quickly that any of us would be able to individually. So, if you are interested in getting involved, don't hesitate to reach out to John ( j dot davidgriffiths at gmail dot com ), or just introduce yourself via an issue.  
 
 
 ## Structure
