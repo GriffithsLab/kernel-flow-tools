@@ -91,6 +91,11 @@ def snirf_task_ana(f,subselect_with = None, subselect_range = None,
                                                high_pass=0.005,  # Must be specified per experiment
                                                hrf_model='spm',
                                                stim_dur=5.0)
+ 
+  # seems to be necessary; can't tell why  
+  design_matrix.columns = [ c.replace('TappingL', 'Tapping/L').replace('TappingR', 'Tapping/R') for c in design_matrix.columns]
+ 
+
   # Fit to sphere
   # (dug this out from the plot_sensors function calls)
   sphere_params =  _check_sphere('auto', info=hbm.info, sphere_units='m')
