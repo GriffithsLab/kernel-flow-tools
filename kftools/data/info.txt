@@ -9,3 +9,8 @@ snic_sub001_ft_ses01_0909-1523_kp-nii-hbr.nii.gz 16HYwInXlIWpqezHpASP68IxNk3Wme9
 snic_sub001_ft_ses02_0917-1313_kp-nii-hbr.nii.gz 16MZ4jDVhC34RnWj4DRwsL4HC0pjKVAfF
 snic_sub001_ft_ses01_0909-1523_kp-nii-evs.tsv 1DXUIQcbVJg3dc4WAiC7xStbweF9v_4V1
 snic_sub001_ft_ses02_0917-1313_kp-nii-evs.tsv 1CDrWzSNVIPCRDvQ541T2QLTo0-KmltDY
+pitch_sub010_ft_ses01_1017-1706_kp-snf-mom.snirf 1BjcxMGGOR6yDCbvPw20vG93oK_ovMkBV
+pitch_sub010_ft_ses01_1017-1706_kp-snf-hbm.snirf 1BcZHsmDWgxhppg_j4yqBLj2MBM20kzM_
+pitch_sub010_ft_ses01_1017-1706_kp-nii-hbo.nii.gz 1BdkWzxl4zEKrWmJ79wiWHFImpJ9VVUCk
+pitch_sub010_ft_ses01_1017-1706_kp-nii-hbr.nii.gz 1BgygbQd3W9GdsSGd4t1TlS6uaPy1_v6l
+pitch_sub010_ft_ses01_1017-1706_kp-nii-evs.tsv 1BSLMnD5Hmkj3g_YfKioLQUL3AQfvV5ac
