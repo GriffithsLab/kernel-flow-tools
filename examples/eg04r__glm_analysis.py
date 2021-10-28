@@ -25,14 +25,13 @@ from kftools.snirf import snirf_task_ana,plot_glm_contrast_topo
 data_dir='.'
  
 fetch_file(data_dir=data_dir, filetype='kp-snf-hbm',
-           site='snic', task='ft', subid='sub001', sesid='ses02')
-
+            site='pitch', task='ft', subid='sub010', sesid='ses01')
 
 # %%
 # Specify and run the GLM model
 # ---------------------------------------------------
 
-f = 'snic_sub001_ft_ses02_0917-1313_kp-snf-hbm.snirf'
+f = 'pitch_sub010_ft_ses01_1017-1706_kp-snf-hbm.snirf'
 
 res = snirf_task_ana(f)
 
@@ -50,3 +49,7 @@ res.keys()
 glmest = res['glm_est']
 con = res['contrast_LgtR'].data
 disp = plot_glm_contrast_topo(glmest, con,sphere='auto')
+
+
+
+
