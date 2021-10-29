@@ -130,6 +130,27 @@ def snirf_task_ana(f,subselect_with = None, subselect_range = None,
   estmrg_RgtL, pos_RgtL, chs_RgtL, sphere_RgtL = _handle_overlaps(info, chromo,
                                                                   sphere_params, estimates)
 
+
+  contrast_vec_LTgtRe = basic_conts['Tapping/L'] - basic_conts['Rest']
+  contrast_LTgtRe = glm_est.compute_contrast(contrast_vec_LTgtRe, contrast_type='t')
+  estimates = contrast_LTgtRe.data.effect[0]
+  info = contrast_LTgtRe.info
+  estmrg_LTgtRe, pos_LTgtRe, chs_LTgtRe, sphere_LTgtRe = _handle_overlaps(info, chromo,
+                                                                  sphere_params, estimates)
+
+ 
+  contrast_vec_RTgtRe = basic_conts['Tapping/R'] - basic_conts['Rest']
+  contrast_RTgtRe = glm_est.compute_contrast(contrast_vec_RTgtRe, contrast_type='t')
+  #contrast_RgtL.plot_topo(sphere='auto')#,vmin=-1E4,vmax=1E4);
+  estimates = contrast_RTgtRe.data.effect[0]
+  info = contrast_RTgtLe.info
+  estmrg_RTgtRe, pos_RTgtRe, chs_RTgtRe, sphere_RTgtRe = _handle_overlaps(info, chromo,
+                                                                  sphere_params, estimates)
+
+
+
+
+
   returnstuff = dict(df_evs=df_evs,ev=ev,ev_d=ev_d,
                      hbm=hbm,hbm_ep=hbm_ep,
                      hbm_ev_LgtR=hbm_ev_LgtR,
@@ -143,6 +164,14 @@ def snirf_task_ana(f,subselect_with = None, subselect_range = None,
                      contrast_RgtL = contrast_RgtL,
                      estmrg_LgtR = estmrg_LgtR, 
                      estmrg_RgtL = estmrg_RgtL,
+                     contrast_LTgtRe = contrast_LTgtRe,
+                     contrast_vec_LTgtRe = contrast_vec_LTgtRe,
+                     contrast_RTgtRe = contrast_RTgtRe,
+                     estmrg_LTgtRe = estmrg_LTgtRe, 
+                     estmrg_RTgtRe = estmrg_RTgtRe,
+                     pos_LgtR = pos_LgtR,
+
+ 
                      pos_LgtR = pos_LgtR,
                      pos_RgtL = pos_RgtL, 
                      chs_LgtR = chs_LgtR,
