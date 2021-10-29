@@ -161,9 +161,10 @@ def snirf_task_ana(f,subselect_with = None, subselect_range = None,
 
 
 
-def kf_plot_glm_contrast_topo(inst, contrast, figsize=(12, 7), sphere='auto',mask=None,
+def kf_plot_glm_contrast_topo(inst, contrast, figsize=(12, 7), sphere='auto',
                               vmin=None,vmax=None,positive_only=True,cmap=False,
-                              sig_thr=0.05,chromo='hbo',plot_quant='stat',cutnan=True):
+                              highlight_sigchans = True,sig_thr=0.05,chromo='hbo',
+                              plot_quant='stat',cutnan=True):
 
     info = deepcopy(inst if isinstance(inst, Info) else inst.info)
 
@@ -218,8 +219,8 @@ def kf_plot_glm_contrast_topo(inst, contrast, figsize=(12, 7), sphere='auto',mas
         pvalmrg, _, _, _= _handle_overlaps(info, t, sphere, pval)
         sigmrg, _, _, _= _handle_overlaps(info, t, sphere, sig)
         
-        if mask:
-            mask=sigmrg.astype(bool)
+        if highlight_sigchans:
+            sig_mask=sigmrg.astype(bool)
 
         if plot_quant == 'stat': 
             plot_dat = estmrg
@@ -239,7 +240,7 @@ def kf_plot_glm_contrast_topo(inst, contrast, figsize=(12, 7), sphere='auto',mas
                                      vmin=vmin,
                                      vmax=vmax,
                                      cmap=cmap,
-                                     mask=mask,
+                                     mask=sig_mask,
                                      axes=ax,
                                      show=False,
                                      sphere=sphere)
