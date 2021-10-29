@@ -43,7 +43,7 @@ res.keys()
 # ---------------------------------------------------
 
 # %% 
-# Left > Right contrast
+# HbO, Left > Right contrast
 
 glmest = res['glm_est']
 con = res['contrast_LgtR'].data
@@ -51,12 +51,29 @@ disp = kf_plot_glm_contrast_topo(glmest, con,
                                  vmin=0,vmax=0.5,sig_thr=0.00001)
 
 # %% 
-# Right > Left contrast
+# HbO, Right > Left contrast
 
 glmest = res['glm_est']
 con = res['contrast_RgtL'].data
 disp = kf_plot_glm_contrast_topo(glmest, con,
                                  vmin=0,vmax=0.5,sig_thr=0.00001)
+
+
+# %% 
+# HbR, Left > Right contrast
+
+glmest = res['glm_est']
+con = res['contrast_LgtR'].data
+disp = kf_plot_glm_contrast_topo(glmest, con, chromo='hbr',
+                                 vmin=0,vmax=0.3,sig_thr=0.0001)
+
+# %% 
+# HbR, Right > Left contrast
+
+glmest = res['glm_est']
+con = res['contrast_RgtL'].data
+disp = kf_plot_glm_contrast_topo(glmest, con, chromo='hbr',
+                                 vmin=0,vmax=0.5,sig_thr=0.0001)
 
 
 
