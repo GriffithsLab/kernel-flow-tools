@@ -80,12 +80,17 @@ def snirf_task_ana(f,subselect_with = None, subselect_range = None,
 
   hbm_ev_L = hbm_ep['Tapping/L'].average()
   hbm_ev_R = hbm_ep['Tapping/R'].average()
+  hbm_ev_Rest = hbm_ep['Rest'].average()
+
 
   hbm_ev_LgtR = mne.combine_evoked([hbm_ev_L, hbm_ev_R], weights=[1, -1])
   hbm_ev_RgtL = mne.combine_evoked([hbm_ev_R, hbm_ev_L], weights=[1, -1])
 
+  hbm_ev_LgtRest = mne.combine_evoked([hbm_ev_L, hbm_ev_Rest], weights=[1, -1])
+  hbm_ev_RgtRest = mne.combine_evoked([hbm_ev_R, hbm_ev_Rest], weights=[1, -1])
 
   s = mne_nirs.experimental_design.create_boxcar(hbm)
+  
   design_matrix = make_first_level_design_matrix(hbm,
                                                drift_model='cosine',
                                                high_pass=0.005,  # Must be specified per experiment
@@ -115,7 +120,6 @@ def snirf_task_ana(f,subselect_with = None, subselect_range = None,
   
   contrast_vec_LgtR = basic_conts['Tapping/L'] - basic_conts['Tapping/R']
   contrast_LgtR = glm_est.compute_contrast(contrast_vec_LgtR, contrast_type='t')
-  #contrast_LgtR.plot_topo(sphere='auto');#,vmin=-1E4,vmax=1E4);
   estimates = contrast_LgtR.data.effect[0]
   info = contrast_LgtR.info
   estmrg_LgtR, pos_LgtR, chs_LgtR, sphere_LgtR = _handle_overlaps(info, chromo,
@@ -124,27 +128,27 @@ def snirf_task_ana(f,subselect_with = None, subselect_range = None,
  
   contrast_vec_RgtL = basic_conts['Tapping/R'] - basic_conts['Tapping/L']
   contrast_RgtL = glm_est.compute_contrast(contrast_vec_RgtL, contrast_type='t')
-  #contrast_RgtL.plot_topo(sphere='auto')#,vmin=-1E4,vmax=1E4);
   estimates = contrast_RgtL.data.effect[0]
   info = contrast_RgtL.info
   estmrg_RgtL, pos_RgtL, chs_RgtL, sphere_RgtL = _handle_overlaps(info, chromo,
                                                                   sphere_params, estimates)
 
 
-  contrast_vec_LTgtRe = basic_conts['Tapping/L'] - basic_conts['Rest']
-  contrast_LTgtRe = glm_est.compute_contrast(contrast_vec_LTgtRe, contrast_type='t')
-  estimates = contrast_LTgtRe.data.effect[0]
-  info = contrast_LTgtRe.info
-  estmrg_LTgtRe, pos_LTgtRe, chs_LTgtRe, sphere_LTgtRe = _handle_overlaps(info, chromo,
+
+
+  contrast_vec_LgtRest = basic_conts['Tapping/L'] - basic_conts['Rest']
+  contrast_LgtRest = glm_est.compute_contrast(contrast_vec_LgtRest, contrast_type='t')
+  estimates = contrast_LgtRest.data.effect[0]
+  info = contrast_LgtRest.info
+  estmrg_LgtRest, pos_LgtRest, chs_LgtRest, sphere_LgtRest = _handle_overlaps(info, chromo,
                                                                   sphere_params, estimates)
 
  
-  contrast_vec_RTgtRe = basic_conts['Tapping/R'] - basic_conts['Rest']
-  contrast_RTgtRe = glm_est.compute_contrast(contrast_vec_RTgtRe, contrast_type='t')
-  #contrast_RgtL.plot_topo(sphere='auto')#,vmin=-1E4,vmax=1E4);
-  estimates = contrast_RTgtRe.data.effect[0]
-  info = contrast_RTgtLe.info
-  estmrg_RTgtRe, pos_RTgtRe, chs_RTgtRe, sphere_RTgtRe = _handle_overlaps(info, chromo,
+  contrast_vec_RgtRest = basic_conts['Tapping/R'] - basic_conts['Rest']
+  contrast_RgtRest = glm_est.compute_contrast(contrast_vec_RgtRest, contrast_type='t')
+  estimates = contrast_RgtRest.data.effect[0]
+  info = contrast_RgtRest.info
+  estmrg_RgtRest, pos_RtgtRest, chs_RgtRest, sphere_RgtRest = _handle_overlaps(info, chromo,
                                                                   sphere_params, estimates)
 
 
@@ -164,14 +168,11 @@ def snirf_task_ana(f,subselect_with = None, subselect_range = None,
                      contrast_RgtL = contrast_RgtL,
                      estmrg_LgtR = estmrg_LgtR, 
                      estmrg_RgtL = estmrg_RgtL,
-                     contrast_LTgtRe = contrast_LTgtRe,
-                     contrast_vec_LTgtRe = contrast_vec_LTgtRe,
-                     contrast_RTgtRe = contrast_RTgtRe,
-                     estmrg_LTgtRe = estmrg_LTgtRe, 
-                     estmrg_RTgtRe = estmrg_RTgtRe,
-                     pos_LgtR = pos_LgtR,
-
- 
+                     contrast_LgtRest = contrast_LgtRest,
+                     contrast_vec_LgtRest = contrast_vec_LgtRest,
+                     contrast_RgtRest = contrast_RgtRest,
+                     estmrg_LgtRest = estmrg_LgtRest, 
+                     estmrg_RgtRest = estmrg_RgtRest,
                      pos_LgtR = pos_LgtR,
                      pos_RgtL = pos_RgtL, 
                      chs_LgtR = chs_LgtR,
