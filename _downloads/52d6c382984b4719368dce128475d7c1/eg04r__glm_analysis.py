@@ -15,7 +15,7 @@ SNIRF HbM GLM Analysis
 
 # KF Tools and related imports
 from kftools.data import fetch_file
-from kftools.snirf import snirf_task_ana,plot_glm_contrast_topo
+from kftools.snirf import snirf_task_ana,kf_plot_glm_contrast_topo
 
 
 # %%
@@ -42,13 +42,21 @@ res.keys()
 # Look at GLM results
 # ---------------------------------------------------
 
-#glmest = res['glm_est']
-#contrst = res['estmrg_LgtR']
-#con = contrst.data
+# %% 
+# Left > Right contrast
 
 glmest = res['glm_est']
 con = res['contrast_LgtR'].data
-disp = plot_glm_contrast_topo(glmest, con,sphere='auto')
+disp = kf_plot_glm_contrast_topo(glmest, con,
+                                 vmin=0,vmax=0.5,sig_thr=0.00001)
+
+# %% 
+# Right > Left contrast
+
+glmest = res['glm_est']
+con = res['contrast_RgtL'].data
+disp = kf_plot_glm_contrast_topo(glmest, con,
+                                 vmin=0,vmax=0.5,sig_thr=0.00001)
 
 
 
