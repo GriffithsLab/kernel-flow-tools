@@ -148,7 +148,8 @@ def snirf_task_ana(f,subselect_with = None, subselect_range = None,
                      chs_LgtR = chs_LgtR,
                      chs_RgtL = chs_RgtL,
                      sphere_LgtR = sphere_LgtR,
-                     sphere_RgtL = sphere_RgtL)
+                     sphere_RgtL = sphere_RgtL,
+                     chromo=chromo)
 
 
   return returnstuff
@@ -160,8 +161,9 @@ def snirf_task_ana(f,subselect_with = None, subselect_range = None,
 
 
 
-def plot_glm_contrast_topo(inst, contrast, figsize=(12, 7), sphere=None,
-                              vmin=None,vmax=None,positive_only=True,cmap=False):
+def kf_plot_glm_contrast_topo(inst, contrast, figsize=(12, 7), sphere='auto',mask=None,
+                              vmin=None,vmax=None,positive_only=True,cmap=False,
+                              sig_thr=0.05,chromo='hbo',plot_quant='stat',cutnan=True):
 
     info = deepcopy(inst if isinstance(inst, Info) else inst.info)
 
@@ -175,7 +177,26 @@ def plot_glm_contrast_topo(inst, contrast, figsize=(12, 7), sphere=None,
 
     estimates = np.squeeze(estimates) # JG_ADD
 
-    if positive_only: estimates[estimates<0] = 0 # JG_ADD
+
+    pval = contrast.p_value() # JG_ADD
+    sig = pval<sig_thr # JG_ADD 
+
+    if cutnan:
+        nonanners = np.nonzero(np.squeeze(np.isnan(estimates)==False))[0]
+        estimates = estimates[nonanners]
+        pval = pval[nonanners]
+        sig = sig[nonanners]
+        
+        nonanner_names = [info.ch_names[n] for n in nonanners]
+        
+        info = info.pick_channels(nonanner_names)
+        
+
+    if positive_only: 
+        estimates[estimates<0] = 0 
+        sig[estimates<0] = False
+        pval[estimates<0] = 1
+
 
     # Create subplots for figures
     fig, axes = plt.subplots(nrows=1,
@@ -190,12 +211,21 @@ def plot_glm_contrast_topo(inst, contrast, figsize=(12, 7), sphere=None,
       cmap = mpl.cm.RdBu_r
     norm = mpl.colors.Normalize(vmin=vmin, vmax=vmax)
 
+    # t loop is over 'chromo' types hbo and hbr
     for t_idx, t in enumerate(types):
 
+        estmrg, pos, chs, sphere = _handle_overlaps(info, t, sphere, estimates)
+        pvalmrg, _, _, _= _handle_overlaps(info, t, sphere, pval)
+        sigmrg, _, _, _= _handle_overlaps(info, t, sphere, sig)
+        
+        if mask:
+            mask=sigmrg.astype(bool)
 
-        estmrg, pos, chs, sphere = _handle_overlaps(info, 'hbo', sphere, estimates)
-
-
+        if plot_quant == 'stat': 
+            plot_dat = estmrg
+        elif plot_quant == 'pval':
+            plot_dat = pvalmrg
+        
         # Deal with case when only a single chroma is available
         if len(types) == 1:
             ax = axes
@@ -209,6 +239,7 @@ def plot_glm_contrast_topo(inst, contrast, figsize=(12, 7), sphere=None,
                                      vmin=vmin,
                                      vmax=vmax,
                                      cmap=cmap,
+                                     mask=mask,
                                      axes=ax,
                                      show=False,
                                      sphere=sphere)
