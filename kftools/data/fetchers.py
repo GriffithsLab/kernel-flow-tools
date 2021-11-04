@@ -66,7 +66,8 @@ def fetch_file(data_dir=None,site='snic',task='ft',subid='sub001',sesid='ses01',
   for idx in idxstoget:
     dlcode,fname = df_info.loc[idx][['dlcode', 'fname']].values
     fname = os.path.join(data_dir, fname)
-    pull_file(dlcode,fname,download_method)
+    if not os.path.isfile(fname):
+      pull_file(dlcode,fname,download_method)
 
 
 
