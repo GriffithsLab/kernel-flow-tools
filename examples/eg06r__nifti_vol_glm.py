@@ -16,6 +16,7 @@ Nifti volumes - GLM analysis
 from kftools.data import fetch_file
 from kftools.nifti import ft_glm_ana
 
+import numpy as np
 import nibabel as nib
 from nilearn.image import mean_img
 from nilearn.surface import load_surf_mesh,load_surf_data,vol_to_surf
