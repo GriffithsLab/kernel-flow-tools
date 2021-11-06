@@ -7,6 +7,23 @@ import glob
 from nilearn.glm import threshold_stats_img
 from nilearn import datasets
 from nilearn import surface
+from nilearn.datasets import load_mni152_template
+
+### seed coords from (Eggebrecht et al., 2014) ###
+seed_coord_dict = {'vis':(-19.5, -102, -3), 
+                   'aud':(-67.5, -27, 12), 
+                   'mot':(-67.5, -12, 27), 
+                   'DAN':(-58.5, -69, -6), 
+                   'FPC':(-52.5, 24, 33), 
+                   'DMN':(-43.5, 21, 51)}
+seed_coord_ser = pd.Series(seed_coord_dict)
+
+### making MNI mask ###
+avg152_img = load_mni152_template()
+avg152_dat = avg152_img.get_data()
+avg152_mask_dat = (avg152_dat > 0).astype(float)
+avg152_mask_img = nib.Nifti1Image(avg152_mask_dat, affine=avg152_img.affine)
+
 
 
 def fc_for_seeds(nifti_f,dothese=None,clip_vols=[],radius=10):
