@@ -136,7 +136,12 @@
 <p class="caption"><span class="caption-text">KF Portal NIFTI-based fNIRS Analysis</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="eg05r__nifti_vol_viz.html">Nifti volumes - visualization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="eg06r__nifti_vol_glm.html">Nifti volumes - GLM analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eg06r__nifti_vol_glm.html">Nifti volumes - GLM analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg06r__nifti_vol_glm.html#importage">Importage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg06r__nifti_vol_glm.html#grab-the-data">Grab the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg06r__nifti_vol_glm.html#analysis-and-viz">Analysis and viz</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="eg07r__nifti_vol_fc.html">Nifti volumes - functional connectivity analyses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="eg08r__nifti_surf_viz.html">Nifti-derived surfaces - visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="eg09r__nifti_surf_glm.html">Nifti-derived surfaces - GLM analysis</a></li>
@@ -236,31 +241,28 @@ From: https://drive.google.com/uc?id=1BcZHsmDWgxhppg_j4yqBLj2MBM20kzM_
 To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/pitch_sub010_ft_ses01_1017-1706_kp-snf-hbm.snirf
 
   0%|          | 0.00/237M [00:00&lt;?, ?B/s]
-  2%|1         | 4.72M/237M [00:00&lt;00:06, 35.4MB/s]
-  4%|4         | 9.96M/237M [00:00&lt;00:05, 44.0MB/s]
-  7%|7         | 17.3M/237M [00:00&lt;00:04, 46.2MB/s]
- 11%|#         | 25.7M/237M [00:00&lt;00:04, 49.0MB/s]
- 14%|#4        | 34.1M/237M [00:00&lt;00:03, 55.5MB/s]
- 18%|#7        | 42.5M/237M [00:00&lt;00:03, 60.4MB/s]
- 21%|##1       | 50.9M/237M [00:00&lt;00:02, 63.4MB/s]
- 25%|##4       | 59.2M/237M [00:01&lt;00:02, 62.8MB/s]
- 30%|##9       | 70.8M/237M [00:01&lt;00:02, 76.3MB/s]
- 33%|###3      | 79.2M/237M [00:01&lt;00:02, 64.9MB/s]
- 36%|###6      | 86.5M/237M [00:01&lt;00:02, 64.8MB/s]
- 41%|####      | 96.5M/237M [00:01&lt;00:01, 73.3MB/s]
- 44%|####3     | 104M/237M [00:01&lt;00:01, 69.4MB/s]
- 47%|####7     | 113M/237M [00:01&lt;00:01, 72.8MB/s]
- 51%|#####1    | 122M/237M [00:01&lt;00:01, 78.2MB/s]
- 55%|#####4    | 131M/237M [00:02&lt;00:01, 71.1MB/s]
- 58%|#####8    | 138M/237M [00:02&lt;00:01, 71.9MB/s]
- 62%|######2   | 148M/237M [00:02&lt;00:01, 77.9MB/s]
- 67%|######7   | 160M/237M [00:02&lt;00:00, 80.8MB/s]
- 74%|#######4  | 177M/237M [00:02&lt;00:00, 97.9MB/s]
- 80%|########  | 190M/237M [00:02&lt;00:00, 108MB/s]
- 85%|########5 | 202M/237M [00:02&lt;00:00, 103MB/s]
- 92%|#########2| 219M/237M [00:02&lt;00:00, 109MB/s]
- 99%|#########8| 234M/237M [00:03&lt;00:00, 92.1MB/s]
-100%|##########| 237M/237M [00:03&lt;00:00, 77.2MB/s]
+  0%|          | 1.05M/237M [00:00&lt;00:22, 10.4MB/s]
+  4%|3         | 8.91M/237M [00:00&lt;00:06, 35.7MB/s]
+  7%|7         | 17.3M/237M [00:00&lt;00:05, 37.3MB/s]
+ 11%|#         | 25.7M/237M [00:00&lt;00:04, 47.6MB/s]
+ 14%|#4        | 34.1M/237M [00:00&lt;00:03, 53.3MB/s]
+ 18%|#7        | 42.5M/237M [00:00&lt;00:03, 55.2MB/s]
+ 21%|##1       | 50.9M/237M [00:00&lt;00:03, 61.4MB/s]
+ 25%|##4       | 59.2M/237M [00:01&lt;00:02, 65.4MB/s]
+ 29%|##8       | 68.7M/237M [00:01&lt;00:02, 73.0MB/s]
+ 32%|###2      | 76.5M/237M [00:01&lt;00:02, 71.2MB/s]
+ 36%|###5      | 84.4M/237M [00:01&lt;00:02, 69.9MB/s]
+ 39%|###9      | 92.8M/237M [00:01&lt;00:01, 72.3MB/s]
+ 43%|####2     | 101M/237M [00:01&lt;00:02, 68.0MB/s]
+ 46%|####6     | 110M/237M [00:01&lt;00:01, 69.5MB/s]
+ 50%|####9     | 118M/237M [00:01&lt;00:01, 69.3MB/s]
+ 57%|#####6    | 135M/237M [00:02&lt;00:01, 69.4MB/s]
+ 60%|######    | 143M/237M [00:02&lt;00:01, 71.7MB/s]
+ 67%|######7   | 160M/237M [00:02&lt;00:01, 51.0MB/s]
+ 74%|#######4  | 177M/237M [00:02&lt;00:00, 63.4MB/s]
+ 82%|########1 | 194M/237M [00:02&lt;00:00, 81.5MB/s]
+ 90%|######### | 214M/237M [00:03&lt;00:00, 87.5MB/s]
+100%|##########| 237M/237M [00:03&lt;00:00, 72.9MB/s]
 </pre></div>
 </div>
 </div>
@@ -348,7 +350,7 @@ dict_keys([&#39;df_evs&#39;, &#39;ev&#39;, &#39;ev_d&#39;, &#39;hbm&#39;, &#39;h
   estmrg, pos, chs, sphere = _handle_overlaps(info, t, sphere, estimates)
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  26.241 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  13.401 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg04r-glm-analysis-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/52d6c382984b4719368dce128475d7c1/eg04r__glm_analysis.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg04r__glm_analysis.py</span></code></a></p>
