@@ -73,38 +73,3 @@ disp = plot_glass_brain(img_pos,threshold=4, vmax=10);
 disp = plot_surf_stat_map(fs5.pial_left,dat_pos_lhp,bg_map=fs5.curv_left,threshold=4,vmax=10)
 
 
-"""
-
-# Glass brain plots
-disp = plot_glass_brain(z,colorbar=True,threshold=5,black_bg=True)
-
-# %%
-# Slice view stat image plots 
-disp = plot_stat_map(z,colorbar=True,threshold=5,cut_coords=[-20,-20,60])
-
-# %%
-# Project to surface 
-
-fs5 = datasets.fetch_surf_fsaverage()
-
-lh_dat = vol_to_surf(z,surf_mesh=fs5.pial_left)
-rh_dat = vol_to_surf(z,surf_mesh=fs5.pial_right)
-
-lhc = load_surf_data(fs5.sulc_left)
-rhc = load_surf_data(fs5.sulc_right)
-
-lhi_vtx,lhi_tri = load_surf_mesh(fs5.infl_left)
-rhi_vtx,rhi_tri = load_surf_mesh(fs5.infl_right)
-rhi_vtx_mod = rhi_vtx.copy()
-rhi_vtx_mod[:,0] += 90
-lrhi_vtx = np.concatenate([lhi_vtx, rhi_vtx_mod],axis=0)
-lrhi_tri = np.concatenate([lhi_tri, rhi_tri+lhi_vtx.shape[0]])
-lrh_dat = np.concatenate([lh_dat,rh_dat],axis=0)
-lrhc = np.concatenate([lhc,rhc],axis=0)
-lrhi_vtx_rot = np.zeros_like(lrhi_vtx)
-lrhi_vtx_rot[:,0] = -lrhi_vtx[:,1]
-lrhi_vtx_rot[:,1] = lrhi_vtx[:,0]
-lrhi_vtx_rot[:,2] = lrhi_vtx[:,2]
-
-
-"""
