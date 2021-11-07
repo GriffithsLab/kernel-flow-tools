@@ -9,10 +9,13 @@ from kftools import data
 # the nifti dictionaries include 3 dictionaries each: hbo nifti, hbr nifti, and events.tsv (in this order)
 
 
-def load_info():
+def load_info(info_file=None):
 
-  pth = os.path.dirname(data.__file__)
-  f = os.path.join(pth,'info.txt')
+  if info_file:
+    f = info_file
+  else:
+    pth = os.path.dirname(data.__file__)
+    f = os.path.join(pth,'info.txt')
 
   lines = [l.split(' ') for l in open(f, 'r').readlines()]
   lines = lines[1:] # ignore the column headers in the info file
@@ -28,7 +31,7 @@ def load_info():
 
 
 
-def fetch_file(data_dir=None,site='snic',task='ft',subid='sub001',sesid='ses01',
+def fetch_file(data_dir=None,info_file=None,site='snic',task='ft',subid='sub001',sesid='ses01',
                filetype='kp-nii-evs', download_method='gdown'):
  
   """
@@ -53,7 +56,7 @@ def fetch_file(data_dir=None,site='snic',task='ft',subid='sub001',sesid='ses01',
     data_dir = os.path.expanduser('~/.kftools')
     if not os.path.isdir(data_dir): os.makedirs(data_dir)
 
-  df_info = load_info()
+  df_info = load_info(info_file=info_file)
   
   qstr = ''
   for k_it,k in enumerate(['site', 'task', 'subid', 'sesid', 'filetype']):
