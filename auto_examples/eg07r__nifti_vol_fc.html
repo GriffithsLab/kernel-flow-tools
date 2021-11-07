@@ -142,7 +142,12 @@
 <li class="toctree-l2"><a class="reference internal" href="eg06r__nifti_vol_glm.html#analysis-and-viz">Analysis and viz</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Nifti volumes - functional connectivity analyses</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Nifti volumes - functional connectivity analyses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#importage">Importage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grab-the-data">Grab the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#analysis-and-viz">Analysis and viz</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="eg08r__nifti_surf_viz.html">Nifti-derived surfaces - visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="eg09r__nifti_surf_glm.html">Nifti-derived surfaces - GLM analysis</a></li>
 </ul>
@@ -214,7 +219,98 @@
 </div>
 <div class="sphx-glr-example-title section" id="nifti-volumes-functional-connectivity-analyses">
 <span id="sphx-glr-auto-examples-eg07r-nifti-vol-fc-py"></span><h1>Nifti volumes - functional connectivity analyses<a class="headerlink" href="#nifti-volumes-functional-connectivity-analyses" title="Permalink to this headline">¶</a></h1>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="section" id="importage">
+<h2>Importage<a class="headerlink" href="#importage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generic Imports</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span><span class="nn">sys</span><span class="o">,</span><span class="nn">glob</span><span class="o">,</span><span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="o">,</span><span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># KF Tools and related imports</span>
+<span class="kn">from</span> <span class="nn">kftools.data</span> <span class="kn">import</span> <span class="n">fetch_file</span>
+<span class="kn">from</span> <span class="nn">kftools.nifti</span> <span class="kn">import</span> <span class="n">fc_for_seeds</span>
+
+<span class="kn">import</span> <span class="nn">nibabel</span> <span class="k">as</span> <span class="nn">nib</span>
+<span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <span class="n">mean_img</span>
+<span class="kn">from</span> <span class="nn">nilearn.surface</span> <span class="kn">import</span> <span class="n">load_surf_mesh</span><span class="p">,</span><span class="n">load_surf_data</span><span class="p">,</span><span class="n">vol_to_surf</span>
+<span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">nilearn.datasets</span> <span class="kn">import</span> <span class="n">load_mni152_template</span>
+
+<span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <span class="n">plot_glass_brain</span><span class="p">,</span><span class="n">plot_stat_map</span><span class="p">,</span><span class="n">plot_surf_stat_map</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="grab-the-data">
+<h2>Grab the data<a class="headerlink" href="#grab-the-data" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data_dir</span><span class="o">=</span><span class="s1">&#39;.&#39;</span>
+
+<span class="n">fetch_file</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">filetype</span><span class="o">=</span><span class="s1">&#39;kp-nii-hbo&#39;</span><span class="p">,</span>
+            <span class="n">site</span><span class="o">=</span><span class="s1">&#39;snic&#39;</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">&#39;rec&#39;</span><span class="p">,</span> <span class="n">subid</span><span class="o">=</span><span class="s1">&#39;sub008&#39;</span><span class="p">,</span> <span class="n">sesid</span><span class="o">=</span><span class="s1">&#39;ses02&#39;</span><span class="p">)</span>
+
+<span class="n">nii_hbo_f</span> <span class="o">=</span> <span class="s1">&#39;snic_sub008_rec_ses02_0920-1711_kp-nii-hbo.nii.gz&#39;</span>
+
+<span class="c1">### seed coords from (Eggebrecht et al., 2014) ###</span>
+<span class="n">seed_coord_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;vis&#39;</span><span class="p">:(</span><span class="o">-</span><span class="mf">19.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">102</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">),</span>
+                   <span class="s1">&#39;aud&#39;</span><span class="p">:(</span><span class="o">-</span><span class="mf">67.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">27</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+                   <span class="s1">&#39;mot&#39;</span><span class="p">:(</span><span class="o">-</span><span class="mf">67.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="mi">27</span><span class="p">),</span>
+                   <span class="s1">&#39;DAN&#39;</span><span class="p">:(</span><span class="o">-</span><span class="mf">58.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">69</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">),</span>
+                   <span class="s1">&#39;FPC&#39;</span><span class="p">:(</span><span class="o">-</span><span class="mf">52.5</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">33</span><span class="p">),</span>
+                   <span class="s1">&#39;DMN&#39;</span><span class="p">:(</span><span class="o">-</span><span class="mf">43.5</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">51</span><span class="p">)}</span>
+<span class="n">seed_coord_ser</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">seed_coord_dict</span><span class="p">)</span>
+
+<span class="n">fs5</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_surf_fsaverage</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading snic_sub008_rec_ses02_0920-1711_kp-nii-hbo.nii.gz
+
+Downloading...
+From: https://drive.google.com/uc?id=1582zc2EUUiWPnWEnSyPnBKfuq04BgNX_
+To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub008_rec_ses02_0920-1711_kp-nii-hbo.nii.gz
+
+  0%|          | 0.00/22.1M [00:00&lt;?, ?B/s]
+ 45%|####5     | 9.96M/22.1M [00:00&lt;00:00, 98.6MB/s]
+100%|##########| 22.1M/22.1M [00:00&lt;00:00, 147MB/s]
+</pre></div>
+</div>
+</div>
+<div class="section" id="analysis-and-viz">
+<h2>Analysis and viz<a class="headerlink" href="#analysis-and-viz" title="Permalink to this headline">¶</a></h2>
+<p>Run FC GLM analysis</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="s1">&#39;DMN&#39;</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">fc_for_seeds</span><span class="p">(</span><span class="n">nii_hbo_f</span><span class="p">,</span><span class="n">dothese</span><span class="o">=</span><span class="p">[</span><span class="n">k</span><span class="p">])</span><span class="c1">#,clip_vols=[k],radius=10)</span>
+<span class="n">z_maps</span><span class="p">,</span><span class="n">z_maps_masked</span> <span class="o">=</span> <span class="n">res</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/nilearn/glm/first_level/first_level.py:63: UserWarning: Mean values of 0 observed.The data have probably been centered.Scaling might not work as expected
+  warn(&#39;Mean values of 0 observed.&#39;
+</pre></div>
+</div>
+<p>Plot</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">z_maps</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+<span class="n">dat</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+<span class="n">dat_pos</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">dat_pos</span><span class="p">[</span><span class="n">dat_pos</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">img_pos</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">Nifti1Image</span><span class="p">(</span><span class="n">dat_pos</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">affine</span><span class="p">)</span>
+<span class="n">dat_pos_lhp</span> <span class="o">=</span> <span class="n">vol_to_surf</span><span class="p">(</span><span class="n">img_pos</span><span class="p">,</span><span class="n">fs5</span><span class="o">.</span><span class="n">pial_left</span><span class="p">)</span>
+
+<span class="n">disp</span> <span class="o">=</span> <span class="n">plot_stat_map</span><span class="p">(</span><span class="n">img_pos</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">disp</span> <span class="o">=</span> <span class="n">plot_glass_brain</span><span class="p">(</span><span class="n">img_pos</span><span class="p">,</span><span class="n">threshold</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">disp</span> <span class="o">=</span> <span class="n">plot_surf_stat_map</span><span class="p">(</span><span class="n">fs5</span><span class="o">.</span><span class="n">pial_left</span><span class="p">,</span><span class="n">dat_pos_lhp</span><span class="p">,</span><span class="n">bg_map</span><span class="o">=</span><span class="n">fs5</span><span class="o">.</span><span class="n">curv_left</span><span class="p">,</span><span class="n">threshold</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="sphx-glr-horizontal">
+<li><img alt="eg07r  nifti vol fc" class="sphx-glr-multi-img" src="../_images/sphx_glr_eg07r__nifti_vol_fc_001.png" />
+</li>
+<li><img alt="eg07r  nifti vol fc" class="sphx-glr-multi-img" src="../_images/sphx_glr_eg07r__nifti_vol_fc_002.png" />
+</li>
+<li><img alt="eg07r  nifti vol fc" class="sphx-glr-multi-img" src="../_images/sphx_glr_eg07r__nifti_vol_fc_003.png" />
+</li>
+</ul>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  11.188 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg07r-nifti-vol-fc-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/d5ed7646a0656b0f30c01fca0f484c04/eg07r__nifti_vol_fc.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg07r__nifti_vol_fc.py</span></code></a></p>
@@ -224,6 +320,7 @@
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
 </div>
 
 
