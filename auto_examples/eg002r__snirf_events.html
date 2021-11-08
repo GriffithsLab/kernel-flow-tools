@@ -46,9 +46,7 @@
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Epoching-based analysis" href="eg03r__epoching_analysis.html" />
-    <link rel="prev" title="Downloading KFTools Example Data" href="eg01r__fetching_data.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -117,11 +115,11 @@
 </li>
 </ul>
 <p class="caption"><span class="caption-text">SNIRF-based fNIRS Analyses</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting events from .snirf files</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#importage">Importage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#grab-the-data">Grab the data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#get-the-events">Get the events</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="eg02r__snirf_events.html">Getting events from .snirf files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg02r__snirf_events.html#importage">Importage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg02r__snirf_events.html#grab-the-data">Grab the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg02r__snirf_events.html#get-the-events">Get the events</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="eg03r__epoching_analysis.html">Epoching-based analysis</a></li>
@@ -215,10 +213,10 @@
             
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
-<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-eg02r-snirf-events-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-eg002r-snirf-events-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="getting-events-from-snirf-files">
-<span id="sphx-glr-auto-examples-eg02r-snirf-events-py"></span><h1>Getting events from .snirf files<a class="headerlink" href="#getting-events-from-snirf-files" title="Permalink to this headline">¶</a></h1>
+<span id="sphx-glr-auto-examples-eg002r-snirf-events-py"></span><h1>Getting events from .snirf files<a class="headerlink" href="#getting-events-from-snirf-files" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
@@ -230,6 +228,13 @@
 <span class="kn">from</span> <span class="nn">mne.io</span> <span class="kn">import</span> <span class="n">read_raw_snirf</span>
 </pre></div>
 </div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/nilearn/datasets/__init__.py:93: FutureWarning: Fetchers from the nilearn.datasets module will be updated in version 0.9 to return python strings instead of bytes and Pandas dataframes instead of Numpy arrays.
+  warn(&quot;Fetchers from the nilearn.datasets module will be &quot;
+/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/nilearn/glm/__init__.py:55: FutureWarning: The nilearn.glm module is experimental. It may change in any future release of Nilearn.
+  warn(&#39;The nilearn.glm module is experimental. &#39;
+</pre></div>
+</div>
 </div>
 <div class="section" id="grab-the-data">
 <h2>Grab the data<a class="headerlink" href="#grab-the-data" title="Permalink to this headline">¶</a></h2>
@@ -237,6 +242,52 @@
 
 <span class="n">fetch_file</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">filetype</span><span class="o">=</span><span class="s1">&#39;kp-snf-hbm&#39;</span><span class="p">,</span>
            <span class="n">site</span><span class="o">=</span><span class="s1">&#39;snic&#39;</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">&#39;ft&#39;</span><span class="p">,</span> <span class="n">subid</span><span class="o">=</span><span class="s1">&#39;sub001&#39;</span><span class="p">,</span> <span class="n">sesid</span><span class="o">=</span><span class="s1">&#39;ses02&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading snic_sub001_ft_ses02_0917-1313_kp-snf-hbm.snirf
+
+Downloading...
+From: https://drive.google.com/uc?id=1IOB4DZFDIkWzj9AtxygV8mQE1Ee2mtHt
+To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_ft_ses02_0917-1313_kp-snf-hbm.snirf
+
+  0%|          | 0.00/431M [00:00&lt;?, ?B/s]
+  0%|          | 1.05M/431M [00:00&lt;00:46, 9.30MB/s]
+  3%|2         | 11.5M/431M [00:00&lt;00:10, 41.9MB/s]
+  4%|4         | 18.9M/431M [00:00&lt;00:09, 45.0MB/s]
+  6%|5         | 25.7M/431M [00:00&lt;00:09, 40.6MB/s]
+  8%|7         | 34.1M/431M [00:00&lt;00:08, 49.0MB/s]
+ 10%|9         | 42.5M/431M [00:00&lt;00:07, 50.5MB/s]
+ 12%|#1        | 50.9M/431M [00:01&lt;00:06, 56.0MB/s]
+ 14%|#3        | 59.2M/431M [00:01&lt;00:06, 53.8MB/s]
+ 16%|#5        | 67.6M/431M [00:01&lt;00:06, 54.3MB/s]
+ 18%|#7        | 76.0M/431M [00:01&lt;00:06, 53.2MB/s]
+ 20%|#9        | 84.4M/431M [00:01&lt;00:05, 59.0MB/s]
+ 22%|##1       | 92.8M/431M [00:01&lt;00:05, 63.0MB/s]
+ 23%|##3       | 101M/431M [00:01&lt;00:04, 66.8MB/s]
+ 25%|##5       | 110M/431M [00:01&lt;00:04, 70.9MB/s]
+ 27%|##7       | 118M/431M [00:02&lt;00:04, 72.7MB/s]
+ 29%|##9       | 126M/431M [00:02&lt;00:04, 66.8MB/s]
+ 31%|###1      | 135M/431M [00:02&lt;00:04, 69.8MB/s]
+ 35%|###5      | 152M/431M [00:02&lt;00:03, 92.1MB/s]
+ 39%|###8      | 168M/431M [00:02&lt;00:02, 111MB/s]
+ 42%|####1     | 179M/431M [00:02&lt;00:02, 90.1MB/s]
+ 44%|####3     | 189M/431M [00:02&lt;00:02, 91.5MB/s]
+ 47%|####7     | 203M/431M [00:02&lt;00:02, 102MB/s]
+ 51%|#####     | 219M/431M [00:03&lt;00:02, 105MB/s]
+ 54%|#####4    | 234M/431M [00:03&lt;00:01, 117MB/s]
+ 57%|#####7    | 247M/431M [00:03&lt;00:01, 119MB/s]
+ 60%|######    | 261M/431M [00:03&lt;00:01, 116MB/s]
+ 64%|######4   | 277M/431M [00:03&lt;00:01, 122MB/s]
+ 68%|######8   | 294M/431M [00:03&lt;00:01, 129MB/s]
+ 72%|#######2  | 311M/431M [00:03&lt;00:00, 134MB/s]
+ 76%|#######6  | 328M/431M [00:03&lt;00:00, 137MB/s]
+ 81%|########1 | 351M/431M [00:03&lt;00:00, 163MB/s]
+ 85%|########5 | 368M/431M [00:04&lt;00:00, 152MB/s]
+ 89%|########9 | 385M/431M [00:04&lt;00:00, 156MB/s]
+ 93%|#########3| 401M/431M [00:04&lt;00:00, 145MB/s]
+ 99%|#########8| 425M/431M [00:04&lt;00:00, 168MB/s]
+100%|##########| 431M/431M [00:04&lt;00:00, 96.4MB/s]
 </pre></div>
 </div>
 </div>
@@ -402,13 +453,13 @@
 <p>658 rows × 8 columns</p>
 </div>
 <br />
-<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.027 seconds)</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg02r-snirf-events-py">
+<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.189 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg002r-snirf-events-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../_downloads/e5e577c1d8fa2327fe175bf2a83bbe2c/eg02r__snirf_events.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg02r__snirf_events.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/36bef8cf5fe26a42eb50967bc8cdac77/eg002r__snirf_events.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg002r__snirf_events.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<p><a class="reference download internal" download="" href="../_downloads/4b5125250d61063f8d8bbc3c463b9c15/eg02r__snirf_events.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">eg02r__snirf_events.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/4d316a63c7887f849c9ec7b3e463f27f/eg002r__snirf_events.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">eg002r__snirf_events.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -420,15 +471,6 @@
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="eg03r__epoching_analysis.html" class="btn btn-neutral float-right" title="Epoching-based analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="eg01r__fetching_data.html" class="btn btn-neutral float-left" title="Downloading KFTools Example Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

@@ -239,11 +239,6 @@
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/nilearn/datasets/__init__.py:93: FutureWarning: Fetchers from the nilearn.datasets module will be updated in version 0.9 to return python strings instead of bytes and Pandas dataframes instead of Numpy arrays.
-  warn(&quot;Fetchers from the nilearn.datasets module will be &quot;
-</pre></div>
-</div>
 </div>
 <div class="section" id="specify-data-download-location">
 <h2>Specify data download location<a class="headerlink" href="#specify-data-download-location" title="Permalink to this headline">¶</a></h2>
@@ -487,25 +482,33 @@ From: https://drive.google.com/uc?id=11Lcv-dczig_SLGHcyl8hstE3IS5R8oXO
 To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_ft_ses01_0909-1523_kp-snf-hbm.snirf
 
   0%|          | 0.00/259M [00:00&lt;?, ?B/s]
-  2%|1         | 4.72M/259M [00:00&lt;00:06, 39.8MB/s]
-  7%|6         | 17.3M/259M [00:00&lt;00:02, 82.0MB/s]
- 11%|#         | 27.3M/259M [00:00&lt;00:02, 87.8MB/s]
- 16%|#6        | 42.5M/259M [00:00&lt;00:01, 111MB/s]
- 21%|##1       | 55.1M/259M [00:00&lt;00:01, 116MB/s]
- 28%|##8       | 72.9M/259M [00:00&lt;00:01, 136MB/s]
- 34%|###3      | 87.0M/259M [00:00&lt;00:01, 123MB/s]
- 39%|###8      | 100M/259M [00:00&lt;00:01, 118MB/s]
- 44%|####3     | 113M/259M [00:01&lt;00:01, 121MB/s]
- 50%|#####     | 130M/259M [00:01&lt;00:00, 134MB/s]
- 56%|#####5    | 144M/259M [00:01&lt;00:00, 125MB/s]
- 61%|######    | 158M/259M [00:01&lt;00:00, 129MB/s]
- 66%|######6   | 171M/259M [00:01&lt;00:00, 119MB/s]
- 72%|#######1  | 185M/259M [00:01&lt;00:00, 112MB/s]
- 76%|#######6  | 197M/259M [00:01&lt;00:00, 111MB/s]
- 81%|########1 | 210M/259M [00:01&lt;00:00, 115MB/s]
- 88%|########7 | 227M/259M [00:01&lt;00:00, 125MB/s]
- 94%|#########4| 244M/259M [00:02&lt;00:00, 138MB/s]
-100%|##########| 259M/259M [00:02&lt;00:00, 122MB/s]
+  0%|          | 1.05M/259M [00:00&lt;00:26, 9.57MB/s]
+  3%|3         | 8.91M/259M [00:00&lt;00:05, 45.6MB/s]
+  5%|5         | 13.6M/259M [00:00&lt;00:07, 34.9MB/s]
+  7%|7         | 18.4M/259M [00:00&lt;00:06, 36.7MB/s]
+ 10%|#         | 26.2M/259M [00:00&lt;00:05, 41.9MB/s]
+ 13%|#3        | 34.1M/259M [00:00&lt;00:04, 45.8MB/s]
+ 16%|#6        | 42.5M/259M [00:00&lt;00:04, 47.6MB/s]
+ 20%|#9        | 50.9M/259M [00:01&lt;00:04, 48.0MB/s]
+ 23%|##2       | 59.2M/259M [00:01&lt;00:03, 52.2MB/s]
+ 26%|##6       | 67.6M/259M [00:01&lt;00:03, 53.8MB/s]
+ 29%|##9       | 76.0M/259M [00:01&lt;00:03, 52.0MB/s]
+ 33%|###2      | 84.4M/259M [00:01&lt;00:03, 55.5MB/s]
+ 36%|###5      | 92.8M/259M [00:01&lt;00:02, 58.4MB/s]
+ 39%|###9      | 101M/259M [00:02&lt;00:02, 56.3MB/s]
+ 42%|####2     | 110M/259M [00:02&lt;00:02, 59.1MB/s]
+ 46%|####5     | 118M/259M [00:02&lt;00:02, 62.3MB/s]
+ 50%|#####     | 129M/259M [00:02&lt;00:01, 74.9MB/s]
+ 53%|#####3    | 137M/259M [00:02&lt;00:01, 71.6MB/s]
+ 56%|#####6    | 145M/259M [00:02&lt;00:01, 68.3MB/s]
+ 59%|#####8    | 153M/259M [00:02&lt;00:01, 65.7MB/s]
+ 65%|######5   | 168M/259M [00:02&lt;00:01, 79.6MB/s]
+ 72%|#######1  | 185M/259M [00:03&lt;00:00, 86.2MB/s]
+ 77%|#######7  | 200M/259M [00:03&lt;00:00, 99.2MB/s]
+ 81%|########1 | 210M/259M [00:03&lt;00:00, 94.5MB/s]
+ 88%|########7 | 227M/259M [00:03&lt;00:00, 91.2MB/s]
+ 94%|#########4| 244M/259M [00:03&lt;00:00, 96.1MB/s]
+100%|##########| 259M/259M [00:03&lt;00:00, 69.4MB/s]
 Loading /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_ft_ses01_0909-1523_kp-snf-hbm.snirf
 
 &lt;AxesSubplot:&gt;
@@ -548,10 +551,11 @@ From: https://drive.google.com/uc?id=16F2jq5QT-gzbOMyzUU15bD6Uqd3qbh43
 To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_ft_ses01_0909-1523_kp-nii-hbo.nii.gz
 
   0%|          | 0.00/35.6M [00:00&lt;?, ?B/s]
- 13%|#3        | 4.72M/35.6M [00:00&lt;00:00, 44.8MB/s]
- 41%|####1     | 14.7M/35.6M [00:00&lt;00:00, 75.7MB/s]
- 63%|######3   | 22.5M/35.6M [00:00&lt;00:00, 67.7MB/s]
-100%|##########| 35.6M/35.6M [00:00&lt;00:00, 85.3MB/s]
+  3%|2         | 1.05M/35.6M [00:00&lt;00:03, 9.28MB/s]
+ 31%|###       | 11.0M/35.6M [00:00&lt;00:00, 58.9MB/s]
+ 52%|#####1    | 18.4M/35.6M [00:00&lt;00:00, 48.2MB/s]
+ 74%|#######3  | 26.2M/35.6M [00:00&lt;00:00, 55.0MB/s]
+100%|##########| 35.6M/35.6M [00:00&lt;00:00, 60.1MB/s]
 /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/nilearn/plotting/img_plotting.py:341: FutureWarning: Default resolution of the MNI template will change from 2mm to 1mm in version 0.10.0
   anat_img = load_mni152_template()
 
@@ -563,7 +567,7 @@ From: https://drive.google.com/uc?id=1DXUIQcbVJg3dc4WAiC7xStbweF9v_4V1
 To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_ft_ses01_0909-1523_kp-nii-evs.tsv
 
   0%|          | 0.00/12.0k [00:00&lt;?, ?B/s]
-100%|##########| 12.0k/12.0k [00:00&lt;00:00, 27.8MB/s]
+100%|##########| 12.0k/12.0k [00:00&lt;00:00, 37.9MB/s]
 </pre></div>
 </div>
 <div>
@@ -721,7 +725,7 @@ To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_f
 <p>150 rows × 8 columns</p>
 </div>
 <br />
-<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  17.331 seconds)</p>
+<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  17.486 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg01r-fetching-data-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/e8d6c31408c09f0b46f989fd9654f562/eg01r__fetching_data.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg01r__fetching_data.py</span></code></a></p>
