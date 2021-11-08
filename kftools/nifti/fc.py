@@ -9,6 +9,19 @@ from nilearn import datasets
 from nilearn import surface
 from nilearn.datasets import load_mni152_template
 
+# The usual stuff
+import os,sys,glob,numpy as np,pandas as pd
+from matplotlib import pyplot as plt
+from IPython.display import clear_output
+from scipy import stats
+
+# Neuroimaging stuff
+from nilearn.surface import load_surf_data,load_surf_mesh,load_surface,vol_to_surf
+from nilearn.datasets import fetch_surf_fsaverage,fetch_atlas_surf_destrieux,fetch_surf_nki_enhanced
+from nilearn.plotting import plot_surf_stat_map
+import nibabel as nib
+
+
 ### seed coords from (Eggebrecht et al., 2014) ###
 seed_coord_dict = {'vis':(-19.5, -102, -3), 
                    'aud':(-67.5, -27, 12), 
@@ -24,6 +37,12 @@ avg152_dat = avg152_img.get_data()
 avg152_mask_dat = (avg152_dat > 0).astype(float)
 avg152_mask_img = nib.Nifti1Image(avg152_mask_dat, affine=avg152_img.affine)
 
+
+
+"""
+Volume-based FC functions 
+=============================================================
+"""
 
 
 def fc_for_seeds(nifti_f,dothese=None,clip_vols=[],radius=10):
@@ -81,6 +100,135 @@ def fc_for_seeds(nifti_f,dothese=None,clip_vols=[],radius=10):
   return z_maps,z_maps_masked
 
 
+
+
+"""
+Surface-based FC functions 
+=============================================================
+"""
+
+def run_surf_seedbasedfc_ana(seed_name,seed_hemi,vol_dat_img=None,
+                             surf_dat_lh=None,surf_dat_rh=None,do_plot=False,
+                             verbose=False,radius=3,title=''):
+
+  destrieux_atlas = fetch_atlas_surf_destrieux()
+  parcellation_lh = destrieux_atlas['map_left']
+  labels_lh = destrieux_atlas['labels']
+  parcellation_rh = destrieux_atlas['map_right']
+  labels_rh = destrieux_atlas['labels']
+
+  fs5 = fetch_surf_fsaverage(mesh='fsaverage5')
+
+  vtx_lh,tri_lh = load_surf_data(fs5.pial_left)
+  vtx_rh,tri_rh = load_surf_data(fs5.pial_right)
+  sulc_lh = load_surf_data(fs5.sulc_left)
+  sulc_rh = load_surf_data(fs5.sulc_right)
+
+
+  nvtcs_lh,nvtcs_rh = vtx_lh.shape[0],vtx_rh.shape[0]
+
+  if vol_dat_img:
+    surf_dat_lh = vol_to_surf(vol_dat_img,[vtx_lh,tri_lh],radius=radius)
+    surf_dat_rh = vol_to_surf(vol_dat_img,[vtx_rh,tri_rh],radius=radius)
+
+  if seed_hemi=='left':
+    seed_labels = np.where(parcellation_lh == labels_lh.index(seed_name))[0]
+    seed_timeseries = np.mean(surf_dat_lh[seed_labels], axis=0)
+    nvtcs = nvtcs_lh
+    
+  elif seed_hemi=='right':
+    seed_labels = np.where(parcellation_rh == labels_rh.index(seed_name))[0]
+    seed_timeseries = np.mean(surf_dat_rh[seed_labels], axis=0)
+    nvtcs_ = nvtcs_rh
+
+  seed_bin_map = np.zeros(nvtcs, dtype=int)
+  seed_bin_map[seed_labels] = 1
+
+  stat_map_lh = np.zeros(nvtcs_lh)
+  for i in range(nvtcs_lh): 
+    stat_map_lh[i] = stats.pearsonr(seed_timeseries, surf_dat_lh[i])[0]
+    
+  stat_map_rh = np.zeros(nvtcs_rh)
+  for i in range(nvtcs_rh): 
+    stat_map_rh[i] = stats.pearsonr(seed_timeseries, surf_dat_rh[i])[0]
+
+  stat_map_lh[np.where(np.mean(surf_dat_lh, axis=1) == 0)] = 0
+  stat_map_rh[np.where(np.mean(surf_dat_rh, axis=1) == 0)] = 0
+
+  if seed_hemi=='left':
+    stat_map_lh[seed_labels] = 1
+  elif seed_hemi=='right':
+    stat_map_rh[seed_labels] = 1
+
+  if verbose==False: clear_output()
+
+    
+  return stat_map_lh,stat_map_rh,surf_dat_lh,surf_dat_rh,seed_timeseries,vtx_lh,tri_lh,sulc_lh,vtx_rh,tri_rh,sulc_rh,fs5
+
+
+
+def run_surf_parcbasedfc_ana(vol_dat_img=None,
+                             surf_dat_lh=None,surf_dat_rh=None,do_plot=False,
+                             verbose=False,radius=3,title=''):
+
+  destrieux_atlas = fetch_atlas_surf_destrieux()
+  parcellation_lh = destrieux_atlas['map_left']
+  labels_lh = destrieux_atlas['labels']
+  parcellation_rh = destrieux_atlas['map_right']
+  labels_rh = destrieux_atlas['labels']
+
+  fs5 = fetch_surf_fsaverage(mesh='fsaverage5')
+
+  vtx_lh,tri_lh = load_surf_data(fs5.pial_left)
+  vtx_rh,tri_rh = load_surf_data(fs5.pial_right)
+  sulc_lh = load_surf_data(fs5.sulc_left)
+  sulc_rh = load_surf_data(fs5.sulc_right)
+
+
+  nvtcs_lh,nvtcs_rh = vtx_lh.shape[0],vtx_rh.shape[0]
+
+  if vol_dat_img:
+    surf_dat_lh = vol_to_surf(vol_dat_img,[vtx_lh,tri_lh],radius=radius)
+    surf_dat_rh = vol_to_surf(vol_dat_img,[vtx_rh,tri_rh],radius=radius)
+
+  unroi_lh = np.unique(destrieux_atlas.map_left)
+  unroi_rh = np.unique(destrieux_atlas.map_right)
+
+  nroi_lh = unroi_lh.shape[0]
+  nroi_rh = unroi_rh.shape[0]
+
+  unroi_lhrh = np.concatenate([unroi_lh, unroi_rh],axis=0)
+  nt =  surf_dat_lh.shape[1]
+
+  nroi_lhrh = unroi_lhrh.shape[0]
+
+  surf_dat_lh_roi = np.zeros([nroi_lh,nt])
+  surf_dat_rh_roi = np.zeros([nroi_rh,nt])
+
+  for i_it,i in enumerate(unroi_lh): surf_dat_lh_roi[i_it,:] = surf_dat_lh[destrieux_atlas.map_left==i].mean(axis=0)
+  for i_it,i in enumerate(unroi_rh): surf_dat_rh_roi[i_it,:] = surf_dat_rh[destrieux_atlas.map_left==i].mean(axis=0)
+
+  surf_dat_lhrh_roi = np.concatenate([surf_dat_lh_roi, surf_dat_rh_roi],axis=0)
+
+  surf_dat_lhrh_roi_fc = np.corrcoef(surf_dat_lhrh_roi)
+  surf_dat_lhrh_roi_fc = np.nan_to_num(surf_dat_lhrh_roi_fc)
+
+  coms_lh = np.array([vtx_lh[destrieux_atlas.map_left==i].mean(axis=0) for i in unroi_lh])
+  coms_rh = np.array([vtx_rh[destrieux_atlas.map_right==i].mean(axis=0) for i in unroi_rh])
+  coms_order_lh = np.argsort(coms_lh[:,1])
+  coms_order_rh = np.argsort(coms_rh[:,1])
+  coms_order_rh2 = coms_order_rh + 75
+  coms_order_lhrh = np.concatenate([coms_order_lh,coms_order_rh2],axis=0)
+  coms_order_lhrhv2 = np.concatenate([coms_order_lh,coms_order_lh+75],axis=0)
+
+  surf_dat_lhrh_roi_fc_reorder = surf_dat_lhrh_roi_fc[coms_order_lhrh,:][:,coms_order_lhrh]
+  surf_dat_lhrh_roi_fc_reorderv2 = surf_dat_lhrh_roi_fc[coms_order_lhrhv2,:][:,coms_order_lhrhv2]
+
+
+  if verbose==False: clear_output()
+
+    
+  return (surf_dat_lhrh_roi,surf_dat_lhrh_roi_fc,surf_dat_lhrh_roi_fc_reorderv2,coms_order_lhrhv2,unroi_lhrh)
 
 
 
