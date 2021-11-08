@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Nifti volumes - functional connectivity analyses &mdash; KFTools 0.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/debug.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Nifti-derived surfaces - visualization" href="eg008r__nifti_surf_viz.html" />
+    <link rel="prev" title="Nifti volumes - GLM analysis" href="eg006r__nifti_vol_glm.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> KFTools
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">About KFTools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about_kftools/overview.html">Overview</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/installation.html#using-latest-github-master-source">Using latest github master source</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eg001r__fetching_data.html">Downloading KFTools Example Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg001r__fetching_data.html#importage">Importage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg001r__fetching_data.html#specify-data-download-location">Specify data download location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg001r__fetching_data.html#list-available-files">List available files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg001r__fetching_data.html#hb-moments-file">HB Moments file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg001r__fetching_data.html#nifti-file">Nifti file</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">SNIRF-based fNIRS Analyses</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="eg002r__snirf_events.html">Getting events from .snirf files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg002r__snirf_events.html#importage">Importage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg002r__snirf_events.html#grab-the-data">Grab the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg002r__snirf_events.html#get-the-events">Get the events</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eg003r__epoching_analysis.html">Epoching-based analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eg004r__glm_analysis.html">SNIRF HbM GLM Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg004r__glm_analysis.html#importage">Importage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg004r__glm_analysis.html#grab-the-data">Grab the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg004r__glm_analysis.html#specify-and-run-the-glm-model">Specify and run the GLM model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg004r__glm_analysis.html#look-at-glm-results">Look at GLM results</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">KF Portal NIFTI-based fNIRS Analysis</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="eg005r__nifti_vol_viz.html">Nifti volumes - visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eg006r__nifti_vol_glm.html">Nifti volumes - GLM analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg006r__nifti_vol_glm.html#importage">Importage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg006r__nifti_vol_glm.html#grab-the-data">Grab the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg006r__nifti_vol_glm.html#analysis-and-viz">Analysis and viz</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Nifti volumes - functional connectivity analyses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#importage">Importage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grab-the-data">Grab the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#analysis-and-viz">Analysis and viz</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eg008r__nifti_surf_viz.html">Nifti-derived surfaces - visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eg009r__nifti_surf_glm.html">Nifti-derived surfaces - GLM analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eg010r__nifti_surf_seedfc.html">Nifti surface seed-based FC analyses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg010r__nifti_surf_seedfc.html#importage">Importage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg010r__nifti_surf_seedfc.html#grab-the-data">Grab the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg010r__nifti_surf_seedfc.html#analysis-and-viz">Analysis and viz</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="eg011r__nifti_surf_fcmat.html">Nifti surface FC matrix analyses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="eg011r__nifti_surf_fcmat.html#importage">Importage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg011r__nifti_surf_fcmat.html#grab-the-data">Grab the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eg011r__nifti_surf_fcmat.html#analysis-and-viz">Analysis and viz</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">KFTools</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Nifti volumes - functional connectivity analyses</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-eg007r-nifti-vol-fc-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="nifti-volumes-functional-connectivity-analyses">
+<span id="sphx-glr-auto-examples-eg007r-nifti-vol-fc-py"></span><h1>Nifti volumes - functional connectivity analyses<a class="headerlink" href="#nifti-volumes-functional-connectivity-analyses" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="section" id="importage">
+<h2>Importage<a class="headerlink" href="#importage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generic Imports</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span><span class="nn">sys</span><span class="o">,</span><span class="nn">glob</span><span class="o">,</span><span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="o">,</span><span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># KF Tools and related imports</span>
+<span class="kn">from</span> <span class="nn">kftools.data</span> <span class="kn">import</span> <span class="n">fetch_file</span>
+<span class="kn">from</span> <span class="nn">kftools.nifti</span> <span class="kn">import</span> <span class="n">fc_for_seeds</span>
+
+<span class="kn">import</span> <span class="nn">nibabel</span> <span class="k">as</span> <span class="nn">nib</span>
+<span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <span class="n">mean_img</span>
+<span class="kn">from</span> <span class="nn">nilearn.surface</span> <span class="kn">import</span> <span class="n">load_surf_mesh</span><span class="p">,</span><span class="n">load_surf_data</span><span class="p">,</span><span class="n">vol_to_surf</span>
+<span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">nilearn.datasets</span> <span class="kn">import</span> <span class="n">load_mni152_template</span>
+
+<span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <span class="n">plot_glass_brain</span><span class="p">,</span><span class="n">plot_stat_map</span><span class="p">,</span><span class="n">plot_surf_stat_map</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="grab-the-data">
+<h2>Grab the data<a class="headerlink" href="#grab-the-data" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data_dir</span><span class="o">=</span><span class="s1">&#39;.&#39;</span>
+
+<span class="n">fetch_file</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">filetype</span><span class="o">=</span><span class="s1">&#39;kp-nii-hbo&#39;</span><span class="p">,</span>
+            <span class="n">site</span><span class="o">=</span><span class="s1">&#39;snic&#39;</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">&#39;rec&#39;</span><span class="p">,</span> <span class="n">subid</span><span class="o">=</span><span class="s1">&#39;sub008&#39;</span><span class="p">,</span> <span class="n">sesid</span><span class="o">=</span><span class="s1">&#39;ses02&#39;</span><span class="p">)</span>
+
+<span class="n">nii_hbo_f</span> <span class="o">=</span> <span class="s1">&#39;snic_sub008_rec_ses02_0920-1711_kp-nii-hbo.nii.gz&#39;</span>
+
+<span class="c1">### seed coords from (Eggebrecht et al., 2014) ###</span>
+<span class="n">seed_coord_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;vis&#39;</span><span class="p">:(</span><span class="o">-</span><span class="mf">19.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">102</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">),</span>
+                   <span class="s1">&#39;aud&#39;</span><span class="p">:(</span><span class="o">-</span><span class="mf">67.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">27</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+                   <span class="s1">&#39;mot&#39;</span><span class="p">:(</span><span class="o">-</span><span class="mf">67.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="mi">27</span><span class="p">),</span>
+                   <span class="s1">&#39;DAN&#39;</span><span class="p">:(</span><span class="o">-</span><span class="mf">58.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">69</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">),</span>
+                   <span class="s1">&#39;FPC&#39;</span><span class="p">:(</span><span class="o">-</span><span class="mf">52.5</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">33</span><span class="p">),</span>
+                   <span class="s1">&#39;DMN&#39;</span><span class="p">:(</span><span class="o">-</span><span class="mf">43.5</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">51</span><span class="p">)}</span>
+<span class="n">seed_coord_ser</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">seed_coord_dict</span><span class="p">)</span>
+
+<span class="n">fs5</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_surf_fsaverage</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading snic_sub008_rec_ses02_0920-1711_kp-nii-hbo.nii.gz
+
+Downloading...
+From: https://drive.google.com/uc?id=1582zc2EUUiWPnWEnSyPnBKfuq04BgNX_
+To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub008_rec_ses02_0920-1711_kp-nii-hbo.nii.gz
+
+  0%|          | 0.00/22.1M [00:00&lt;?, ?B/s]
+  5%|4         | 1.05M/22.1M [00:00&lt;00:02, 9.88MB/s]
+ 57%|#####7    | 12.6M/22.1M [00:00&lt;00:00, 49.6MB/s]
+ 78%|#######8  | 17.3M/22.1M [00:00&lt;00:00, 44.7MB/s]
+100%|##########| 22.1M/22.1M [00:00&lt;00:00, 51.3MB/s]
+</pre></div>
+</div>
+</div>
+<div class="section" id="analysis-and-viz">
+<h2>Analysis and viz<a class="headerlink" href="#analysis-and-viz" title="Permalink to this headline">¶</a></h2>
+<p>Run FC GLM analysis</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="s1">&#39;DMN&#39;</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">fc_for_seeds</span><span class="p">(</span><span class="n">nii_hbo_f</span><span class="p">,</span><span class="n">dothese</span><span class="o">=</span><span class="p">[</span><span class="n">k</span><span class="p">])</span><span class="c1">#,clip_vols=[k],radius=10)</span>
+<span class="n">z_maps</span><span class="p">,</span><span class="n">z_maps_masked</span> <span class="o">=</span> <span class="n">res</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/nilearn/glm/first_level/first_level.py:63: UserWarning: Mean values of 0 observed.The data have probably been centered.Scaling might not work as expected
+  warn(&#39;Mean values of 0 observed.&#39;
+</pre></div>
+</div>
+<p>Plot</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">z_maps</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+<span class="n">dat</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+<span class="n">dat_pos</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">dat_pos</span><span class="p">[</span><span class="n">dat_pos</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">img_pos</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">Nifti1Image</span><span class="p">(</span><span class="n">dat_pos</span><span class="p">,</span><span class="n">img</span><span class="o">.</span><span class="n">affine</span><span class="p">)</span>
+<span class="n">dat_pos_lhp</span> <span class="o">=</span> <span class="n">vol_to_surf</span><span class="p">(</span><span class="n">img_pos</span><span class="p">,</span><span class="n">fs5</span><span class="o">.</span><span class="n">pial_left</span><span class="p">)</span>
+
+<span class="n">disp</span> <span class="o">=</span> <span class="n">plot_stat_map</span><span class="p">(</span><span class="n">img_pos</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">disp</span> <span class="o">=</span> <span class="n">plot_glass_brain</span><span class="p">(</span><span class="n">img_pos</span><span class="p">,</span><span class="n">threshold</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">disp</span> <span class="o">=</span> <span class="n">plot_surf_stat_map</span><span class="p">(</span><span class="n">fs5</span><span class="o">.</span><span class="n">pial_left</span><span class="p">,</span><span class="n">dat_pos_lhp</span><span class="p">,</span><span class="n">bg_map</span><span class="o">=</span><span class="n">fs5</span><span class="o">.</span><span class="n">curv_left</span><span class="p">,</span><span class="n">threshold</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="sphx-glr-horizontal">
+<li><img alt="eg007r  nifti vol fc" class="sphx-glr-multi-img" src="../_images/sphx_glr_eg007r__nifti_vol_fc_001.png" />
+</li>
+<li><img alt="eg007r  nifti vol fc" class="sphx-glr-multi-img" src="../_images/sphx_glr_eg007r__nifti_vol_fc_002.png" />
+</li>
+<li><img alt="eg007r  nifti vol fc" class="sphx-glr-multi-img" src="../_images/sphx_glr_eg007r__nifti_vol_fc_003.png" />
+</li>
+</ul>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  12.521 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg007r-nifti-vol-fc-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/1b30172d2d1309b2cb52f2fa8a6f69b3/eg007r__nifti_vol_fc.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg007r__nifti_vol_fc.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/329401c4c8af3e76f38389813eb4fb8f/eg007r__nifti_vol_fc.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">eg007r__nifti_vol_fc.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="eg008r__nifti_surf_viz.html" class="btn btn-neutral float-right" title="Nifti-derived surfaces - visualization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="eg006r__nifti_vol_glm.html" class="btn btn-neutral float-left" title="Nifti volumes - GLM analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright KCNI Griffiths Lab &amp; Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-XXXXXXX-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>
