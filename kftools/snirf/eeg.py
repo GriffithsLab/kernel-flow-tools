@@ -8,6 +8,19 @@ import numpy as np
 # Load data
   
 # return a dictionary with mne object eeg data and analysis results if requested
+def sorted_nicely( l ):
+    """ 
+    Sorts the given iterable in the way that is alphanumerically expected.
+    Ex. a1, a2, a3, etc., instead of a1, a10, a11, etc.
+ 
+    Required arguments:
+    l -- The iterable to be sorted.
+ 
+    """
+    convert = lambda text: int(text) if text.isdigit() else text
+    alphanum_key = lambda key: [convert(c) for c in re.split('([0-9]+)', key)]
+    return sorted(l, key = alphanum_key)
+
 
 def get_eeg(f):
     """Extracts EEG objects from a .snirf file, sets the events and channels' 10-20 montage.
@@ -57,4 +70,4 @@ def get_eeg(f):
     raw_eeg.set_montage('standard_1020')
     raw_eeg.set_eeg_reference(ref_channels='average',projection=True)
     raw_eeg.apply_proj()
-    return raw_eeg  
+    return (raw_eeg)  
