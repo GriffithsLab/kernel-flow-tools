@@ -2,6 +2,7 @@
 import h5py
 import mne
 import numpy as np
+import re
 
 #def snirf_eeg_task_ana(f):
   
