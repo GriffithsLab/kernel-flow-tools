@@ -23,7 +23,7 @@ def sorted_nicely( l ):
     return sorted(l, key = alphanum_key)
 
 
-def load_snirf_eeg(f):
+def load_snirf_eeg(f, sfreq = 1000):
     """Extracts EEG objects from a .snirf file, sets the events and channels' 10-20 montage.
     
     required input:
@@ -60,7 +60,7 @@ def load_snirf_eeg(f):
     for x in range(0, len(ch_names_subsample)):
         index = standard_1020_ch_names_lower.index(ch_names_lower[x])
         ch_names_subsample[x] = standard_1020_montage.ch_names[index]
-    sfreq = 1000
+
     info = mne.create_info(ch_names=ch_names_subsample,
                            sfreq=sfreq,
                            ch_types='eeg')
