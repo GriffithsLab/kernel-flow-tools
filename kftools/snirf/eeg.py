@@ -23,7 +23,7 @@ def sorted_nicely( l ):
     return sorted(l, key = alphanum_key)
 
 
-def get_eeg(f):
+def load_snirf_eeg(f):
     """Extracts EEG objects from a .snirf file, sets the events and channels' 10-20 montage.
     
     required input:
