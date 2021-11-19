@@ -19,5 +19,6 @@ Now go to the cloned folder and install manually
 .. code::
 
    $ cd kernel-flow-tools
+   $ pip install -r requirements.txt
    $ pip install -e .
 
