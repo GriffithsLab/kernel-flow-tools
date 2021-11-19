@@ -15,7 +15,7 @@ SNIRF EEG MNE Task Analysis
 
 # KF Tools and related imports
 from kftools.data import fetch_file
-from kftools.snirf import snirf_eeg_task_ana
+#from kftools.snirf import snirf_eeg_task_ana
 
 
 # %%
@@ -33,8 +33,8 @@ fetch_file(data_dir=data_dir, filetype='kp-snf-hbm',
 
 f = 'pitch_sub010_ft_ses01_1017-1706_kp-snf-hbm.snirf'
 
-res = snirf_eeg_task_ana(f)
+#res = snirf_eeg_task_ana(f)
 
-res.keys()
+#res.keys()
 
 
