@@ -7,5 +7,5 @@ txt_py37 = txt.replace('3.8', '3.7')
 open('setup.py', 'w').write(txt_py37)
 
 # Install repo
-os.system('pip intall -r requirements.txt')
+os.system('pip install -r requirements.txt')
 os.system('pip install -e .')
