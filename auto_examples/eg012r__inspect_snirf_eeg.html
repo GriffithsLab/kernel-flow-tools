@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Getting events from .snirf files &mdash; KFTools 0.0.0 documentation</title>
+  <title>Looking at KF SNIRF EEG Data &mdash; KFTools 0.0.0 documentation</title>
   
 
   
@@ -206,7 +206,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Getting events from .snirf files</li>
+      <li>Looking at KF SNIRF EEG Data</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -225,10 +225,10 @@
             
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
-<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-eg02r-snirf-events-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-eg012r-inspect-snirf-eeg-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="getting-events-from-snirf-files">
-<span id="sphx-glr-auto-examples-eg02r-snirf-events-py"></span><h1>Getting events from .snirf files<a class="headerlink" href="#getting-events-from-snirf-files" title="Permalink to this headline">¶</a></h1>
+<div class="sphx-glr-example-title section" id="looking-at-kf-snirf-eeg-data">
+<span id="sphx-glr-auto-examples-eg012r-inspect-snirf-eeg-py"></span><h1>Looking at KF SNIRF EEG Data<a class="headerlink" href="#looking-at-kf-snirf-eeg-data" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
@@ -236,8 +236,7 @@
 <h2>Importage<a class="headerlink" href="#importage" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># KF Tools and related imports</span>
 <span class="kn">from</span> <span class="nn">kftools.data</span> <span class="kn">import</span> <span class="n">fetch_file</span>
-<span class="kn">from</span> <span class="nn">kftools.snirf</span> <span class="kn">import</span> <span class="n">get_events_from_snirf</span>
-<span class="kn">from</span> <span class="nn">mne.io</span> <span class="kn">import</span> <span class="n">read_raw_snirf</span>
+<span class="kn">from</span> <span class="nn">kftools.snirf</span> <span class="kn">import</span> <span class="n">load_snirf_eeg</span>
 </pre></div>
 </div>
 </div>
@@ -246,179 +245,38 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data_dir</span><span class="o">=</span><span class="s1">&#39;.&#39;</span>
 
 <span class="n">fetch_file</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">filetype</span><span class="o">=</span><span class="s1">&#39;kp-snf-hbm&#39;</span><span class="p">,</span>
-           <span class="n">site</span><span class="o">=</span><span class="s1">&#39;snic&#39;</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">&#39;ft&#39;</span><span class="p">,</span> <span class="n">subid</span><span class="o">=</span><span class="s1">&#39;sub001&#39;</span><span class="p">,</span> <span class="n">sesid</span><span class="o">=</span><span class="s1">&#39;ses02&#39;</span><span class="p">)</span>
+            <span class="n">site</span><span class="o">=</span><span class="s1">&#39;snic&#39;</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">&#39;ft&#39;</span><span class="p">,</span> <span class="n">subid</span><span class="o">=</span><span class="s1">&#39;sub001&#39;</span><span class="p">,</span> <span class="n">sesid</span><span class="o">=</span><span class="s1">&#39;ses01&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="get-the-events">
-<h2>Get the events<a class="headerlink" href="#get-the-events" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;snic_sub001_ft_ses02_0917-1313_kp-snf-hbm.snirf&#39;</span>
-<span class="n">evs</span> <span class="o">=</span> <span class="n">get_events_from_snirf</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="n">evs</span>
+<div class="section" id="load-the-data">
+<h2>Load the data<a class="headerlink" href="#load-the-data" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;snic_sub001_ft_ses01_0909-1523_kp-snf-hbm.snirf&#39;</span>
+
+
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">load_snirf_eeg</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Timestamp</th>
-      <th>Event</th>
-      <th>Duration</th>
-      <th>Value</th>
-      <th>Block</th>
-      <th>Trial</th>
-      <th>TrialType</th>
-      <th>BlockType</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>15.168075</td>
-      <td>StartBlock</td>
-      <td>20.993202</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Left</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>15.184670</td>
-      <td>StartIti</td>
-      <td>0.691229</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Left</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>15.875989</td>
-      <td>StartTrial</td>
-      <td>0.759476</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>Index</td>
-      <td>Left</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>16.651278</td>
-      <td>StartIti</td>
-      <td>0.764339</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Left</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>17.415692</td>
-      <td>StartTrial</td>
-      <td>0.769651</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>Middle</td>
-      <td>Left</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>653</th>
-      <td>797.449479</td>
-      <td>StartTrial</td>
-      <td>0.769480</td>
-      <td>1.0</td>
-      <td>20.0</td>
-      <td>299.0</td>
-      <td>Middle</td>
-      <td>Right</td>
-    </tr>
-    <tr>
-      <th>654</th>
-      <td>798.234787</td>
-      <td>StartIti</td>
-      <td>0.405636</td>
-      <td>1.0</td>
-      <td>20.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Right</td>
-    </tr>
-    <tr>
-      <th>655</th>
-      <td>798.640504</td>
-      <td>StartTrial</td>
-      <td>0.762039</td>
-      <td>1.0</td>
-      <td>20.0</td>
-      <td>300.0</td>
-      <td>Ring</td>
-      <td>Right</td>
-    </tr>
-    <tr>
-      <th>656</th>
-      <td>799.418014</td>
-      <td>StartIti</td>
-      <td>0.524964</td>
-      <td>1.0</td>
-      <td>20.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Right</td>
-    </tr>
-    <tr>
-      <th>657</th>
-      <td>799.968801</td>
-      <td>StartRest</td>
-      <td>20.019163</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-<p>658 rows × 8 columns</p>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Creating RawArray with float64 data, n_channels=8, n_times=489514
+    Range : 0 ... 489513 =      0.000 ...   489.513 secs
+Ready.
+Adding average EEG reference projection.
+1 projection items deactivated
+Average reference projection was added, but has not been applied yet. Use the apply_proj method to apply it.
+Created an SSP operator (subspace dimension = 1)
+1 projection items activated
+SSP projectors applied...
+</pre></div>
 </div>
-<br />
-<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.032 seconds)</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg02r-snirf-events-py">
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.095 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg012r-inspect-snirf-eeg-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../_downloads/e5e577c1d8fa2327fe175bf2a83bbe2c/eg02r__snirf_events.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg02r__snirf_events.py</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/24d225e06af1f2514ff7a15e9e9700bd/eg012r__inspect_snirf_eeg.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg012r__inspect_snirf_eeg.py</span></code></a></p>
 </div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
-<p><a class="reference download internal" download="" href="../_downloads/4b5125250d61063f8d8bbc3c463b9c15/eg02r__snirf_events.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">eg02r__snirf_events.ipynb</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/0ffa767065b06a103d1b542ae902e5c5/eg012r__inspect_snirf_eeg.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">eg012r__inspect_snirf_eeg.ipynb</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
