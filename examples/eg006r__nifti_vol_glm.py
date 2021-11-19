@@ -52,16 +52,19 @@ nii_ev_f = 'pitch_sub010_ft_ses01_1017-1706_kp-nii-evs.tsv'
 
 # %%
 # Run GLM analysis
+
 res_hbo =  ft_glm_ana(nii_hbo_f, nii_ev_f, out_fstr = '')
 z_thrs,glm,evs,cntrsts,img = res_hbo
 z = z_thrs['rightft_minus_rest']
 
 # %%
 # Glass brain plots
+
 disp = plot_glass_brain(z,colorbar=True,threshold=5,black_bg=True)
 
 # %%
 # Slice view stat image plots 
+
 disp = plot_stat_map(z,colorbar=True,threshold=5,cut_coords=[-20,-20,60])
 
 # %%
