@@ -50,6 +50,7 @@ Welcome to KFTools documentation!
    :glob:
 
    auto_examples/egXXr__eeg_load
+   auto_examples/eg012r__inspect_snirf_eeg.py
 
 
 
