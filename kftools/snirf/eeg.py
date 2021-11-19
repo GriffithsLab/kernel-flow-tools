@@ -3,11 +3,11 @@ import h5py
 import mne
 import numpy as np
 
-def snirf_eeg_task_ana(f):
+#def snirf_eeg_task_ana(f):
   
-  # Load data
+# Load data
   
-  # return a dictionary with mne object eeg data and analysis results if requested
+# return a dictionary with mne object eeg data and analysis results if requested
 
 def get_eeg(f):
     """Extracts EEG objects from a .snirf file, sets the events and channels' 10-20 montage.
