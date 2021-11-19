@@ -46,6 +46,7 @@ surf_dat_lhrh_r,surf_dat_lhrh_roi_fc,surf_dat_lhrh_roi_fc_reorderv2,coms_order_l
 
 # %%
 # Brain plots
+
 fig, ax = plt.subplots()
 sns.heatmap(surf_dat_lhrh_roi_fc_reorderv2,cmap='cold_hot',vmin=-1,vmax=1,axes=ax)#, cmap='hot');
 

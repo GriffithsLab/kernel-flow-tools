@@ -8,7 +8,7 @@ Downloading KFTools Example Data
 """  
 
 # sphinx_gallery_thumbnail_number = 1
-
+#
 # %%
 # Importage
 # --------------------------------------------------
@@ -31,20 +31,21 @@ import pandas as pd
 # %%
 # Specify data download location
 # --------------------------------------------------
-
+#
 # Give a specific location 
 # data_dir = '/external/rprshnas01/netdata_kcni/jglab/Data/kftools_data'
 # or maybe
 # data_dir = '.'
-
+#
 # If data_dir=None the default location is used, which is '~/.kftools' 
-#data_dir=None
+# data_dir=None
 
 data_dir = '.'
 
 # %%
 # List available files
 # --------------------------------------------------
+
 info = load_info()
 info[['fname', 'site','subid', 'task', 'sesid', 'datetime', 'filetype']]
 
@@ -52,11 +53,11 @@ info[['fname', 'site','subid', 'task', 'sesid', 'datetime', 'filetype']]
 # %%
 # HB Moments file
 # ---------------------------------------------------
-
+#
 # The kernel portal gives two .snirf file options: 
 # 1. The 'raw' moments file
 # 2. A 'Hb moments' file
-
+#
 # The Hb moments file has some initial preprocessing applied to it, 
 # including optical density and modified beer lambert law calculations.
  
@@ -75,7 +76,7 @@ df_raw[raw.ch_names[0:5]].loc[3000:].plot(ax=ax)
 # Nifti file
 # ---------------------------------------------------
 #
-
+#
 # In-the-brain, DOT-reconstructed HbO and HbR time series 
 # are provided in the form of 4D nifti images. 
 
@@ -87,7 +88,7 @@ imgs = nib.load(f)
 img = index_img(imgs,0)
 disp = plot_stat_map(img)
 
-
+# %%
 # Note that for task-based statistical models, there is a 
 # separate and modified events file, that contains the same 
 # information as can be pulled directly from the .snirf files
