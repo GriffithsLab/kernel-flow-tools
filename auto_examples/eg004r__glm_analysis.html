@@ -258,30 +258,22 @@ From: https://drive.google.com/uc?id=1BcZHsmDWgxhppg_j4yqBLj2MBM20kzM_
 To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/pitch_sub010_ft_ses01_1017-1706_kp-snf-hbm.snirf
 
   0%|          | 0.00/237M [00:00&lt;?, ?B/s]
-  0%|          | 1.05M/237M [00:00&lt;00:24, 9.70MB/s]
-  5%|5         | 12.1M/237M [00:00&lt;00:04, 52.9MB/s]
-  8%|7         | 18.9M/237M [00:00&lt;00:04, 51.6MB/s]
- 11%|#         | 25.7M/237M [00:00&lt;00:04, 50.8MB/s]
- 14%|#4        | 34.1M/237M [00:00&lt;00:03, 55.7MB/s]
- 18%|#7        | 42.5M/237M [00:00&lt;00:03, 61.5MB/s]
- 21%|##1       | 50.9M/237M [00:00&lt;00:02, 67.0MB/s]
- 25%|##4       | 59.2M/237M [00:00&lt;00:02, 69.6MB/s]
- 28%|##8       | 67.6M/237M [00:01&lt;00:02, 67.3MB/s]
- 32%|###2      | 76.0M/237M [00:01&lt;00:02, 69.3MB/s]
- 36%|###5      | 84.9M/237M [00:01&lt;00:02, 73.7MB/s]
- 39%|###9      | 92.8M/237M [00:01&lt;00:01, 72.9MB/s]
- 43%|####2     | 101M/237M [00:01&lt;00:02, 63.4MB/s]
- 47%|####7     | 112M/237M [00:01&lt;00:01, 74.7MB/s]
- 51%|#####     | 121M/237M [00:01&lt;00:01, 64.0MB/s]
- 55%|#####4    | 131M/237M [00:02&lt;00:01, 71.9MB/s]
- 60%|#####9    | 142M/237M [00:02&lt;00:01, 81.3MB/s]
- 65%|######4   | 154M/237M [00:02&lt;00:00, 91.2MB/s]
- 69%|######8   | 164M/237M [00:02&lt;00:00, 78.2MB/s]
- 74%|#######4  | 177M/237M [00:02&lt;00:00, 80.3MB/s]
- 82%|########1 | 193M/237M [00:02&lt;00:00, 90.7MB/s]
- 89%|########8 | 210M/237M [00:02&lt;00:00, 104MB/s]
- 97%|#########6| 230M/237M [00:02&lt;00:00, 127MB/s]
-100%|##########| 237M/237M [00:02&lt;00:00, 80.6MB/s]
+  3%|3         | 7.34M/237M [00:00&lt;00:03, 69.0MB/s]
+  8%|8         | 19.9M/237M [00:00&lt;00:02, 101MB/s]
+ 15%|#4        | 34.6M/237M [00:00&lt;00:01, 121MB/s]
+ 21%|##        | 49.8M/237M [00:00&lt;00:01, 133MB/s]
+ 27%|##6       | 63.4M/237M [00:00&lt;00:01, 103MB/s]
+ 32%|###1      | 75.0M/237M [00:00&lt;00:01, 102MB/s]
+ 38%|###8      | 91.2M/237M [00:00&lt;00:01, 119MB/s]
+ 46%|####5     | 108M/237M [00:00&lt;00:00, 132MB/s]
+ 53%|#####3    | 126M/237M [00:01&lt;00:00, 125MB/s]
+ 61%|######    | 144M/237M [00:01&lt;00:00, 137MB/s]
+ 67%|######6   | 158M/237M [00:01&lt;00:00, 132MB/s]
+ 74%|#######3  | 175M/237M [00:01&lt;00:00, 140MB/s]
+ 80%|#######9  | 189M/237M [00:01&lt;00:00, 139MB/s]
+ 88%|########7 | 209M/237M [00:01&lt;00:00, 154MB/s]
+ 95%|#########4| 225M/237M [00:01&lt;00:00, 158MB/s]
+100%|##########| 237M/237M [00:01&lt;00:00, 135MB/s]
 </pre></div>
 </div>
 </div>
@@ -317,7 +309,8 @@ dict_keys([&#39;df_evs&#39;, &#39;ev&#39;, &#39;ev_d&#39;, &#39;hbm&#39;, &#39;h
 </div>
 <div class="section" id="look-at-glm-results">
 <h2>Look at GLM results<a class="headerlink" href="#look-at-glm-results" title="Permalink to this headline">¶</a></h2>
-<p>HbO, Left &gt; Right contrast</p>
+<p>%%
+HbO, Left &gt; Right contrast</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">glmest</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;glm_est&#39;</span><span class="p">]</span>
 <span class="n">con</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;contrast_LgtR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
 <span class="n">disp</span> <span class="o">=</span> <span class="n">kf_plot_glm_contrast_topo</span><span class="p">(</span><span class="n">glmest</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span>
@@ -369,7 +362,7 @@ dict_keys([&#39;df_evs&#39;, &#39;ev&#39;, &#39;ev_d&#39;, &#39;hbm&#39;, &#39;h
   estmrg, pos, chs, sphere = _handle_overlaps(info, t, sphere, estimates)
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  31.848 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  21.284 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg004r-glm-analysis-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/cebbafe97c62b14fbadef7bcbe138e73/eg004r__glm_analysis.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg004r__glm_analysis.py</span></code></a></p>

@@ -41,7 +41,7 @@ res.keys()
 # %%
 # Look at GLM results
 # ---------------------------------------------------
-
+#
 # %% 
 # HbO, Left > Right contrast
 
