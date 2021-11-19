@@ -21,6 +21,12 @@ from nilearn.datasets import fetch_surf_fsaverage,fetch_atlas_surf_destrieux,fet
 from nilearn.plotting import plot_surf_stat_map
 import nibabel as nib
 
+from nilearn.connectome import ConnectivityMeasure
+from nilearn.input_data import NiftiLabelsMasker
+
+
+
+
 
 ### seed coords from (Eggebrecht et al., 2014) ###
 seed_coord_dict = {'vis':(-19.5, -102, -3), 
@@ -98,6 +104,42 @@ def fc_for_seeds(nifti_f,dothese=None,clip_vols=[],radius=10):
   #z_map_masked_dict[i] = z_per_seed
 
   return z_maps,z_maps_masked
+
+
+
+
+
+def run_vol_parcbasedfc(nifti_obj, n_rois):
+    '''
+    get 4d nifti object and calculate functional connectivity based on Shaefer parcellations
+
+    nifti_obj: 4D nifti object
+    n_rois: number of parcellations to be used {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000}
+
+    output: functional connectivity matrix (n_rois x n_rois np array)
+    '''
+    # importing parcellations map
+
+    parcellation = datasets.fetch_atlas_schaefer_2018(n_rois=n_rois)
+
+    atlas_fname = parcellation.maps
+    labels = parcellation.labels
+
+    # Defining mask and extracting info based on parcellation map
+
+    masker = NiftiLabelsMasker(labels_img = atlas_fname, standardize=True, memory='nilean_cache', verbose=5 ) # might be able to tweak this to get better signal
+
+    # Getting time series
+
+    time_series = masker.fit_transform(nifti_obj)
+
+    # Getting correlation matrices
+
+    corr_measure = ConnectivityMeasure(kind='correlation')
+    corr_matrix = corr_measure.fit_transform([time_series])[0]
+    np.fill_diagonal(corr_matrix, 0)
+
+    return corr_matrix
 
 
 
