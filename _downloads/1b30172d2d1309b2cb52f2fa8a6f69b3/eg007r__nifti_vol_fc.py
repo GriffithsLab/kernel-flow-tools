@@ -55,12 +55,14 @@ fs5 = datasets.fetch_surf_fsaverage()
 
 # %%
 # Run FC GLM analysis
+
 k = 'DMN'
 res = fc_for_seeds(nii_hbo_f,dothese=[k])#,clip_vols=[k],radius=10)
 z_maps,z_maps_masked = res
 
 # %% 
 # Plot
+
 img = z_maps[k]
 dat = img.get_fdata()
 dat_pos = dat.copy()

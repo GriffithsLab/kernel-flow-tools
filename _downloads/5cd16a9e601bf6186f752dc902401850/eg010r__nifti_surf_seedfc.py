@@ -75,6 +75,7 @@ def do_plot(surf_lh,surf_rh,stat_map_lh,stat_map_rh,sulc_lh,sulc_rh,title='',
 
 # %%
 # Run FC analysis
+
 seed_name = b'G_cingul-Post-dorsal'; 
 seed_hemi = 'left'
 

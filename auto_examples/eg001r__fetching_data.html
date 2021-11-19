@@ -231,7 +231,7 @@
 </div>
 <div class="sphx-glr-example-title section" id="downloading-kftools-example-data">
 <span id="sphx-glr-auto-examples-eg001r-fetching-data-py"></span><h1>Downloading KFTools Example Data<a class="headerlink" href="#downloading-kftools-example-data" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
 </pre></div>
 </div>
 <div class="section" id="importage">
@@ -259,15 +259,13 @@
 </div>
 <div class="section" id="specify-data-download-location">
 <h2>Specify data download location<a class="headerlink" href="#specify-data-download-location" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Give a specific location</span>
-<span class="c1"># data_dir = &#39;/external/rprshnas01/netdata_kcni/jglab/Data/kftools_data&#39;</span>
-<span class="c1"># or maybe</span>
-<span class="c1"># data_dir = &#39;.&#39;</span>
-
-<span class="c1"># If data_dir=None the default location is used, which is &#39;~/.kftools&#39;</span>
-<span class="c1">#data_dir=None</span>
-
-<span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span>
+<p>Give a specific location
+data_dir = ‘/external/rprshnas01/netdata_kcni/jglab/Data/kftools_data’
+or maybe
+data_dir = ‘.’</p>
+<p>If data_dir=None the default location is used, which is ‘~/.kftools’
+data_dir=None</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -472,14 +470,12 @@
 <br /></div>
 <div class="section" id="hb-moments-file">
 <h2>HB Moments file<a class="headerlink" href="#hb-moments-file" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The kernel portal gives two .snirf file options:</span>
-<span class="c1"># 1. The &#39;raw&#39; moments file</span>
-<span class="c1"># 2. A &#39;Hb moments&#39; file</span>
-
-<span class="c1"># The Hb moments file has some initial preprocessing applied to it,</span>
-<span class="c1"># including optical density and modified beer lambert law calculations.</span>
-
-<span class="n">fetch_file</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">filetype</span><span class="o">=</span><span class="s1">&#39;kp-snf-hbm&#39;</span><span class="p">,</span>
+<p>The kernel portal gives two .snirf file options:
+1. The ‘raw’ moments file
+2. A ‘Hb moments’ file</p>
+<p>The Hb moments file has some initial preprocessing applied to it,
+including optical density and modified beer lambert law calculations.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fetch_file</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">filetype</span><span class="o">=</span><span class="s1">&#39;kp-snf-hbm&#39;</span><span class="p">,</span>
            <span class="n">site</span><span class="o">=</span><span class="s1">&#39;snic&#39;</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">&#39;ft&#39;</span><span class="p">,</span> <span class="n">subid</span><span class="o">=</span><span class="s1">&#39;sub001&#39;</span><span class="p">,</span> <span class="n">sesid</span><span class="o">=</span><span class="s1">&#39;ses01&#39;</span><span class="p">)</span>
 
 <span class="n">raw</span> <span class="o">=</span> <span class="n">read_raw_snirf</span><span class="p">(</span><span class="s1">&#39;snic_sub001_ft_ses01_0909-1523_kp-snf-hbm.snirf&#39;</span><span class="p">)</span>
@@ -499,20 +495,25 @@ From: https://drive.google.com/uc?id=11Lcv-dczig_SLGHcyl8hstE3IS5R8oXO
 To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_ft_ses01_0909-1523_kp-snf-hbm.snirf
 
   0%|          | 0.00/259M [00:00&lt;?, ?B/s]
-  2%|2         | 5.77M/259M [00:00&lt;00:04, 57.2MB/s]
- 11%|#1        | 28.8M/259M [00:00&lt;00:01, 158MB/s]
- 18%|#8        | 47.2M/259M [00:00&lt;00:01, 168MB/s]
- 25%|##5       | 65.5M/259M [00:00&lt;00:01, 173MB/s]
- 35%|###4      | 89.7M/259M [00:00&lt;00:00, 196MB/s]
- 42%|####2     | 110M/259M [00:00&lt;00:00, 183MB/s]
- 50%|####9     | 128M/259M [00:00&lt;00:00, 181MB/s]
- 58%|#####8    | 150M/259M [00:00&lt;00:00, 193MB/s]
- 67%|######6   | 173M/259M [00:00&lt;00:00, 202MB/s]
- 75%|#######4  | 193M/259M [00:01&lt;00:00, 203MB/s]
- 83%|########3 | 215M/259M [00:01&lt;00:00, 208MB/s]
- 91%|#########1| 236M/259M [00:01&lt;00:00, 202MB/s]
- 99%|#########9| 257M/259M [00:01&lt;00:00, 188MB/s]
-100%|##########| 259M/259M [00:01&lt;00:00, 187MB/s]
+  0%|          | 1.05M/259M [00:00&lt;00:28, 8.94MB/s]
+  4%|4         | 11.5M/259M [00:00&lt;00:04, 61.0MB/s]
+  9%|9         | 23.6M/259M [00:00&lt;00:02, 86.4MB/s]
+ 13%|#2        | 32.5M/259M [00:00&lt;00:03, 72.5MB/s]
+ 16%|#6        | 42.5M/259M [00:00&lt;00:03, 70.7MB/s]
+ 21%|##1       | 55.1M/259M [00:00&lt;00:02, 85.8MB/s]
+ 26%|##6       | 67.6M/259M [00:00&lt;00:02, 86.9MB/s]
+ 30%|##9       | 77.1M/259M [00:01&lt;00:02, 81.1MB/s]
+ 36%|###5      | 92.8M/259M [00:01&lt;00:01, 94.9MB/s]
+ 41%|####      | 105M/259M [00:01&lt;00:01, 101MB/s]
+ 46%|####5     | 118M/259M [00:01&lt;00:01, 107MB/s]
+ 52%|#####2    | 135M/259M [00:01&lt;00:01, 118MB/s]
+ 59%|#####8    | 152M/259M [00:01&lt;00:00, 116MB/s]
+ 67%|######7   | 174M/259M [00:01&lt;00:00, 143MB/s]
+ 73%|#######3  | 189M/259M [00:01&lt;00:00, 132MB/s]
+ 80%|########  | 208M/259M [00:01&lt;00:00, 147MB/s]
+ 87%|########6 | 224M/259M [00:02&lt;00:00, 148MB/s]
+ 93%|#########2| 240M/259M [00:02&lt;00:00, 142MB/s]
+100%|##########| 259M/259M [00:02&lt;00:00, 115MB/s]
 Loading /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_ft_ses01_0909-1523_kp-snf-hbm.snirf
 
 &lt;AxesSubplot:&gt;
@@ -521,29 +522,15 @@ Loading /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub0
 </div>
 <div class="section" id="nifti-file">
 <h2>Nifti file<a class="headerlink" href="#nifti-file" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># In-the-brain, DOT-reconstructed HbO and HbR time series</span>
-<span class="c1"># are provided in the form of 4D nifti images.</span>
-
-<span class="n">fetch_file</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">filetype</span><span class="o">=</span><span class="s1">&#39;kp-nii-hbo&#39;</span><span class="p">,</span>
+<p>In-the-brain, DOT-reconstructed HbO and HbR time series
+are provided in the form of 4D nifti images.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fetch_file</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">filetype</span><span class="o">=</span><span class="s1">&#39;kp-nii-hbo&#39;</span><span class="p">,</span>
            <span class="n">site</span><span class="o">=</span><span class="s1">&#39;snic&#39;</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">&#39;ft&#39;</span><span class="p">,</span> <span class="n">subid</span><span class="o">=</span><span class="s1">&#39;sub001&#39;</span><span class="p">,</span> <span class="n">sesid</span><span class="o">=</span><span class="s1">&#39;ses01&#39;</span><span class="p">)</span>
 
 <span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;snic_sub001_ft_ses01_0909-1523_kp-nii-hbo.nii.gz&#39;</span>
 <span class="n">imgs</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 <span class="n">img</span> <span class="o">=</span> <span class="n">index_img</span><span class="p">(</span><span class="n">imgs</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">disp</span> <span class="o">=</span> <span class="n">plot_stat_map</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
-
-
-<span class="c1"># Note that for task-based statistical models, there is a</span>
-<span class="c1"># separate and modified events file, that contains the same</span>
-<span class="c1"># information as can be pulled directly from the .snirf files</span>
-<span class="c1"># (see later examples), but with modified timings.</span>
-
-<span class="n">fetch_file</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">filetype</span><span class="o">=</span><span class="s1">&#39;kp-nii-evs&#39;</span><span class="p">,</span>
-           <span class="n">site</span><span class="o">=</span><span class="s1">&#39;snic&#39;</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">&#39;ft&#39;</span><span class="p">,</span> <span class="n">subid</span><span class="o">=</span><span class="s1">&#39;sub001&#39;</span><span class="p">,</span> <span class="n">sesid</span><span class="o">=</span><span class="s1">&#39;ses01&#39;</span><span class="p">)</span>
-
-<span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;snic_sub001_ft_ses01_0909-1523_kp-nii-evs.tsv&#39;</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">df</span>
 </pre></div>
 </div>
 <img alt="eg001r  fetching data" class="sphx-glr-single-img" src="../_images/sphx_glr_eg001r__fetching_data_002.png" />
@@ -555,21 +542,36 @@ From: https://drive.google.com/uc?id=16F2jq5QT-gzbOMyzUU15bD6Uqd3qbh43
 To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_ft_ses01_0909-1523_kp-nii-hbo.nii.gz
 
   0%|          | 0.00/35.6M [00:00&lt;?, ?B/s]
- 31%|###       | 11.0M/35.6M [00:00&lt;00:00, 109MB/s]
- 87%|########6 | 30.9M/35.6M [00:00&lt;00:00, 161MB/s]
-100%|##########| 35.6M/35.6M [00:00&lt;00:00, 161MB/s]
+  3%|2         | 1.05M/35.6M [00:00&lt;00:03, 10.4MB/s]
+ 35%|###5      | 12.6M/35.6M [00:00&lt;00:00, 61.9MB/s]
+ 53%|#####2    | 18.9M/35.6M [00:00&lt;00:00, 62.0MB/s]
+ 72%|#######2  | 25.7M/35.6M [00:00&lt;00:00, 63.5MB/s]
+100%|##########| 35.6M/35.6M [00:00&lt;00:00, 68.0MB/s]
 /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/nilearn/plotting/img_plotting.py:341: FutureWarning: Default resolution of the MNI template will change from 2mm to 1mm in version 0.10.0
   anat_img = load_mni152_template()
+</pre></div>
+</div>
+<p>Note that for task-based statistical models, there is a
+separate and modified events file, that contains the same
+information as can be pulled directly from the .snirf files
+(see later examples), but with modified timings.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fetch_file</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">filetype</span><span class="o">=</span><span class="s1">&#39;kp-nii-evs&#39;</span><span class="p">,</span>
+           <span class="n">site</span><span class="o">=</span><span class="s1">&#39;snic&#39;</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">&#39;ft&#39;</span><span class="p">,</span> <span class="n">subid</span><span class="o">=</span><span class="s1">&#39;sub001&#39;</span><span class="p">,</span> <span class="n">sesid</span><span class="o">=</span><span class="s1">&#39;ses01&#39;</span><span class="p">)</span>
 
-
-Downloading snic_sub001_ft_ses01_0909-1523_kp-nii-evs.tsv
+<span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;snic_sub001_ft_ses01_0909-1523_kp-nii-evs.tsv&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading snic_sub001_ft_ses01_0909-1523_kp-nii-evs.tsv
 
 Downloading...
 From: https://drive.google.com/uc?id=1DXUIQcbVJg3dc4WAiC7xStbweF9v_4V1
 To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_ft_ses01_0909-1523_kp-nii-evs.tsv
 
   0%|          | 0.00/12.0k [00:00&lt;?, ?B/s]
-100%|##########| 12.0k/12.0k [00:00&lt;00:00, 27.3MB/s]
+100%|##########| 12.0k/12.0k [00:00&lt;00:00, 30.7MB/s]
 </pre></div>
 </div>
 <div>
@@ -727,7 +729,7 @@ To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/snic_sub001_f
 <p>150 rows × 8 columns</p>
 </div>
 <br />
-<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  16.578 seconds)</p>
+<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  22.967 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg001r-fetching-data-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/ff54c1ba65671b27f08a130c39cc08f0/eg001r__fetching_data.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg001r__fetching_data.py</span></code></a></p>
