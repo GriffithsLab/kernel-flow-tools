@@ -25,13 +25,15 @@ from kftools.snirf import load_snirf_eeg
 data_dir='.'
  
 fetch_file(data_dir=data_dir, filetype='kp-snf-hbm',
-            site='pitch', task='ft', subid='sub010', sesid='ses01')
+            site='snic', task='ft', subid='sub001', sesid='ses01')
 
 # %%
 # Load the data
 # ---------------------------------------------------
 
-f = 'pitch_sub010_ft_ses01_1017-1706_kp-snf-hbm.snirf'
+f = 'snic_sub001_ft_ses01_0909-1523_kp-snf-hbm.snirf'
+
+
+
 res = load_snirf_eeg(f)
-res.keys()
 
