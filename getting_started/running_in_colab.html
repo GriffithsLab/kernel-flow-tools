@@ -233,13 +233,13 @@ selecting organization GriffithsLab, repository kernel-flow-tools, and branch gh
 <p>Select one of these, and approve the ‘run anyway’ option.</p>
 <p>Then, insert and run the following in a cell at the top:</p>
 <p>Clone latest version from github</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ import os,time
-$ os.system(&#39;rm -rf kernel-flow-tools&#39;)
-$ os.system(&#39;git clone https://github.com/griffithslab/kernel-flow-tools&#39;)
-$ time.sleep(3)
-$ os.chdir(&#39;kernel-flow-tools&#39;)
-$ time.sleep(3)
-$ os.system(&#39;python install_colab.py&#39;)
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span><span class="nn">time</span>
+<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;rm -rf kernel-flow-tools&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;git clone https://github.com/griffithslab/kernel-flow-tools&#39;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;kernel-flow-tools&#39;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;python install_colab.py&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Now you should be good to continue with the rest of the example code in the notebook, and experiment with new ideas.</p>
