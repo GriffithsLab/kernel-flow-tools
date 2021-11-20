@@ -16,8 +16,6 @@ Select one of these, and approve the 'run anyway' option.
 Then, insert and run the following in a cell at the top:
 
 
-Clone latest version from github
-
 .. code::
 
     import os,time
