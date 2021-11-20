@@ -20,13 +20,13 @@ Clone latest version from github
 
 .. code::
 
-    $ import os,time
-    $ os.system('rm -rf kernel-flow-tools')
-    $ os.system('git clone https://github.com/griffithslab/kernel-flow-tools')
-    $ time.sleep(3)
-    $ os.chdir('kernel-flow-tools')
-    $ time.sleep(3)
-    $ os.system('python install_colab.py')    
+    import os,time
+    os.system('rm -rf kernel-flow-tools')
+    os.system('git clone https://github.com/griffithslab/kernel-flow-tools')
+    time.sleep(3)
+    os.chdir('kernel-flow-tools')
+    time.sleep(3)
+    os.system('python install_colab.py')    
     
 Now you should be good to continue with the rest of the example code in the notebook, and experiment with new ideas. 
 
