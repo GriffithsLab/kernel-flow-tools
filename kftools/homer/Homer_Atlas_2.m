@@ -5,12 +5,12 @@
 %Then go to folder with digpts.txt, probe.SD and your snirf moments file
 function [dc,fwmodel] = Homer_Atlas(snirfFileName,dirname_atlas_viewer,currFolder)
 
-%[fwmodel, probe] = ForwardModel(dirname_atlas_viewer, currFolder);
+[fwmodel, probe] = ForwardModel(dirname_atlas_viewer, currFolder);
 snirf_data = MeanMoments(snirfFileName);
-load('C:\Users\zheng_wang\Downloads\Homer3-master\Homer3-master\Test_John_FT\homerOutput\atlasViewer.mat');
+%load('C:\Users\zheng_wang\Downloads\Homer3-master\Homer3-master\Test_John_FT\homerOutput\atlasViewer.mat');
 dc = HomerProcessing(snirf_data, probe);
-%SaveData(dc,fwmodel.Adot);
-SaveData(dc);
+SaveData(dc,fwmodel.Adot);
+%SaveData(dc);
 end
 
 
@@ -303,9 +303,9 @@ fwmodel = genSensitivityProfileFromFluenceProf(fwmodel, probe, T_vol2mc, currFol
 
 end
 
-function SaveData(dc)%, Adot)
+function SaveData(dc, Adot)
 %output = load('homerOutput/test_john.mat');
-load('fw/Adot.mat');
+%load('fw/Adot.mat');
 %load('homerOutput/atlasViewer.mat')
 %data = load('trials_markers');
 %times = output.output.dc.time;
