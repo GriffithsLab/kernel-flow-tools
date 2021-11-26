@@ -93,7 +93,7 @@ def load_snirf_eeg(f, sfreq=1000, epochs=True, tmin=0, tmax=20):
         events_id_tmp = np.unique(events[:,2])
         new_events_dict = {}
         for xx in range(events_id_tmp.shape[0]):
-            new_events_dict[xx] = events_id_tmp[xx]
+            new_events_dict[str(xx)] = events_id_tmp[xx]
 
         epochs = mne.Epochs(raw_eeg, events, event_id=new_events_dict,
                         tmin=tmin, tmax=tmax,
