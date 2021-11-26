@@ -4,10 +4,13 @@
 
 %Then go to folder with digpts.txt, probe.SD and your snirf moments file
 function [dc,fwmodel] = Homer_Atlas(snirfFileName,dirname_atlas_viewer,currFolder)
+
+[fwmodel, probe] = ForwardModel(dirname_atlas_viewer, currFolder);
 snirf_data = MeanMoments(snirfFileName);
-dc = HomerProcessing(snirf_data);
-fwmodel = ForwardModel(dirname_atlas_viewer, currFolder);
+%load('C:\Users\zheng_wang\Downloads\Homer3-master\Homer3-master\Test_John_FT\homerOutput\atlasViewer.mat');
+dc = HomerProcessing(snirf_data, probe);
 SaveData(dc,fwmodel.Adot);
+%SaveData(dc);
 end
 
 
@@ -28,7 +31,7 @@ end
 
 % 2) Homer3 processing
 
-function dc = HomerProcessing(res)
+function dc = HomerProcessing(res, probe)
 %[pname, fname] = fileparts(filename);
 %if isempty(pname)
 %    pname = pwd;
@@ -43,13 +46,100 @@ acquired = res;
 % String together user functions to get from acquired data 
 % to HRF
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-dod   = hmrR_Intensity2OD(acquired.data); 
-dod   = hmrR_BandpassFilt(dod, 0.01, 0.50);
-dc    = hmrR_OD2Conc(dod, acquired.probe, [1,1]);
+%data_dnan = acquired;
+%tmp = acquired.data.dataTimeSeries;
+%tmp(isnan(tmp))= mean(mean();
+%data_dnan.data.dataTimeSeries = tmp;
+acquired.data.dataTimeSeries = hmrR_PreprocessIntensity_NAN(res.data);
+
+dod   = hmrR_Intensity2OD(acquired.data);
+dod_nan_rm = dod;
+dod_nan_rm.dataTimeSeries = hmrR_PreprocessIntensity_NAN(dod);
+dod   = hmrR_BandpassFilt(dod_nan_rm, 0.01, 0.50);
+
+dod_nan_rm = dod;
+dod_nan_rm.dataTimeSeries = hmrR_PreprocessIntensity_NAN(dod);
+dc    = hmrR_OD2Conc_zw(dod, acquired.probe, probe, [1,1]);
 end
 
+
+
+function dc = hmrR_OD2Conc_zw( dod, probe, probe_true, ppf )
+
+dc = DataClass().empty();
+
+for ii=1:length(dod)
+    dc(ii) = DataClass();
+    
+    Lambda = probe.GetWls();
+    SrcPos_data = probe.GetSrcPos();
+    SrcPos = probe_true.srcpos;
+    DetPos_data = probe.GetDetPos();
+    DetPos = probe_true.detpos;
+    nWav   = length(Lambda);
+    ml     = dod(ii).GetMeasList();
+    y      = dod(ii).GetDataTimeSeries();
+    
+    if length(ppf) < nWav
+        warning('Length of ppf does not match the number of wavelengths. Falling back to ppf=1 for all wavelengths.');
+        ppf = ones(1, nWav);
+    elseif length(ppf) > nWav
+        d = length(ppf)-nWav;
+        ppf(end-d+1:end) = [];
+    end
+    
+    if ~isempty(find(ppf==1))
+        ppf = ones(size(ppf));
+    end
+    
+    nTpts = size(y,1);
+    
+    e = GetExtinctions(Lambda);
+    e = e(:,1:2) / 10; % convert from /cm to /mm
+    einv = inv( e'*e )*e';
+    %size(einv)
+    
+    
+    for idx=1:length(probe_true.ml)
+        k = 3*(idx-1)+1;
+        %idx1 = lst(idx);
+        %idx2 = find( probe.ml(:,4)>1 & probe.ml(:,1)== probe.ml(idx1,1) & ml(:,2)==ml(idx1,2) );
+        
+        rho = norm(SrcPos(probe_true.ml(idx,1),:)-DetPos(probe_true.ml(idx,2),:));
+        
+        idx1 = find(ml(:,4) ==1 & ml(:,1) == probe_true.ml(idx,1) &  ml(:,2)== probe_true.ml(idx,2) );
+        idx2 = find(ml(:,4) ==2 & ml(:,1) == probe_true.ml(idx,1) &  ml(:,2)== probe_true.ml(idx,2) );
+        if isempty(idx1)
+            y_mean = ones(nTpts,2);
+            y_mean(:,1)=mean(y,2);
+            y_mean(:,2)=mean(y,2);
+          if ppf(1)~=1
+              
+            y2(:,k:k+1) = ( einv * (y_mean./(ones(nTpts,1)*rho*ppf))' )';
+          else
+            y2(:,k:k+1) = ( einv * (y_mean./(ones(nTpts,1)))' )';
+          end   
+        else
+          if ppf(1)~=1
+            y2(:,k:k+1) = ( einv * (y(:,[idx1(1) idx2(1)'])./(ones(nTpts,1)*rho*ppf))' )';
+          else
+            y2(:,k:k+1) = ( einv * (y(:,[idx1(1) idx2(1)'])./(ones(nTpts,1)))' )';
+          end
+        end
+        y2(:,k+2) = y2(:,k) + y2(:,k+1);
+        dc(ii).AddChannelHbO(probe_true.ml(idx,1), probe_true.ml(idx,2));
+        dc(ii).AddChannelHbR(probe_true.ml(idx,1), probe_true.ml(idx,2));
+        dc(ii).AddChannelHbT(probe_true.ml(idx,1), probe_true.ml(idx,2));
+    end   
+    dc(ii).SetDataTimeSeries(y2);
+    dc(ii).SetTime(dod(ii).GetTime());
+end
+end
+
+
+
 % 3) AtlasViewer
-function fwmodel = ForwardModel(dirname_atlas_viewer, currFolder)
+function [fwmodel, probe] = ForwardModel(dirname_atlas_viewer, currFolder)
 
 % Registration from Digpoints (+register probe to surface)
 
@@ -215,14 +305,15 @@ end
 
 function SaveData(dc, Adot)
 %output = load('homerOutput/test_john.mat');
-%load('homerOutput/fw/Adot.mat');
+%load('fw/Adot.mat');
 %load('homerOutput/atlasViewer.mat')
 %data = load('trials_markers');
 %times = output.output.dc.time;
-dc_HbO=dc.dataTimeSeries(:,1:3:6618);
+
+dc_HbO=dc.dataTimeSeries(:,1:3:length(dc.dataTimeSeries));
 dc_HbO(isnan(dc_HbO))=0;
 save('timeseries_HbO.mat', 'dc_HbO')
-dc_HbR=dc.dataTimeSeries(:,2:3:6618);
+dc_HbR=dc.dataTimeSeries(:,2:3:length(dc.dataTimeSeries));
 dc_HbR(isnan(dc_HbR))=0;
 dc_HbR = dc_HbR;
 save('timeseries_HbR.mat', 'dc_HbR')
@@ -238,7 +329,7 @@ lambda= tmp(loc_min(1));
 tmp= A'/(A*A'+lambda*eye(n_channels));
 save('transform_channel2vertice_HbO.mat', 'tmp')
 A= Adot(:,:,2);
-tmp= sort(diag(A*A'));
+tmp= sort(eig(A*A'));%sort(diag(A*A'));
 loc_min = find(tmp>0.001);
 lambda= tmp(loc_min(1));
 tmp= A'/(A*A'+lambda*eye(n_channels));
