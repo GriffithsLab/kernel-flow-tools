@@ -1,0 +1,6 @@
+[submodule "kftools/homer/Homer3"]
+	path = kftools/homer/Homer3
+	url = https://github.com/BUNPC/Homer3
+[submodule "kftools/homer/AtlasViewer"]
+	path = kftools/homer/AtlasViewer
+	url = https://github.com/BUNPC/AtlasViewer
