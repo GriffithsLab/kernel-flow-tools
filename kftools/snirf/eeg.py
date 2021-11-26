@@ -81,9 +81,14 @@ def load_snirf_eeg(f, sfreq=1000, epochs=True, tmin=0, tmax=20):
     my_annot = mne.annotations_from_events(events, sfreq)
     raw_eeg.set_annotations(my_annot)
 
+
+
     if epochs:
         events, event_dict = mne.events_from_annotations(raw_eeg)
         events[:,0] = events[:,0]* sfreq / raw_intensity.info['sfreq']
+        equal_idx = [dup for dup in range(events.shape[0]-1) if events[dup, 0] == events[dup+1, 0]]
+        equal_idx.reverse()
+        events = np.delete(events, equal_idx, 0)
 
         epochs = mne.Epochs(raw_eeg, events, event_id=event_dict,
                         tmin=tmin, tmax=tmax,
