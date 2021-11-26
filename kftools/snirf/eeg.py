@@ -3,6 +3,7 @@ import h5py
 import mne
 import numpy as np
 import re
+from mne.io import read_raw_snirf
 
 #def snirf_eeg_task_ana(f):
 
@@ -83,7 +84,7 @@ def load_snirf_eeg(f, sfreq=1000, epochs=True):
     if epochs:
         events, event_dict = mne.events_from_annotations(raw_eeg)
         events[:,0] = events[:,0]* sfreq / raw_intensity.info['sfreq']
-        
+
         epochs = mne.Epochs(raw_eeg, events, event_id=event_dict,
                         tmin=tmin, tmax=tmax,
                         reject_by_annotation=True,
