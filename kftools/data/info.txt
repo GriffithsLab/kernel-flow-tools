@@ -15,3 +15,15 @@ pitch_sub010_ft_ses01_1017-1706_kp-snf-hbm.snirf 1BcZHsmDWgxhppg_j4yqBLj2MBM20kz
 pitch_sub010_ft_ses01_1017-1706_kp-nii-hbo.nii.gz 1BdkWzxl4zEKrWmJ79wiWHFImpJ9VVUCk
 pitch_sub010_ft_ses01_1017-1706_kp-nii-hbr.nii.gz 1BgygbQd3W9GdsSGd4t1TlS6uaPy1_v6l
 pitch_sub010_ft_ses01_1017-1706_kp-nii-evs.tsv 1BSLMnD5Hmkj3g_YfKioLQUL3AQfvV5ac
+snic_sub006_reo_ses01_1101-1810_kp-nii-hbo.nii.gz 1czA4GV7xwMTo2uGTam-11irEN3yPkfVs
+snic_sub006_reo_ses01_1101-1810_kp-nii-hbr.nii.gz 1cx8d1iWtoyW9trRwXmFK5bt5p1tPobxH
+snic_sub006_reo_ses02_1116-1655_kp-nii-hbo.nii.gz 1v6sbXiDtELiidKeJlOqtT1L5RdmypxCQ
+snic_sub006_reo_ses02_1116-1655_kp-nii-hbr.nii.gz 1kOI6GiljhcqeeSzbnLmAKFFOT1UHeN-M
+snic_sub006_reo_ses03_1117-1740_kp-nii-hbo.nii.gz 1UnXDo19JFth23X7VdDVM04pftMLbFCXy
+snic_sub006_reo_ses03_1117-1740_kp-nii-hbr.nii.gz 1MmrtuMry25o7yJEtJ-rFRLA1MCUxUyZM
+snic_sub006_reo_ses01_1101-1810_kp-snf-hmb.snirf 11fZdBlJDfAtPNtneSat8b4H3I-BxE14l
+snic_sub006_reo_ses01_1101-1810_kp-snf-mom.snirf 1Av65sSi-PlVdPcfyZ0u37WrsN1pHLORR
+snic_sub006_reo_ses02_1116-1655_kp-snf-hmb.snirf 1mk3u81bo676Sk4j1w8Qi36DxHiUF8u4D
+snic_sub006_reo_ses02_1116-1655_kp-snf-mom.snirf 1mOsq2wWPgXJFJx-bNpBrTzn5yDF1YYuX
+snic_sub006_reo_ses03_1117-1740_kp-snf-hmb.snirf 1TPqZbkqqHHAq68A6GlmrB3NyyY1dNZ2h
+snic_sub006_reo_ses03_1117-1740_kp-snf-mom.snirf 1ff4pc5WRnqwL9w18vzetl5GHDFZ5DuTu
