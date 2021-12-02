@@ -258,25 +258,31 @@ From: https://drive.google.com/uc?id=1BcZHsmDWgxhppg_j4yqBLj2MBM20kzM_
 To: /home/runner/work/kernel-flow-tools/kernel-flow-tools/examples/pitch_sub010_ft_ses01_1017-1706_kp-snf-hbm.snirf
 
   0%|          | 0.00/237M [00:00&lt;?, ?B/s]
-  0%|          | 524k/237M [00:00&lt;01:05, 3.63MB/s]
-  3%|3         | 7.86M/237M [00:00&lt;00:06, 37.8MB/s]
-  9%|8         | 20.4M/237M [00:00&lt;00:03, 71.1MB/s]
- 15%|#5        | 35.7M/237M [00:00&lt;00:02, 100MB/s]
- 20%|#9        | 47.2M/237M [00:00&lt;00:01, 103MB/s]
- 25%|##4       | 58.2M/237M [00:00&lt;00:01, 104MB/s]
- 30%|###       | 71.3M/237M [00:00&lt;00:01, 109MB/s]
- 36%|###5      | 84.9M/237M [00:00&lt;00:01, 117MB/s]
- 42%|####2     | 100M/237M [00:00&lt;00:01, 128MB/s]
- 48%|####7     | 113M/237M [00:01&lt;00:01, 116MB/s]
- 54%|#####4    | 128M/237M [00:01&lt;00:00, 125MB/s]
- 61%|######    | 144M/237M [00:01&lt;00:00, 132MB/s]
- 67%|######7   | 159M/237M [00:01&lt;00:00, 137MB/s]
- 74%|#######3  | 175M/237M [00:01&lt;00:00, 140MB/s]
- 80%|#######9  | 190M/237M [00:01&lt;00:00, 143MB/s]
- 86%|########6 | 204M/237M [00:01&lt;00:00, 144MB/s]
- 92%|#########2| 219M/237M [00:01&lt;00:00, 144MB/s]
- 99%|#########8| 235M/237M [00:01&lt;00:00, 146MB/s]
-100%|##########| 237M/237M [00:01&lt;00:00, 121MB/s]
+  0%|          | 1.05M/237M [00:00&lt;00:26, 8.98MB/s]
+  5%|4         | 11.5M/237M [00:00&lt;00:04, 47.4MB/s]
+  8%|7         | 18.4M/237M [00:00&lt;00:06, 35.5MB/s]
+ 11%|#         | 25.7M/237M [00:00&lt;00:04, 44.0MB/s]
+ 13%|#3        | 30.9M/237M [00:00&lt;00:04, 43.3MB/s]
+ 15%|#5        | 35.7M/237M [00:00&lt;00:04, 41.1MB/s]
+ 18%|#7        | 42.5M/237M [00:01&lt;00:04, 43.2MB/s]
+ 21%|##1       | 50.9M/237M [00:01&lt;00:03, 52.3MB/s]
+ 25%|##4       | 59.2M/237M [00:01&lt;00:03, 46.7MB/s]
+ 28%|##8       | 67.6M/237M [00:01&lt;00:03, 47.9MB/s]
+ 32%|###2      | 76.0M/237M [00:01&lt;00:03, 51.7MB/s]
+ 36%|###5      | 84.4M/237M [00:01&lt;00:02, 58.6MB/s]
+ 39%|###9      | 92.8M/237M [00:01&lt;00:02, 57.9MB/s]
+ 43%|####2     | 101M/237M [00:02&lt;00:02, 47.0MB/s]
+ 46%|####6     | 110M/237M [00:02&lt;00:02, 45.1MB/s]
+ 51%|#####     | 120M/237M [00:02&lt;00:02, 56.4MB/s]
+ 53%|#####3    | 127M/237M [00:02&lt;00:01, 56.7MB/s]
+ 57%|#####7    | 136M/237M [00:02&lt;00:01, 65.0MB/s]
+ 61%|######    | 144M/237M [00:02&lt;00:01, 62.4MB/s]
+ 64%|######3   | 152M/237M [00:02&lt;00:01, 65.6MB/s]
+ 67%|######7   | 160M/237M [00:03&lt;00:01, 68.8MB/s]
+ 74%|#######4  | 177M/237M [00:03&lt;00:00, 81.0MB/s]
+ 82%|########1 | 193M/237M [00:03&lt;00:00, 55.9MB/s]
+ 92%|#########2| 219M/237M [00:03&lt;00:00, 78.4MB/s]
+100%|##########| 237M/237M [00:03&lt;00:00, 61.1MB/s]
 </pre></div>
 </div>
 </div>
@@ -316,7 +322,7 @@ dict_keys([&#39;df_evs&#39;, &#39;ev&#39;, &#39;ev_d&#39;, &#39;hbm&#39;, &#39;h
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">glmest</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;glm_est&#39;</span><span class="p">]</span>
 <span class="n">con</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;contrast_LgtR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
 <span class="n">disp</span> <span class="o">=</span> <span class="n">kf_plot_glm_contrast_topo</span><span class="p">(</span><span class="n">glmest</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span>
-                                 <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">sig_thr</span><span class="o">=</span><span class="mf">0.00001</span><span class="p">)</span>
+                                 <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mf">5E-7</span><span class="p">,</span><span class="n">sig_thr</span><span class="o">=</span><span class="mf">0.00001</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="Oxyhaemoglobin" class="sphx-glr-single-img" src="../_images/sphx_glr_eg004r__glm_analysis_001.png" />
@@ -329,7 +335,7 @@ dict_keys([&#39;df_evs&#39;, &#39;ev&#39;, &#39;ev_d&#39;, &#39;hbm&#39;, &#39;h
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">glmest</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;glm_est&#39;</span><span class="p">]</span>
 <span class="n">con</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;contrast_RgtL&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
 <span class="n">disp</span> <span class="o">=</span> <span class="n">kf_plot_glm_contrast_topo</span><span class="p">(</span><span class="n">glmest</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span>
-                                 <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">sig_thr</span><span class="o">=</span><span class="mf">0.00001</span><span class="p">)</span>
+                                 <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mf">5E-7</span><span class="p">,</span><span class="n">sig_thr</span><span class="o">=</span><span class="mf">0.00001</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="Oxyhaemoglobin" class="sphx-glr-single-img" src="../_images/sphx_glr_eg004r__glm_analysis_002.png" />
@@ -342,7 +348,7 @@ dict_keys([&#39;df_evs&#39;, &#39;ev&#39;, &#39;ev_d&#39;, &#39;hbm&#39;, &#39;h
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">glmest</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;glm_est&#39;</span><span class="p">]</span>
 <span class="n">con</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;contrast_LgtR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
 <span class="n">disp</span> <span class="o">=</span> <span class="n">kf_plot_glm_contrast_topo</span><span class="p">(</span><span class="n">glmest</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">chromo</span><span class="o">=</span><span class="s1">&#39;hbr&#39;</span><span class="p">,</span>
-                                 <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span><span class="n">sig_thr</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span>
+                                 <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mf">5E-7</span><span class="p">,</span><span class="n">sig_thr</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="Oxyhaemoglobin" class="sphx-glr-single-img" src="../_images/sphx_glr_eg004r__glm_analysis_003.png" />
@@ -355,7 +361,7 @@ dict_keys([&#39;df_evs&#39;, &#39;ev&#39;, &#39;ev_d&#39;, &#39;hbm&#39;, &#39;h
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">glmest</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;glm_est&#39;</span><span class="p">]</span>
 <span class="n">con</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;contrast_RgtL&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
 <span class="n">disp</span> <span class="o">=</span> <span class="n">kf_plot_glm_contrast_topo</span><span class="p">(</span><span class="n">glmest</span><span class="p">,</span> <span class="n">con</span><span class="p">,</span> <span class="n">chromo</span><span class="o">=</span><span class="s1">&#39;hbr&#39;</span><span class="p">,</span>
-                                 <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">sig_thr</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span>
+                                 <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mf">5E-7</span><span class="p">,</span><span class="n">sig_thr</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="Oxyhaemoglobin" class="sphx-glr-single-img" src="../_images/sphx_glr_eg004r__glm_analysis_004.png" />
@@ -364,7 +370,7 @@ dict_keys([&#39;df_evs&#39;, &#39;ev&#39;, &#39;ev_d&#39;, &#39;hbm&#39;, &#39;h
   estmrg, pos, chs, sphere = _handle_overlaps(info, t, sphere, estimates)
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  11.536 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  18.727 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg004r-glm-analysis-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/cebbafe97c62b14fbadef7bcbe138e73/eg004r__glm_analysis.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg004r__glm_analysis.py</span></code></a></p>
