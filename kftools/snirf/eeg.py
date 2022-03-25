@@ -24,7 +24,7 @@ def sorted_nicely( l ):
     return sorted(l, key = alphanum_key)
 
 
-def load_snirf_eeg(f, sfreq=1000, epochs=True, tmin=0, tmax=20):
+def load_snirf_eeg(f, sfreq=1000, epochs=True, tmin=0, tmax=20,detrend=0,baseline=(0,0),ep_reject=None):
     """Extracts EEG objects from a .snirf file, sets the events and channels' 10-20 montage.
 
     required input:
@@ -99,7 +99,7 @@ def load_snirf_eeg(f, sfreq=1000, epochs=True, tmin=0, tmax=20):
                         tmin=tmin, tmax=tmax,
                         reject_by_annotation=True,
                         proj=True, baseline=(0, 0), preload=True,
-                        detrend=0, verbose=True)
+                        detrend=0, verbose=True,reject=ep_reject)
         return raw_eeg, epochs
     else:
         return raw_eeg
