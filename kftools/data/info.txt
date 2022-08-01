@@ -21,9 +21,9 @@ snic_sub006_reo_ses02_1116-1655_kp-nii-hbo.nii.gz 1v6sbXiDtELiidKeJlOqtT1L5Rdmyp
 snic_sub006_reo_ses02_1116-1655_kp-nii-hbr.nii.gz 1kOI6GiljhcqeeSzbnLmAKFFOT1UHeN-M
 snic_sub006_reo_ses03_1117-1740_kp-nii-hbo.nii.gz 1UnXDo19JFth23X7VdDVM04pftMLbFCXy
 snic_sub006_reo_ses03_1117-1740_kp-nii-hbr.nii.gz 1MmrtuMry25o7yJEtJ-rFRLA1MCUxUyZM
-snic_sub006_reo_ses01_1101-1810_kp-snf-hmb.snirf 11fZdBlJDfAtPNtneSat8b4H3I-BxE14l
+snic_sub006_reo_ses01_1101-1810_kp-snf-hbm.snirf 11fZdBlJDfAtPNtneSat8b4H3I-BxE14l
 snic_sub006_reo_ses01_1101-1810_kp-snf-mom.snirf 1Av65sSi-PlVdPcfyZ0u37WrsN1pHLORR
-snic_sub006_reo_ses02_1116-1655_kp-snf-hmb.snirf 1mk3u81bo676Sk4j1w8Qi36DxHiUF8u4D
+snic_sub006_reo_ses02_1116-1655_kp-snf-hbm.snirf 1mk3u81bo676Sk4j1w8Qi36DxHiUF8u4D
 snic_sub006_reo_ses02_1116-1655_kp-snf-mom.snirf 1mOsq2wWPgXJFJx-bNpBrTzn5yDF1YYuX
-snic_sub006_reo_ses03_1117-1740_kp-snf-hmb.snirf 1TPqZbkqqHHAq68A6GlmrB3NyyY1dNZ2h
+snic_sub006_reo_ses03_1117-1740_kp-snf-hbm.snirf 1TPqZbkqqHHAq68A6GlmrB3NyyY1dNZ2h
 snic_sub006_reo_ses03_1117-1740_kp-snf-mom.snirf 1ff4pc5WRnqwL9w18vzetl5GHDFZ5DuTu
