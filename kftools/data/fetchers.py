@@ -1,8 +1,8 @@
+from curses import raw
 import os,sys,glob,shutil,numpy as np, pandas as pd
 import requests, zipfile,gdown
 from datetime import datetime
-#from eegnb import DATA_DIR
-
+from mne.io.snirf import read_raw_snirf
 from kftools import data
 
 # dictionary format : kftools -> type -> experiments -> site -> subjects
@@ -32,10 +32,10 @@ def load_info(info_file=None):
 
 
 def fetch_file(data_dir=None,info_file=None,site='snic',task='ft',subid='sub001',sesid='ses01',
-               filetype='kp-nii-evs', download_method='gdown'):
+               filetype='kp-nii-evs', download_method='gdown', load_raw=True):
  
   """
-  Pull selected data files. 
+  Pull selected data files and load into dictionary as mne.raw objects
 
   Usage:
   ------
@@ -50,8 +50,8 @@ def fetch_file(data_dir=None,info_file=None,site='snic',task='ft',subid='sub001'
 
   """
 
-
- 
+  raw_dict = {} # dictionary containing mne raw objects
+  
   if 'NoneType' in str(type(data_dir)): 
     data_dir = os.path.expanduser('~/.kftools')
     if not os.path.isdir(data_dir): os.makedirs(data_dir)
@@ -66,12 +66,14 @@ def fetch_file(data_dir=None,info_file=None,site='snic',task='ft',subid='sub001'
       assert eval(k) in df_info[k].values
 
   idxstoget = df_info.query(qstr).index.values
-  for idx in idxstoget:
+  for n, idx in enumerate(idxstoget):
     dlcode,fname = df_info.loc[idx][['dlcode', 'fname']].values
     fname = os.path.join(data_dir, fname)
     if not os.path.isfile(fname):
       pull_file(dlcode,fname,download_method)
-
+    if load_raw and 'snf' in filetype:
+      raw_dict[n] = read_raw_snirf(fname)
+      return raw_dict
 
 
 def pull_file(dlcode,destination,download_method):
