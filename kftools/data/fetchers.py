@@ -32,7 +32,7 @@ def load_info(info_file=None):
 
 
 def fetch_file(data_dir=None,info_file=None,site='snic',task='ft',subid='sub001',sesid='ses01',
-               filetype='kp-nii-evs', download_method='gdown'):
+               filetype='kp-nii-evs', download_method='gdown', load_raw=True):
  
   """
   Pull selected data files and load into dictionary as mne.raw objects
@@ -71,9 +71,9 @@ def fetch_file(data_dir=None,info_file=None,site='snic',task='ft',subid='sub001'
     fname = os.path.join(data_dir, fname)
     if not os.path.isfile(fname):
       pull_file(dlcode,fname,download_method)
-    raw_dict[n] = read_raw_snirf(fname)
-  
-  return raw_dict
+    if load_raw:
+      raw_dict[n] = read_raw_snirf(fname)
+      return raw_dict
 
 
 def pull_file(dlcode,destination,download_method):
