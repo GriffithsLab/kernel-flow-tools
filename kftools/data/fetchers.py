@@ -71,7 +71,7 @@ def fetch_file(data_dir=None,info_file=None,site='snic',task='ft',subid='sub001'
     fname = os.path.join(data_dir, fname)
     if not os.path.isfile(fname):
       pull_file(dlcode,fname,download_method)
-    if load_raw:
+    if load_raw and 'snf' in filetype:
       raw_dict[n] = read_raw_snirf(fname)
       return raw_dict
 
