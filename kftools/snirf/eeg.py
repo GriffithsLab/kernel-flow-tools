@@ -79,7 +79,7 @@ def load_snirf_eeg(f, sfreq=1000, epochs=True, tmin=0, tmax=20,detrend=0,baselin
     raw_intensity = read_raw_snirf(f, preload=True)
     events, event_dict = mne.events_from_annotations(raw_intensity)
     my_annot = mne.annotations_from_events(events, sfreq)
-    raw_eeg.set_annotations(my_annot)
+    raw_eeg.set_annotations(my_annot, event_dict)
 
 
 
