@@ -244,33 +244,6 @@
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/cm.py:1582: UserWarning: Trying to register the cmap &#39;rocket&#39; which already exists.
-  mpl_cm.register_cmap(_name, _cmap)
-/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/cm.py:1583: UserWarning: Trying to register the cmap &#39;rocket_r&#39; which already exists.
-  mpl_cm.register_cmap(_name + &quot;_r&quot;, _cmap_r)
-/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/cm.py:1582: UserWarning: Trying to register the cmap &#39;mako&#39; which already exists.
-  mpl_cm.register_cmap(_name, _cmap)
-/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/cm.py:1583: UserWarning: Trying to register the cmap &#39;mako_r&#39; which already exists.
-  mpl_cm.register_cmap(_name + &quot;_r&quot;, _cmap_r)
-/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/cm.py:1582: UserWarning: Trying to register the cmap &#39;icefire&#39; which already exists.
-  mpl_cm.register_cmap(_name, _cmap)
-/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/cm.py:1583: UserWarning: Trying to register the cmap &#39;icefire_r&#39; which already exists.
-  mpl_cm.register_cmap(_name + &quot;_r&quot;, _cmap_r)
-/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/cm.py:1582: UserWarning: Trying to register the cmap &#39;vlag&#39; which already exists.
-  mpl_cm.register_cmap(_name, _cmap)
-/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/cm.py:1583: UserWarning: Trying to register the cmap &#39;vlag_r&#39; which already exists.
-  mpl_cm.register_cmap(_name + &quot;_r&quot;, _cmap_r)
-/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/cm.py:1582: UserWarning: Trying to register the cmap &#39;flare&#39; which already exists.
-  mpl_cm.register_cmap(_name, _cmap)
-/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/cm.py:1583: UserWarning: Trying to register the cmap &#39;flare_r&#39; which already exists.
-  mpl_cm.register_cmap(_name + &quot;_r&quot;, _cmap_r)
-/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/cm.py:1582: UserWarning: Trying to register the cmap &#39;crest&#39; which already exists.
-  mpl_cm.register_cmap(_name, _cmap)
-/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/cm.py:1583: UserWarning: Trying to register the cmap &#39;crest_r&#39; which already exists.
-  mpl_cm.register_cmap(_name + &quot;_r&quot;, _cmap_r)
-</pre></div>
-</div>
 </div>
 <div class="section" id="grab-the-data">
 <h2>Grab the data<a class="headerlink" href="#grab-the-data" title="Permalink to this headline">¶</a></h2>
@@ -292,11 +265,11 @@
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/nilearn/surface/surface.py:670: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/nilearn/surface/surface.py:684: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray.
   return np.asarray([arr.data for arr in gifti_img.darrays]).T.squeeze()
-/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/numpy/lib/function_base.py:2691: RuntimeWarning: invalid value encountered in true_divide
+/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/numpy/lib/function_base.py:2853: RuntimeWarning: invalid value encountered in divide
   c /= stddev[:, None]
-/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/numpy/lib/function_base.py:2692: RuntimeWarning: invalid value encountered in true_divide
+/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/numpy/lib/function_base.py:2854: RuntimeWarning: invalid value encountered in divide
   c /= stddev[None, :]
 [2K
 [2K
@@ -312,7 +285,7 @@
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  16.397 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  15.532 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-eg011r-nifti-surf-fcmat-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/fb932794fdb8036dc6c3af4fbcd9a94d/eg011r__nifti_surf_fcmat.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">eg011r__nifti_surf_fcmat.py</span></code></a></p>
