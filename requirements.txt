@@ -1,8 +1,7 @@
 
 # Analysis Requirements
 
-#git+https://github.com/Zahra-M-Aghajan/mne-python@80de954fd4e350a4ac3e4a782ed41bb948e769ec
-git+https://github.com/JohnGriffiths/mne-python_zatdfnirs@feature/TD-nirs_snirf
+git+https://github.com/GriffithsLab/mne-python
 git+https://github.com/mne-tools/mne-nirs
 git+https://github.com/nilearn/nilearn
 pandas
