@@ -33,9 +33,10 @@ fetch_file(data_dir=data_dir, filetype='kp-snf-hbm',
 
 f = 'pitch_sub010_ft_ses01_1017-1706_kp-snf-hbm.snirf'
 
-res = snirf_task_ana(f)
+res_hbo = snirf_task_ana(f,chromo='hbo')
+res_hbr = snirf_task_ana(f, chromo='hbr')
 
-res.keys()
+res_hbo.keys()
 
 
 # %%
@@ -45,36 +46,39 @@ res.keys()
 # %% 
 # HbO, Left > Right contrast
 
-glmest = res['glm_est']
-con = res['contrast_LgtR'].data
-disp = kf_plot_glm_contrast_topo(glmest, con,
+glmest = res_hbo['glm_est']
+con = res_hbo['contrast_LgtR'].data
+disp = kf_plot_glm_contrast_topo(glmest, con, chromo='hbo',
                                  vmin=0,vmax=0.5,sig_thr=0.00001)
+disp.show()
+
 
 # %% 
 # HbO, Right > Left contrast
 
-glmest = res['glm_est']
-con = res['contrast_RgtL'].data
-disp = kf_plot_glm_contrast_topo(glmest, con,
+glmest = res_hbo['glm_est']
+con = res_hbo['contrast_RgtL'].data
+disp = kf_plot_glm_contrast_topo(glmest, con, chromo='hbo',
                                  vmin=0,vmax=0.5,sig_thr=0.00001)
+disp.show()
 
 
 # %% 
 # HbR, Left > Right contrast
 
-glmest = res['glm_est']
-con = res['contrast_LgtR'].data
+glmest = res_hbr['glm_est']
+con = res_hbr['contrast_LgtR'].data
 disp = kf_plot_glm_contrast_topo(glmest, con, chromo='hbr',
                                  vmin=0,vmax=0.3,sig_thr=0.0001)
+disp.show()
+
 
 # %% 
 # HbR, Right > Left contrast
 
-glmest = res['glm_est']
-con = res['contrast_RgtL'].data
+glmest = res_hbr['glm_est']
+con = res_hbr['contrast_RgtL'].data
 disp = kf_plot_glm_contrast_topo(glmest, con, chromo='hbr',
                                  vmin=0,vmax=0.5,sig_thr=0.0001)
-
-
-
+disp.show()
 
