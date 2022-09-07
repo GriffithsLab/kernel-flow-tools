@@ -40,7 +40,7 @@ import mne
 from mne import Info
 from mne.utils import warn
 from mne.channels.layout import _merge_ch_data
-from mne.io.pick import _picks_to_idx, _get_channel_types
+from mne.io.pick import _picks_to_idx, _get_channel_types, pick_info
 
 
 
@@ -217,22 +217,19 @@ def kf_plot_glm_contrast_topo(inst, contrast, figsize=(12, 7), sphere='auto',
         estimates = estimates[nonanners]
         pval = pval[nonanners]
         sig = sig[nonanners]
-        
         nonanner_names = [info.ch_names[n] for n in nonanners]
-        
-        info = info.pick_channels(nonanner_names)
-        
+        info = pick_info(info, sel=nonanners) #info = info.pick_channels(nonanner_names)
 
     if positive_only: 
         estimates[estimates<0] = 0 
         sig[estimates<0] = False
         pval[estimates<0] = 1
 
-
     # Create subplots for figures
     fig, axes = plt.subplots(nrows=1,
                              ncols=len(types),
                              figsize=figsize)
+    
     # Create limits for colorbar
     if not vmax:
       vmax = np.max(np.abs(estimates))
@@ -290,11 +287,4 @@ def kf_plot_glm_contrast_topo(inst, contrast, figsize=(12, 7), sphere='auto',
     cbar.set_label('Contrast Effect', rotation=270)
 
     return fig
-
-
-
-
-
-
-
 
