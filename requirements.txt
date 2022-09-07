@@ -1,7 +1,7 @@
 
 # Analysis Requirements
 
-git+https://github.com/GriffithsLab/mne-python
+git+https://github.com/GriffithsLab/mne-python.git@fix_fnirschannelmerge
 git+https://github.com/mne-tools/mne-nirs
 git+https://github.com/nilearn/nilearn
 pandas
