@@ -29,6 +29,7 @@ jupyter
 ipykernel
 jupyter-alabaster-theme
 gdown
+jinja2
 
 
 # Test requirements
