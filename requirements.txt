@@ -9,7 +9,7 @@ matplotlib
 seaborn
 h5py
 pooch
-
+pyvistaqc
 
 # Docs requirements
 sphinx

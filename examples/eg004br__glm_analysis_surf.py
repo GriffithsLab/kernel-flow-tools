@@ -86,11 +86,11 @@ disp.show()
 # %%
 # On surf
 from mne_nirs.visualisation import plot_glm_surface_projection
-from mne.coreg import read_source_spaces,get_subjects_dir
-from mne.coreg import apply_trans
+from mne.coreg import read_source_spaces,get_subjects_dir,apply_trans
 from copy import copy,deepcopy
-from mne.utils import get_subjects_Dir
+#from mne.utils import get_subjects_dir
 import os
+import numpy as np
 
 subjects_dir = get_subjects_dir(raise_error=True)
 fname_src_fs = os.path.join(subjects_dir, 'fsaverage', 'bem',
@@ -116,6 +116,33 @@ default_surfview_kwargs = dict(hemi = 'both',
 
 
 glmest = res_hbo['glm_est']
+
+
+con_LgtR = res_hbo['contrast_LgtR'].data
+con_LgtR_t = np.nan_to_num(con_LgtR.stat())
+con_LgtR_t_pos = con_LgtR_t.copy()
+con_LgtR_t_pos[con_LgtR_t_pos<0] = 0
+
+con_RgtL = res_hbo['contrast_RgtL'].data
+con_RgtL_t = np.nan_to_num(con_RgtL.stat())
+con_RgtL_t_pos = con_RgtL_t.copy()
+con_RgtL_t_pos[con_RgtL_t_pos<0] = 0
+
+con_RgtL_p = np.nan_to_num(con_RgtL.one_minus_pvalue())
+con_LgtR_p = np.nan_to_num(con_LgtR.one_minus_pvalue())
+
+
+con_LgtRest = res_hbo['contrast_LgtRest'].data
+con_LgtRest_t = np.nan_to_num(con_LgtRest.stat())
+con_LgtRest_t_pos = con_LgtRest_t.copy()
+con_LgtRest_t_pos[con_LgtRest_t_pos<0] = 0
+
+con_RgtRest = res_hbo['contrast_RgtRest'].data
+con_RgtRest_t = np.nan_to_num(con_RgtRest.stat())
+con_RgtRest_t_pos = con_RgtRest_t.copy()
+con_RgtRest_t_pos[con_RgtRest_t_pos<0] = 0
+
+
 inst = glmest.copy()
 info = inst.copy().pick('hbo')   
 
