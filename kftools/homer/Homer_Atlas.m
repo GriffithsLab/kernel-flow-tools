@@ -318,21 +318,18 @@ dc_HbR(isnan(dc_HbR))=0;
 dc_HbR = dc_HbR;
 save('timeseries_HbR.mat', 'dc_HbR')
 
-alpha = 1e-6;
+alpha = 0.5;
 tmp=size(Adot);
 n_channels = tmp(1);
 n_vert = tmp(2);
 A= Adot(:,:,1);
-tmp= sort(diag(A*A'));
-loc_min = find(tmp>0.001);
-lambda= tmp(loc_min(1));
-tmp= A'/(A*A'+lambda*eye(n_channels));
+
+lambda= alpha*min(eigs(A'*A));
+tmp= 1/(A'*A+lambda*eye(n_vert))*A';
 save('transform_channel2vertice_HbO.mat', 'tmp')
 A= Adot(:,:,2);
-tmp= sort(eig(A*A'));%sort(diag(A*A'));
-loc_min = find(tmp>0.001);
-lambda= tmp(loc_min(1));
-tmp= A'/(A*A'+lambda*eye(n_channels));
+lambda= alpha*min(eigs(A'*A));
+tmp= 1/(A'*A+lambda*eye(n_vert))*A';
 save('transform_channel2vertice_HbR.mat', 'tmp')
 
 end
